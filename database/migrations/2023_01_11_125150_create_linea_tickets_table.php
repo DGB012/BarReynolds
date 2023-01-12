@@ -17,7 +17,7 @@ return new class extends Migration {
         Schema::create('linea_tickets', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->integer('id_producto')->unsigned();
+            $table->integer('producto_id')->unsigned();
             $table->integer('cantidad');
             $table->decimal('precio', 10, 2);
             $table->foreignIdFor(Cuentas::class)->constrained()
