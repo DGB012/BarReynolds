@@ -1,35 +1,20 @@
 <?php
 
-/* ¿Queremos un show de productos? igual para info mas detallada kcal, ingredientes..
-               ...productos index?
-
-    La tabla se esta llamando Productos es un poco lioso.
-    Soy Dani, si hay lío con el nombre de la tabla la puedo eliminar y volverla a crear con el nombre en singular,
-    pero lo que hay en esta rama habría que eliminarla, por lo tánto lo cambiaré tanto en la main como en esta para que
-    no haya problemas de que hay cosas diferentes.
-
-    Por otro lado estoy viendo que en productos las categorías de los productos, los has indicado como
-    categoria_id, pero en este caso para que funcionase de esa manera debería de crear otra tabla la cual solo
-    tenga las categorías que podrían tener los productos. O que ya de por sí que en cada producto tenga escrito como una
-    cadena de texto la categoría.
-*/
-
 namespace App\Http\Controllers;
 
-use App\Models\Productos;
+use App\Models\Producto;
 use Illuminate\Http\Request;
 
-class ProductosController extends Controller
+class ProductoController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
     public function index() // id , precio , nombre, categoria,disponibilidad
     {
-        $productos = Productos::orderby('id')->get();
+        $productos = Producto::orderby('id')->get();
         return view('productos.index', compact('productos')); //distribuir vistas en carpetas
     }
 
@@ -73,10 +58,10 @@ class ProductosController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param \App\Models\Productos $productos
+     * @param \App\Models\Producto $producto
      * @return \Illuminate\Http\Response
      */
-    public function show(Productos $productos)
+    public function show(Producto $productos)
     {
         //$categorias = Categoria::orderBy('id')->get();
         return view('productos.show', compact('productos' /* ,'categorias' */));
@@ -85,10 +70,10 @@ class ProductosController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Models\Productos $productos
+     * @param \App\Models\Producto $producto
      * @return \Illuminate\Http\Response
      */
-    public function edit(Productos $productos)
+    public function edit(Producto $productos)
     {
         //$categorias = Categoria::orderBy('id')->get();
         return view('productos.edit', compact($productos /* ,'categoria'*/));
@@ -98,10 +83,10 @@ class ProductosController extends Controller
      * Update the specified resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Productos $productos
+     * @param \App\Models\Producto $producto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Productos $productos)
+    public function update(Request $request, Producto $producto)
     {
         $this->validate($request, [
             'precio' => 'required',
@@ -123,12 +108,12 @@ class ProductosController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Models\Productos $productos
+     * @param \App\Models\Producto $producto
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Productos $productos)
+    public function destroy(Producto $producto)
     {
-        $productos->delete();
+        $producto->delete();
         return redirect()->route('productos.index');
     }
 }

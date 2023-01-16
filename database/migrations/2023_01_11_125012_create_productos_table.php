@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\Categoria;
 
 return new class extends Migration {
     /**
@@ -17,7 +18,8 @@ return new class extends Migration {
             $table->timestamps();
             $table->decimal('precio', 10, 2);
             $table->string('nombre', 50);
-            $table->string('categoria',50);
+            $table->foreignIdFor(Categoria::class)->constrained()
+                ->onUpdate('cascade');
             $table->integer('disponibilidad');
         });
     }

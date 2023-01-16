@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use App\Models\Cuentas;
-use App\Models\Productos;
+use App\Models\Producto;
 
 return new class extends Migration {
     /**
@@ -17,13 +17,12 @@ return new class extends Migration {
         Schema::create('linea_tickets', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->integer('producto_id')->unsigned();
             $table->integer('cantidad');
             $table->decimal('precio', 10, 2);
             $table->foreignIdFor(Cuentas::class)->constrained()
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->foreignIdFor(Productos::class)->constrained()
+            $table->foreignIdFor(Producto::class)->constrained()
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
         });
