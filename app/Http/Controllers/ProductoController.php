@@ -95,12 +95,12 @@ class ProductoController extends Controller
             'disponibilidad' => 'required'
         ]);
 
-        $productos->precio = $request->precio;
-        $productos->nombre = $request->nombre;
-        $productos->categoria_id = $request->categoria_id;
-        $productos->disponibilidad = $request->disponibilidad;
+        $producto->precio = $request->precio;
+        $producto->nombre = $request->nombre;
+        $producto->categoria_id = $request->categoria_id;
+        $producto->disponibilidad = $request->disponibilidad;
 
-        $productos->save();
+        $producto->save();
 
         return redirect()->route('productos.index');
     }
