@@ -2,11 +2,17 @@
 
 /* ¿Queremos un show de productos? igual para info mas detallada kcal, ingredientes..
                ...productos index?
-    La tabla se esta llamando Productos es un poco lioso
 
+    La tabla se esta llamando Productos es un poco lioso.
+    Soy Dani, si hay lío con el nombre de la tabla la puedo eliminar y volverla a crear con el nombre en singular,
+    pero lo que hay en esta rama habría que eliminarla, por lo tánto lo cambiaré tanto en la main como en esta para que
+    no haya problemas de que hay cosas diferentes.
+
+    Por otro lado estoy viendo que en productos las categorías de los productos, los has indicado como
+    categoria_id, pero en este caso para que funcionase de esa manera debería de crear otra tabla la cual solo
+    tenga las categorías que podrían tener los productos. O que ya de por sí que en cada producto tenga escrito como una
+    cadena de texto la categoría.
 */
-
-
 
 namespace App\Http\Controllers;
 
@@ -23,8 +29,8 @@ class ProductosController extends Controller
 
     public function index() // id , precio , nombre, categoria,disponibilidad
     {
-       $productos = Productos::orderby('id')->get();
-       return view('productos.index' ,compact('productos')); //distribuir vistas en carpetas
+        $productos = Productos::orderby('id')->get();
+        return view('productos.index', compact('productos')); //distribuir vistas en carpetas
     }
 
     /**
@@ -73,7 +79,7 @@ class ProductosController extends Controller
     public function show(Productos $productos)
     {
         //$categorias = Categoria::orderBy('id')->get();
-        return view('productos.show' ,compact('productos' /* ,'categorias' */));
+        return view('productos.show', compact('productos' /* ,'categorias' */));
     }
 
     /**
@@ -85,7 +91,7 @@ class ProductosController extends Controller
     public function edit(Productos $productos)
     {
         //$categorias = Categoria::orderBy('id')->get();
-        return view('productos.edit' ,compact($productos /* ,'categoria'*/));
+        return view('productos.edit', compact($productos /* ,'categoria'*/));
     }
 
     /**
