@@ -15,7 +15,7 @@ class ProductoController extends Controller
     public function index() // id , precio , nombre, categoria,disponibilidad
     {
         $productos = Producto::orderby('id')->get();
-        return view('productos.index', compact('productos')); //distribuir vistas en carpetas
+        return view('paginas/productos/index', compact('productos')); //distribuir vistas en carpetas
     }
 
     /**
@@ -26,7 +26,7 @@ class ProductoController extends Controller
     public function create()
     {
         //$categorias = Categoria::orderby('id')->get();
-        return view('productos.create'/* ,compact('categorias')*/);
+        return view('paginas/productos/create'/* ,compact('categorias')*/);
     }
 
     /**
@@ -64,7 +64,7 @@ class ProductoController extends Controller
     public function show(Producto $productos)
     {
         //$categorias = Categoria::orderBy('id')->get();
-        return view('productos.show', compact('productos' /* ,'categorias' */));
+        return view('paginas/productos/show', compact('productos' /* ,'categorias' */));
     }
 
     /**
@@ -76,7 +76,7 @@ class ProductoController extends Controller
     public function edit(Producto $productos)
     {
         //$categorias = Categoria::orderBy('id')->get();
-        return view('productos.edit', compact($productos /* ,'categoria'*/));
+        return view('paginas/productos/edit', compact('productos' /* ,'categoria'*/));
     }
 
     /**

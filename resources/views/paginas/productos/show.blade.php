@@ -5,7 +5,7 @@
 
     <p>{{$producto->precio}}</p>
     <p>{{$producto->nombre}}</p>
-    <p>{{$producto->categoria}}</p>
+    <p>{{$producto->categoria_id}}</p>
     <p>{{$producto->disponibilidad}}</p>
 
     <a href='{{ route('productos.edit', $producto) }}'>Editarla</a>

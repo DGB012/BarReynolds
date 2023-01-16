@@ -5,7 +5,7 @@
 <input type='text' id='nombre' name='nombre' value='{{ $productos->nombre ?? '' }}' />
 
 <label for='categoria'>Categoría</label>
-<input type='text' id='categoria' name='categoria' value='{{ $productos->categoria ?? '' }}' />
+<input type='text' id='categoria' name='categoria' value='{{ $productos->categoria_id ?? '' }}' />
 
 {{--<label for='categoria_id'>Categoría</label>--}}
 {{--<select id='categoria_id' name='categoria_id'>--}}
