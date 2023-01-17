@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class LineaTicket extends Model
 {
     use HasFactory;
+    protected $table = "linea_tickets";
 }

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cuentas;
 use App\Models\LineaTicket;
+use App\Models\Producto;
 use Illuminate\Http\Request;
 
 class LineaTicketController extends Controller
@@ -12,9 +14,13 @@ class LineaTicketController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index() //	id producto_id	cantidad	precio	cuentas_id	productos_id
     {
-        //
+        $lineasTickets=LineaTicket::orderby('id')->get();
+        $cuentas=Cuentas::orderby('id')->get();
+        $productos = Producto::orderby('id')->get();
+
+        return view('paginas/lineasTickets/index' , compact('lineasTickets','cuentas','productos'));
     }
 
     /**
@@ -24,7 +30,12 @@ class LineaTicketController extends Controller
      */
     public function create()
     {
-        //
+
+        $cuentas=Cuentas::orderby('id')->get();
+        $productos = Producto::orderby('id')->get();
+
+        return view('paginas/lineasTickets/create',compact('cuentas','productos'));
+
     }
 
     /**
@@ -35,7 +46,22 @@ class LineaTicketController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'cantidad' => 'required',
+            'precio' => 'required',
+            'cuentas_id' => 'required',
+            'producto_id' => 'required'
+        ]);
+
+        $lineaTicket = new LineaTicket();
+        $lineaTicket->cantidad = $request->cantidad;
+        $lineaTicket->precio = $request->precio;
+        $lineaTicket->cuentas_id = $request->cuentas_id;
+        $lineaTicket->producto_id = $request->producto_id;
+
+        $lineaTicket->save();
+
+        return redirect()->route('lineasTickets.index');
     }
 
     /**
@@ -46,7 +72,9 @@ class LineaTicketController extends Controller
      */
     public function show(LineaTicket $lineaTicket)
     {
-        //
+        $cuentas=Cuentas::orderby('id')->get();
+        $productos = Producto::orderby('id')->get();
+        return view('paginas/lineasTickets/show', compact('lineaTicket','productos','cuentas'));
     }
 
     /**
@@ -57,7 +85,10 @@ class LineaTicketController extends Controller
      */
     public function edit(LineaTicket $lineaTicket)
     {
-        //
+        $cuentas=Cuentas::orderby('id')->get();
+        $productos = Producto::orderby('id')->get();
+        return view('paginas/lineasTickets/edit', compact('lineaTicket','productos','cuentas'));
+
     }
 
     /**
@@ -69,7 +100,21 @@ class LineaTicketController extends Controller
      */
     public function update(Request $request, LineaTicket $lineaTicket)
     {
-        //
+        $this->validate($request, [
+            'cantidad' => 'required',
+            'precio' => 'required',
+            'cuentas_id' => 'required',
+            'producto_id' => 'required'
+        ]);
+
+        $lineaTicket->cantidad = $request->cantidad;
+        $lineaTicket->precio = $request->precio;
+        $lineaTicket->cuentas_id = $request->cuentas_id;
+        $lineaTicket->producto_id = $request->producto_id;
+
+        $lineaTicket->save();
+
+        return redirect()->route('pagina/lineasTickets/index');
     }
 
     /**
@@ -80,6 +125,7 @@ class LineaTicketController extends Controller
      */
     public function destroy(LineaTicket $lineaTicket)
     {
-        //
+        $lineaTicket->delete();
+        return redirect()->route('productos.index');
     }
 }
