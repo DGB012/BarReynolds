@@ -3,21 +3,21 @@
     <x-slot:tituloHead>Mostrar Productos</x-slot:tituloHead>
     <x-slot:tituloVisible>Mostrar los detalles del producto</x-slot:tituloVisible>
 
-    <p>Precio: {{$productos->precio}}</p>
-    <p>Nombre: {{$productos->nombre}}</p>
-    <p>Categorías: {{$productos->categoria_id}}</p>
-    <p>Disponibilidad: {{$productos->disponibilidad}}</p>
+    <p>Precio: {{$producto->precio}}</p>
+    <p>Nombre: {{$producto->nombre}}</p>
+    <p>Categorías: {{$producto->categoria_id}}</p>
+    <p>Disponibilidad: {{$producto->disponibilidad}}</p>
 
-    {{--    <a href='{{ route('productos.edit', $productos) }}'>Editarla</a>--}}
+    <a href='{{ route('productos.edit', $producto) }}'>Editarla</a>
 
     <br/><br/>
 
-    {{--    <form id='{{ $productos->id }}' action='{{ route('productos.destroy', $productos) }}'--}}
-    {{--          method='post'>--}}
-    {{--        @method('delete')--}}
+        <form id='{{ $producto->id }}' action='{{ route('productos.destroy', $producto) }}'
+              method='post'>
+            @method('delete')
 
-    {{--        <input class='button' type='submit' name='crear' value='Eliminar producto'/>--}}
-    {{--    </form>--}}
+            <input class='button' type='submit' name='crear' value='Eliminar producto'/>
+        </form>
 
     <br>
 
