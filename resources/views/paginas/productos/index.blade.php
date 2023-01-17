@@ -1,7 +1,7 @@
 <x-zz.base>
 
-    <x-slot:tituloHead>Personas</x-slot:tituloHead>
-    <x-slot:tituloVisible>Listado de personas</x-slot:tituloVisible>
+    <x-slot:tituloHead>Productos</x-slot:tituloHead>
+    <x-slot:tituloVisible>Listado de productos</x-slot:tituloVisible>
 
     <table border='1'>
 
@@ -25,6 +25,13 @@
                 </td>
                 <td>
                     <a href='{{ route('productos.show', $producto) }}'>{{ $producto->disponibilidad }}</a>
+                </td>
+                <td class='delete'>
+                    <form class="myform" id='{{ $producto->id }}' action='{{ route('productos.destroy', $producto) }}'
+                          method='post'>
+                        @method('delete')
+                        <a href="#" onclick="document.getElementById('{{ $producto->id }}').submit()">(X)</a>
+                    </form>
                 </td>
             </tr>
         @endforeach

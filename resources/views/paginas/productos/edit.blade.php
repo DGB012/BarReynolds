@@ -7,7 +7,7 @@
         @method('put')
         @csrf
 
-        <x-produtos.camposProd :producto='$producto'/>
+        <x-productos.camposProd :producto='$producto'/>
 
         <br><br>
 
