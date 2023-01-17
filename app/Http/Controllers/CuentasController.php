@@ -14,7 +14,7 @@ class CuentasController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
