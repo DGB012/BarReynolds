@@ -28,7 +28,7 @@
 
     </table><br><br>
 
-    <button><a href='{{ route('$categorias.create') }}'> Crear </a></button><br><br>
+    <button><a href='{{ route('categorias.create') }}'> Crear </a></button><br><br>
 
     <a href='{{ route('productos.index') }}'>Listado de Productos</a>
 
