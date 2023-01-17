@@ -5,12 +5,12 @@
 
     <form action='{{ route('productos.store') }}' method='post'>
         @method('post')
-        @csrf
 
-        <x-productos.camposProd :productos='$producto' />
+        <x-productos.camposProd/>
 
-        <input class='button' type='submit' name='crear' value='Crear producto' />
-    </form><br/>
+        <input type='submit' name='crear' value='Crear producto'/>
+    </form>
+    <br/>
 
     <a href='{{ route('productos.index') }}'>Volver al listado</a>
 

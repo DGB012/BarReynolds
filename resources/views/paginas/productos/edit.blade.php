@@ -7,12 +7,13 @@
         @method('put')
         @csrf
 
-        <x-produtos.camposProd :producto='$producto' />
+        <x-produtos.camposProd :producto='$producto'/>
 
         <br><br>
 
         <button type='submit'>Actualizar</button>
-    </form><br>
+    </form>
+    <br>
 
     <a href='{{ route('productos.index') }}'>Volver al listado</a>
 
