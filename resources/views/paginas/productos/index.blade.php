@@ -5,12 +5,12 @@
 
     <table>
 
-    <tr>
-        <th>PRECIO</th>
-        <th>NOMBRE</th>
-        <th>CATEGORIA</th>
-        <th>DISPONIBILIDAD</th>
-    </tr>
+        <tr>
+            <th>PRECIO</th>
+            <th>NOMBRE</th>
+            <th>CATEGORIA</th>
+            <th>DISPONIBILIDAD</th>
+        </tr>
 
         @foreach ($productos as $producto)
             <tr>
