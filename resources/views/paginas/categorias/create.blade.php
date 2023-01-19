@@ -5,9 +5,8 @@
 
     <form action='{{ route('categorias.store') }}' method='post'>
         @method('post')
-        @csrf
 
-        <x-categorias_campos/>
+        <x-categorias.categorias_campos/>
 
         <input class='button' type='submit' name='crear' value='Crear Categoria'/>
     </form><br/>

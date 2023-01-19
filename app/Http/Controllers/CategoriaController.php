@@ -66,7 +66,7 @@ class CategoriaController extends Controller
      */
     public function edit(Categoria $categoria)
     {
-        return view('paginas/categorias/show', compact('categoria'));
+        return view('paginas/categorias/edit', compact('categoria'));
     }
 
     /**

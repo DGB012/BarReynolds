@@ -13,12 +13,11 @@
         @foreach($categorias as $categoria)
             <tr>
                 <td>
-                    <a href='{{ route ('$categorias.show', $categoria) }}'>{{ $categoria-> nombre }} </a>
+                    <a href='{{ route ('categorias.show', $categoria) }}'>{{ $categoria-> nombre }} </a>
                 </td>
                 <td>
                     <form action='{{ route('categorias.destroy', $categoria) }}' method="post">
                         @method('delete')
-                        @csrf
 
                         <button type='submit'>(X)</button>
                     </form>

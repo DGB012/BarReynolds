@@ -1,7 +1,7 @@
 <x-zz.base>
 
-    <x.slot:tituloHead>Mostrar Categoria</x.slot:tituloHead>
-    <x.slot:tituloVisible>Mostrar los detalles de la categoria</x.slot:tituloVisible>
+    <x-slot:tituloHead>Mostrar Categoria</x-slot:tituloHead>
+    <x-slot:tituloVisible>Mostrar los detalles de la categoria</x-slot:tituloVisible>
 
     <p>Nombre: {{$categoria->nombre}}</p>
 

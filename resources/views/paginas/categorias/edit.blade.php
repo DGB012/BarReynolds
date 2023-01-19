@@ -3,9 +3,8 @@
     <x-slot:tituloHead>Editar Categoria</x-slot:tituloHead>
     <x-slot:tituloVisible>Edita los detalles de la categoria</x-slot:tituloVisible>
 
-    <form action='{{ route('categorias.update', $categoria}}' method= 'post'>
+    <form action='{{ route('categorias.update', $categoria)}}' method= 'post'>
         @method('put')
-        @csrf
 
         <x-categorias.categorias_campos>
             <x-slot:nombre_cat>
