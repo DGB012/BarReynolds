@@ -133,10 +133,10 @@ return new class extends Migration
         ]);
 
         DB::table('productos')->insert([
-           'precio'         =>  '2.80',
-           'nombre'      =>  'Jarra o Cañon con Limon Radler',
-           'categoria_id'       =>  $cervezaId,
-           'disponibilidad'       =>  '50'
+            'precio' => '2.80',
+            'nombre' => 'Jarra o Cañón con Limón Radler',
+            'categoria_id' => $cervezaId,
+            'disponibilidad' => '50'
         ]);
 
         DB::table('productos')->insert([
