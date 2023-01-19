@@ -61,10 +61,10 @@ class ProductoController extends Controller
      * @param \App\Models\Producto $producto
      * @return \Illuminate\Http\Response
      */
-    public function show(Producto $productos)
+    public function show(Producto $producto)
     {
         //$categorias = Categoria::orderBy('id')->get();
-        return view('paginas/productos/show', compact('productos' /* ,'categorias' */));
+        return view('paginas/productos/show', compact('producto' /* ,'categorias' */));
     }
 
     /**
@@ -73,10 +73,10 @@ class ProductoController extends Controller
      * @param \App\Models\Producto $producto
      * @return \Illuminate\Http\Response
      */
-    public function edit(Producto $productos)
+    public function edit(Producto $producto)
     {
         //$categorias = Categoria::orderBy('id')->get();
-        return view('paginas/productos/edit', compact('productos' /* ,'categoria'*/));
+        return view('paginas/productos/edit', compact('producto' /* ,'categoria'*/));
     }
 
     /**
