@@ -29,114 +29,114 @@ return new class extends Migration
 
         DB::table('productos')->insert([
            'precio'         =>  '2',
-           'nombre'      =>  'COCA COLA',
+           'nombre'      =>  'Coca Cola',
            'categoria_id'       =>  $bebidaId,
            'disponibilidad'       =>  '50'
         ]);
 
         DB::table('productos')->insert([
            'precio'         =>  '2',
-           'nombre'      =>  'COCA COLA LIGHT',
+           'nombre'      =>  'Coca Cola Light',
            'categoria_id'       =>  $bebidaId,
            'disponibilidad'       =>  '50'
         ]);
 
         DB::table('productos')->insert([
            'precio'         =>  '2',
-           'nombre'      =>  'COCA COLA ZERO',
+           'nombre'      =>  'Coca Cola Zero',
            'categoria_id'       =>  $bebidaId,
            'disponibilidad'       =>  '50'
         ]);
 
         DB::table('productos')->insert([
            'precio'         =>  '2.50',
-           'nombre'      =>  'FANTA NARANJA',
+           'nombre'      =>  'Fanta Naranja',
            'categoria_id'       =>  $bebidaId,
            'disponibilidad'       =>  '50'
         ]);
 
         DB::table('productos')->insert([
            'precio'         =>  '2.50',
-           'nombre'      =>  'FANTA LIMÓN',
+           'nombre'      =>  'Fanta Limón',
            'categoria_id'       =>  $bebidaId,
            'disponibilidad'       =>  '50'
         ]);
 
         DB::table('productos')->insert([
            'precio'         =>  '2',
-           'nombre'      =>  'AGUA(1L)',
+           'nombre'      =>  'Agua(1L)',
            'categoria_id'       =>  $bebidaId,
            'disponibilidad'       =>  '50'
         ]);
 
         DB::table('productos')->insert([
            'precio'         =>  '2.30',
-           'nombre'      =>  'AQUARIUS NARANJA',
+           'nombre'      =>  'Aquarius Naranja',
            'categoria_id'       =>  $bebidaId,
            'disponibilidad'       =>  '50'
         ]);
 
         DB::table('productos')->insert([
            'precio'         =>  '2.30',
-           'nombre'      =>  'AQUARIUS LIMÓN',
+           'nombre'      =>  'Aquarius Limón',
            'categoria_id'       =>  $bebidaId,
            'disponibilidad'       =>  '50'
         ]);
 
         DB::table('productos')->insert([
            'precio'         =>  '2.50',
-           'nombre'      =>  'VICHY',
+           'nombre'      =>  'Vichy',
            'categoria_id'       =>  $bebidaId,
            'disponibilidad'       =>  '50'
         ]);
 
         DB::table('productos')->insert([
            'precio'         =>  '2.30',
-           'nombre'      =>  'NESTEA',
+           'nombre'      =>  'Nestea',
            'categoria_id'       =>  $bebidaId,
            'disponibilidad'       =>  '50'
         ]);
 
         DB::table('productos')->insert([
            'precio'         =>  '2.50',
-           'nombre'      =>  'RED BULL',
+           'nombre'      =>  'Red Bull',
            'categoria_id'       =>  $bebidaId,
            'disponibilidad'       =>  '50'
         ]);
 
         DB::table('productos')->insert([
            'precio'         =>  '2.20',
-           'nombre'      =>  'SCHWEPPES',
+           'nombre'      =>  'Schweppes',
            'categoria_id'       =>  $bebidaId,
            'disponibilidad'       =>  '50'
         ]);
 
         DB::table('productos')->insert([
            'precio'         =>  '2.50',
-           'nombre'      =>  'BITTER KAS',
+           'nombre'      =>  'Bitter Kas',
            'categoria_id'       =>  $bebidaId,
            'disponibilidad'       =>  '50'
         ]);
 
         DB::table('productos')->insert([
            'precio'         =>  '2.50',
-           'nombre'      =>  'SEVEN UP',
+           'nombre'      =>  'Seven Up',
            'categoria_id'       =>  $bebidaId,
            'disponibilidad'       =>  '50'
         ]);
 
         DB::table('productos')->insert([
            'precio'         =>  '2.50',
-           'nombre'      =>  'SPRITE',
+           'nombre'      =>  'Sprite',
            'categoria_id'       =>  $bebidaId,
            'disponibilidad'       =>  '50'
         ]);
 
         DB::table('productos')->insert([
-           'precio'         =>  '2.80',
-           'nombre'      =>  'Jarra o Cañon con Limon Radler',
-           'categoria_id'       =>  $cervezaId,
-           'disponibilidad'       =>  '50'
+            'precio' => '2.80',
+            'nombre' => 'Jarra o Cañón con Limón Radler',
+            'categoria_id' => $cervezaId,
+            'disponibilidad' => '50'
         ]);
 
         DB::table('productos')->insert([
