@@ -8,12 +8,12 @@ use App\Models\Categoria;
 
 class ProductoController extends Controller
 {
-    public function index() // id , precio , nombre, categoria,disponibilidad
+    public function index() // id , precio , nombre, categoria,stock
     {
-        $productos = Producto::orderby('id')->get();
-        $
+        $productos = Producto::orderby('categoria_id')->get();
         return view('paginas/productos/index', compact('productos')); //distribuir vistas en carpetas
     }
+
     public function create()
     {
         $categorias = Categoria::orderby('id')->get();
