@@ -11,6 +11,7 @@ class ProductoController extends Controller
     public function index() // id , precio , nombre, categoria,disponibilidad
     {
         $productos = Producto::orderby('id')->get();
+        $
         return view('paginas/productos/index', compact('productos')); //distribuir vistas en carpetas
     }
     public function create()
