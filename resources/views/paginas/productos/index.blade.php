@@ -6,10 +6,11 @@
     <table border='1'>
 
         <tr>
-            <th>PRECIO</th>
-            <th>NOMBRE</th>
-            <th>CATEGORIA</th>
-            <th>STOCK</th>
+            <th>Precio</th>
+            <th>Nombre</th>
+            <th>Categor&iacute;a</th>
+            <th>Stock</th>
+            <th>Eliminar</th>
         </tr>
 
         @foreach ($productos as $producto)
@@ -40,6 +41,8 @@
     <br><br>
 
     <button><a href='{{ route('productos.create') }}'>Crear</a></button>
-    <br>
+    <br><br>
+
+    <a href='{{ route('categorias.index') }}'>Listado de categor&iacute;as</a>
 
 </x-zz.base>

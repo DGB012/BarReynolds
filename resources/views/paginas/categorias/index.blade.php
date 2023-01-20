@@ -1,12 +1,12 @@
 <x-zz.base>
 
-    <x-slot:tituloHead>Categorias</x-slot:tituloHead>
-    <x-slot:tituloVisible>Listado de categorias</x-slot:tituloVisible>
+    <x-slot:tituloHead>Categor&iacute;as</x-slot:tituloHead>
+    <x-slot:tituloVisible>Listado de categor&iacute;as</x-slot:tituloVisible>
 
     <table>
 
         <tr>
-            <th>Categoria</th>
+            <th>Categor&iacute;a</th>
             <th>Eliminar</th>
         </tr>
 
@@ -25,9 +25,11 @@
             </tr>
         @endforeach
 
-    </table><br><br>
+    </table>
+    <br><br>
 
-    <button><a href='{{ route('categorias.create') }}'> Crear </a></button><br><br>
+    <button><a href='{{ route('categorias.create') }}'> Crear </a></button>
+    <br><br>
 
     <a href='{{ route('productos.index') }}'>Listado de Productos</a>
 

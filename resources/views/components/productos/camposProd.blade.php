@@ -7,7 +7,7 @@
 {{--<label for='categoria'>Categoría</label>--}}
 {{--<input type='text' id='categoria_id' name='categoria_id' value='{{ $producto->categoria_id ?? '' }}'/>--}}
 <br>
-<label for='categoria_id'>Categoría</label>
+<label for='categoria_id'>Categor&iacute;a</label>
 <select id='categoria_id' name='categoria_id'>
     <optgroup label='Categorías'>
         @foreach($categorias as $categoria)
