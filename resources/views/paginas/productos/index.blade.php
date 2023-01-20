@@ -21,7 +21,7 @@
                     <a href='{{ route('productos.show', $producto) }}'>{{ $producto->nombre }}</a>
                 </td>
                 <td>
-                    <a href='{{ route('productos.show', $producto->categoria_id) }}'>{{ $producto->categorias->nombre }}</a>
+                    <a href='{{ route('productos.show', $producto->categoria_id) }}'>{{ $producto->categoria->nombre }}</a>
                 </td>
                 <td>
                     <a href='{{ route('productos.show', $producto) }}'>{{ $producto->disponibilidad }}</a>
