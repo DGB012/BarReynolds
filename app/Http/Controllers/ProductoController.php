@@ -7,34 +7,16 @@ use Illuminate\Http\Request;
 
 class ProductoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index() // id , precio , nombre, categoria,disponibilidad
     {
         $productos = Producto::orderby('id')->get();
         return view('paginas/productos/index', compact('productos')); //distribuir vistas en carpetas
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //$categorias = Categoria::orderby('id')->get();
-        return view('paginas/productos/create'/* ,compact('categorias')*/);
+        $categorias = Categoria::orderby('id')->get();
+        return view('paginas/productos/create', compact('categorias'));
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $this->validate($request, [
@@ -54,38 +36,16 @@ class ProductoController extends Controller
 
         return redirect()->route('productos.index');
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param \App\Models\Producto $producto
-     * @return \Illuminate\Http\Response
-     */
     public function show(Producto $producto)
     {
-        //$categorias = Categoria::orderBy('id')->get();
-        return view('paginas/productos/show', compact('producto' /* ,'categorias' */));
+        $categorias = Categoria::orderBy('id')->get();
+        return view('paginas/productos/show', compact('producto', 'categorias'));
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param \App\Models\Producto $producto
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Producto $producto)
     {
-        //$categorias = Categoria::orderBy('id')->get();
-        return view('paginas/productos/edit', compact('producto' /* ,'categoria'*/));
+        $categorias = Categoria::orderBy('id')->get();
+        return view('paginas/productos/edit', compact('producto', 'categorias'));
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Producto $producto
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Producto $producto)
     {
         $this->validate($request, [
@@ -104,13 +64,6 @@ class ProductoController extends Controller
 
         return redirect()->route('productos.index');
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param \App\Models\Producto $producto
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Producto $producto)
     {
         $producto->delete();

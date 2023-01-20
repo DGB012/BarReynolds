@@ -5,16 +5,16 @@
 
     <p>Precio: {{$producto->precio}}</p>
     <p>Nombre: {{$producto->nombre}}</p>
-    <p>Categorías: {{$producto->categoria_id}}</p>
+    <p>Categorías: {{$producto->categorias->nombre}}</p>
     <p>Disponibilidad: {{$producto->disponibilidad}}</p>
 
     <a href='{{ route('productos.edit', $producto) }}'>Editarla</a>
 
     <br/><br/>
 
-        <form id='{{ $producto->id }}' action='{{ route('productos.destroy', $producto) }}'
-              method='post'>
-            @method('delete')
+    <form id='{{ $producto->id }}' action='{{ route('productos.destroy', $producto) }}'
+          method='post'>
+        @method('delete')
 
             <input class='button' type='submit' name='crear' value='Eliminar producto'/>
         </form>
