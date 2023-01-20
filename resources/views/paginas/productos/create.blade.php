@@ -6,7 +6,7 @@
     <form action='{{ route('productos.store') }}' method='post'>
         @method('post')
 
-        <x-productos.camposProd/>
+        <x-productos.camposProd :categorias='$categorias'/>
 
         <input type='submit' name='crear' value='Crear producto'/>
     </form>
