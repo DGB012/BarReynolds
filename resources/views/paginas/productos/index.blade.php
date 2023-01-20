@@ -9,7 +9,7 @@
             <th>PRECIO</th>
             <th>NOMBRE</th>
             <th>CATEGORIA</th>
-            <th>DISPONIBILIDAD</th>
+            <th>STOCK</th>
         </tr>
 
         @foreach ($productos as $producto)
@@ -24,7 +24,7 @@
                     <a href='{{ route('productos.show', $producto->categoria_id) }}'>{{ $producto->categoria->nombre }}</a>
                 </td>
                 <td>
-                    <a href='{{ route('productos.show', $producto) }}'>{{ $producto->disponibilidad }}</a>
+                    <a href='{{ route('productos.show', $producto) }}'>{{ $producto->stock }}</a>
                 </td>
                 <td class='delete'>
                     <form class="myform" id='{{ $producto->id }}' action='{{ route('productos.destroy', $producto) }}'

@@ -20,7 +20,7 @@ return new class extends Migration {
             $table->string('nombre', 50);
             $table->foreignIdFor(Categoria::class)->constrained()
                 ->onUpdate('cascade');
-            $table->integer('disponibilidad');
+            $table->integer('stock');
         });
     }
 
