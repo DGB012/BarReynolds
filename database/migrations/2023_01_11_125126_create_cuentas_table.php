@@ -16,8 +16,6 @@ return new class extends Migration {
         Schema::create('cuentas', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->integer('id_mesa')->unsigned();
-            $table->timestamp('hora');
             $table->decimal('total', 10, 2);
             $table->foreignIdFor(Mesas::class)->constrained()
                 ->onUpdate('cascade');

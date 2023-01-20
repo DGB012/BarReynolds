@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\CategoriaController;
-use App\Http\Controllers\LineaTicketController;
+use App\Http\Controllers\LineaCuentaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,5 +21,5 @@ Route::get('/', function () {
 });
 Route::resource('categorias', CategoriaController::class);
 Route::resource('productos', ProductoController::class);
-Route::resource('lineasTickets', \App\Http\Controllers\LineaTicketController::class);
+Route::resource('lineaCuentas', \App\Http\Controllers\LineaCuentaController::class);
 

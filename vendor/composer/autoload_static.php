@@ -506,6 +506,7 @@ class ComposerStaticInit18aaa35629857af0101743b7691118a8
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\CategoriaController' => __DIR__ . '/../..' . '/app/Http/Controllers/CategoriaController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\CuentasController' => __DIR__ . '/../..' . '/app/Http/Controllers/CuentasController.php',
         'App\\Http\\Controllers\\LineaTicketController' => __DIR__ . '/../..' . '/app/Http/Controllers/LineaTicketController.php',
@@ -523,6 +524,7 @@ class ComposerStaticInit18aaa35629857af0101743b7691118a8
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Models\\Categoria' => __DIR__ . '/../..' . '/app/Models/Categoria.php',
         'App\\Models\\Cuentas' => __DIR__ . '/../..' . '/app/Models/Cuentas.php',
+        'App\\Models\\LineaCuenta' => __DIR__ . '/../..' . '/app/Models/LineaCuenta.php',
         'App\\Models\\LineaTicket' => __DIR__ . '/../..' . '/app/Models/LineaTicket.php',
         'App\\Models\\Mesas' => __DIR__ . '/../..' . '/app/Models/Mesas.php',
         'App\\Models\\Producto' => __DIR__ . '/../..' . '/app/Models/Producto.php',
