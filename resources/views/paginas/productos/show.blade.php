@@ -5,8 +5,8 @@
 
     <p>Precio: {{$producto->precio}}</p>
     <p>Nombre: {{$producto->nombre}}</p>
-    <p>Categorías: {{$producto->categorias->nombre}}</p>
-    <p>Disponibilidad: {{$producto->disponibilidad}}</p>
+    <p>Categorías: {{$producto->categoria->nombre}}</p>
+    <p>Stock: {{$producto->stock}}</p>
 
     <a href='{{ route('productos.edit', $producto) }}'>Editarla</a>
 
@@ -16,7 +16,7 @@
           method='post'>
         @method('delete')
 
-            <input class='button' type='submit' name='crear' value='Eliminar producto'/>
+        <input class='button' type='submit' name='crear' value='Eliminar producto'/>
         </form>
 
     <br>

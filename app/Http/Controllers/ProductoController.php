@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Producto;
 use Illuminate\Http\Request;
+use App\Models\Categoria;
 
 class ProductoController extends Controller
 {
@@ -23,14 +24,14 @@ class ProductoController extends Controller
             'precio' => 'required',
             'nombre' => 'required',
             'categoria_id' => 'required',
-            'disponibilidad' => 'required'
+            'stock' => 'required'
         ]);
 
         $producto = new Producto();
         $producto->precio = $request->precio;
         $producto->nombre = $request->nombre;
         $producto->categoria_id = $request->categoria_id;
-        $producto->disponibilidad = $request->disponibilidad;
+        $producto->stock = $request->stock;
 
         $producto->save();
 
@@ -52,13 +53,13 @@ class ProductoController extends Controller
             'precio' => 'required',
             'nombre' => 'required',
             'categoria_id' => 'required',
-            'disponibilidad' => 'required'
+            'stock' => 'required'
         ]);
 
         $producto->precio = $request->precio;
         $producto->nombre = $request->nombre;
         $producto->categoria_id = $request->categoria_id;
-        $producto->disponibilidad = $request->disponibilidad;
+        $producto->stock = $request->stock;
 
         $producto->save();
 

@@ -16,7 +16,7 @@
         @endforeach
     </optgroup>
 </select>
-
-<label for='disponibilidad'>Disponibilidad</label>
-<input type='number' id='disponibilidad' name='disponibilidad' value='{{ $producto->disponibilidad ?? '' }}'/>
+<br>
+<label for='stock'>Stock</label>
+<input type='number' id='stock' name='stock' value='{{ $producto->stock ?? '' }}'/>
 <br>
