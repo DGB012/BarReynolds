@@ -16,11 +16,11 @@ class LineaTicketController extends Controller
      */
     public function index() //	id producto_id	cantidad	precio	cuentas_id	productos_id
     {
-        $lineasTickets=LineaTicket::orderby('id')->get();
-        $cuentas=Cuentas::orderby('id')->get();
+        $lineasTickets = LineaTicket::orderby('id')->get();
+        $cuentas = Cuentas::orderby('id')->get();
         $productos = Producto::orderby('id')->get();
 
-        return view('paginas/lineasTickets/index' , compact('lineasTickets','cuentas','productos'));
+        return view('paginas/lineasTickets/index', compact('lineasTickets', 'cuentas', 'productos'));
     }
 
     /**
@@ -31,10 +31,10 @@ class LineaTicketController extends Controller
     public function create()
     {
 
-        $cuentas=Cuentas::orderby('id')->get();
+        $cuentas = Cuentas::orderby('id')->get();
         $productos = Producto::orderby('id')->get();
 
-        return view('paginas/lineasTickets/create',compact('cuentas','productos'));
+        return view('paginas/lineasTickets/create', compact('cuentas', 'productos'));
 
     }
 
@@ -46,6 +46,7 @@ class LineaTicketController extends Controller
      */
     public function store(Request $request)
     {
+
         $this->validate($request, [
             'cantidad' => 'required',
             'precio' => 'required',
@@ -72,9 +73,9 @@ class LineaTicketController extends Controller
      */
     public function show(LineaTicket $lineaTicket)
     {
-        $cuentas=Cuentas::orderby('id')->get();
+        $cuentas = Cuentas::orderby('id')->get();
         $productos = Producto::orderby('id')->get();
-        return view('paginas/lineasTickets/show', compact('lineaTicket','productos','cuentas'));
+        return view('paginas/lineasTickets/show', compact('lineaTicket', 'productos', 'cuentas'));
     }
 
     /**
@@ -85,9 +86,9 @@ class LineaTicketController extends Controller
      */
     public function edit(LineaTicket $lineaTicket)
     {
-        $cuentas=Cuentas::orderby('id')->get();
+        $cuentas = Cuentas::orderby('id')->get();
         $productos = Producto::orderby('id')->get();
-        return view('paginas/lineasTickets/edit', compact('lineaTicket','productos','cuentas'));
+        return view('paginas/lineasTickets/edit', compact('lineaTicket', 'productos', 'cuentas'));
 
     }
 
