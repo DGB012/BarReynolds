@@ -22,7 +22,7 @@
                     <a href='{{ route('productos.show', $producto) }}'>{{ $producto->nombre }}</a>
                 </td>
                 <td>
-                    <a href='{{ route('productos.show', $producto->categoria_id) }}'>{{ $producto->categoria->nombre }}</a>
+                    <a href='{{ route('categorias.show', $producto->categoria_id) }}'>{{ $producto->categoria->nombre }}</a>
                 </td>
                 <td>
                     <a href='{{ route('productos.show', $producto) }}'>{{ $producto->stock }}</a>
