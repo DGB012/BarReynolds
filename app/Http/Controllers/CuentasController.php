@@ -1,85 +1,62 @@
 <?php
 
-namespace App\Http\Controllers;
+    namespace App\Http\Controllers;
 
-use App\Models\Cuentas;
-use Illuminate\Http\Request;
+    use App\Models\Cuentas;
+    use Illuminate\Http\Request;
 
-class CuentasController extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    class CuentasController extends Controller
     {
+        public function index()
+        {
+            $cuentas= cuentas::orderBy('id')->get();
+//        return view('paginas/cuentas/index', compact('cuentas'));
+            return view('testCuentas.blade.php', compact('cuentas'));
+        }
 
-    }
+        public function create()
+        {
+            return view('paginas/cuentas/create');
+        }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+        public function store(Request $request)
+        {
+            $this->validate($request,[
+                'mesas_id' => 'required',
+            ]);
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+            $cuenta = new Cuentas();
+            $cuenta -> nombre = $request->nombre;
+            $cuenta ->save();
 
-    /**
-     * Display the specified resource.
-     *
-     * @param \App\Models\Cuentas $cuentas
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Cuentas $cuentas)
-    {
-        //
-    }
+            return redirect()->route('cuentas.index');
+        }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param \App\Models\Cuentas $cuentas
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Cuentas $cuentas)
-    {
-        //
-    }
+        public function show(Cuentas $cuentas)
+        {
+            return view('paginas/cuentas/show', compact('cuentas'));
+        }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Cuentas $cuentas
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Cuentas $cuentas)
-    {
-        //
-    }
+        public function edit(Cuentas $cuentas)
+        {
+            return view('paginas/cuentas/edit', compact('cuentas'));
+        }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param \App\Models\Cuentas $cuentas
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Cuentas $cuentas)
-    {
-        //
+        public function update(Request $request, Cuentas $cuentas)
+        {
+            $this ->validate($request,[
+                'nombre' => 'required',
+            ]);
+
+            $cuentas->nombre = $request->nombre;
+            $cuentas->save();
+
+            return redirect()->route('cuentas.index');
+        }
+
+        public function destroy(Cuentas $cuentas)
+        {
+            $cuentas->delete();
+            return redirect()->route('cuentas.index');
+        }
     }
-}
