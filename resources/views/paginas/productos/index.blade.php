@@ -3,7 +3,7 @@
     <x-slot:tituloHead>Productos</x-slot:tituloHead>
     <x-slot:tituloVisible>Listado de productos</x-slot:tituloVisible>
 
-    <table border='1'>
+    <table border="1">
 
         <tr>
             <th>Precio</th>
@@ -36,6 +36,7 @@
                 </td>
             </tr>
         @endforeach
+
 
     </table>
     <br><br>

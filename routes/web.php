@@ -22,6 +22,17 @@
     });
     Route::resource('categorias', CategoriaController::class);
     Route::resource('productos', ProductoController::class);
-    Route::resource('cuentas', CuentasController::class);
+
+
+    Route::get('/lineaCuentaAddProducto/{cuenta_id}/{producto_id}', [LineaCuentaController::class, 'addProducto'])->name('lineaCuenta.crearLineaNueva');
+
     Route::resource('lineaCuentas', \App\Http\Controllers\LineaCuentaController::class);
+
+
+    Route::get('/cuentas/test', [CuentasController::class, 'test'])->name('test');
+    Route::get('/cuentas/addProducto/{cuenta}', [CuentasController::class, 'addProducto'])->name('cuentas.addProducto');
+    Route::get('/crearCuentaDesdeMesas/{mesa_id}', [CuentasController::class, 'crearCuentaDesdeMesas'])->name('cuentas.crearCuentaDesdeMesas');
+
+    Route::resource('cuentas', CuentasController::class);
+
 
