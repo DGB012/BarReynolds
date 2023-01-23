@@ -14,7 +14,7 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::create('linea_tickets', function (Blueprint $table) {
+        Schema::create('linea_cuentas', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->integer('cantidad');
@@ -35,6 +35,6 @@ return new class extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('linea_tickets');
+        Schema::dropIfExists('linea_cuentas');
     }
 };

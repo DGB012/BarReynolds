@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
+    'App\\Http\\Controllers\\CategoriaController' => $baseDir . '/app/Http/Controllers/CategoriaController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\CuentasController' => $baseDir . '/app/Http/Controllers/CuentasController.php',
     'App\\Http\\Controllers\\LineaTicketController' => $baseDir . '/app/Http/Controllers/LineaTicketController.php',
@@ -25,6 +26,7 @@ return array(
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Models\\Categoria' => $baseDir . '/app/Models/Categoria.php',
     'App\\Models\\Cuentas' => $baseDir . '/app/Models/Cuentas.php',
+    'App\\Models\\LineaCuenta' => $baseDir . '/app/Models/LineaCuenta.php',
     'App\\Models\\LineaTicket' => $baseDir . '/app/Models/LineaTicket.php',
     'App\\Models\\Mesas' => $baseDir . '/app/Models/Mesas.php',
     'App\\Models\\Producto' => $baseDir . '/app/Models/Producto.php',
