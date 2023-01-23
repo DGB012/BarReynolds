@@ -473,6 +473,18 @@ return new class extends Migration {
             'categoria_id' => $comidaId,
             'stock' => '50'
         ]);
+
+        DB::table('mesas')->insert([
+            'estado' => 'Vacia'
+        ]);
+
+        DB::table('mesas')->insert([
+            'estado' => 'Vacia'
+        ]);
+
+        DB::table('mesas')->insert([
+            'estado' => 'Vacia'
+        ]);
     }
 
 
