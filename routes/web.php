@@ -31,7 +31,7 @@
 
     Route::get('/cuentas/test', [CuentasController::class, 'test'])->name('test');
     Route::get('/cuentas/addProducto/{cuenta}', [CuentasController::class, 'addProducto'])->name('cuentas.addProducto');
-    Route::get('/crearCuentaDesdeMesas/{mesa_id}', [CuentasController::class, 'crearCuentaDesdeMesas'])->name('cuentas.crearCuentaDesdeMesas');
+    Route::get('/crearModifCuenta/{mesa_id}', [CuentasController::class, 'crearModifCuenta'])->name('cuentas.crearModifCuenta');
 
     Route::resource('cuentas', CuentasController::class);
 

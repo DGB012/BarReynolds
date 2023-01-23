@@ -67,14 +67,10 @@
         {
             return view('paginas/test/testCuenta');
         }
-        public function crearCuentaDesdeMesas(int $mesas){
+        public function crearModifCuenta(int $mesas){
 //            $mesas_id = $mesas->id;
             $mesas_id = $mesas;
-            //Deberia de venir desde la ventana anterior
-//            $mesa = DB::table('mesas')
-//                ->where(['id', '=', $mesas],['estado', '=', 'vacia'])
-//                ->where('id', '=', $mesas)
-//                ->first();
+            //Deberia de venir el objeto desde la ventana anterior
             $mesa=Mesas::find($mesas);
             if($mesa->estado=='Vacia'){
                 $cuenta = new Cuentas();
@@ -90,10 +86,10 @@
                 $cuenta=Cuentas::firstOrCreate(['mesas_id' => $mesas_id]);
             }
 
-            return redirect()-> route('cuentas.addProducto',['cuenta'=>$cuenta]);
-
-        }
-        public function addProducto(Cuentas $cuenta){
+//            return redirect()-> route('cuentas.addProducto',['cuenta'=>$cuenta]);
             return view('paginas/test/testAddProducto', compact('cuenta'));
         }
+//        public function addProducto(Cuentas $cuenta){
+//            return view('paginas/test/testAddProducto', compact('cuenta'));
+//        }
     }
