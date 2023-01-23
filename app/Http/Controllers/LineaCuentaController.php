@@ -7,6 +7,8 @@ use App\Models\LineaCuenta;
 use App\Models\Producto;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\DB;
+
 class LineaCuentaController extends Controller
 {
     public function index() //	id producto_id	cantidad	precio	cuentas_id	productos_id
@@ -87,5 +89,17 @@ class LineaCuentaController extends Controller
     {
         $lineaCuenta->delete();
         return redirect()->route('productos.index');
+    }
+    public function addProducto(int $cuenta_id,int $producto_id){
+        $lineaCuenta = new LineaCuenta();
+        $lineaCuenta->cuentas_id = $cuenta_id;
+        $producto = DB::table('productos')
+            ->where('id', '=', $producto_id)
+            ->first();
+        $lineaCuenta->producto_id = $producto_id;
+        $lineaCuenta->precio = $producto->precio;
+        $lineaCuenta->cantidad = 1;
+        $lineaCuenta->save();
+        return redirect()-> route('test');
     }
 }
