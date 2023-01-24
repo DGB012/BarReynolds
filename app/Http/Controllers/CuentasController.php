@@ -3,6 +3,8 @@
     namespace App\Http\Controllers;
 
     use App\Models\Cuentas;
+    use App\Models\Producto;
+    use App\Models\Categoria;
     use App\Models\Mesas;
     use Illuminate\Http\Request;
 
@@ -79,15 +81,18 @@
                 $cuenta->save();
 
                 //Habria que crear un metodo para hacer esto
-                $mesa->estado='Ocupada';
+                $mesa->estado = 'Ocupada';
                 $mesa->save();
 
-            }else if($mesa->estado=='Ocupada'){
-                $cuenta=Cuentas::firstOrCreate(['mesas_id' => $mesas_id]);
+            } else if ($mesa->estado == 'Ocupada') {
+                $cuenta = Cuentas::firstOrCreate(['mesas_id' => $mesas_id]);
             }
 
+            $productos = Producto::orderBy('nombre')->get();
+            $categorias = Categoria::orderBy('id')->get();
+
 //            return redirect()-> route('cuentas.addProducto',['cuenta'=>$cuenta]);
-            return view('paginas/test/testAddProducto', compact('cuenta'));
+            return view('paginas/test/testAddProducto', compact('cuenta', 'productos', 'categorias'));
         }
 //        public function addProducto(Cuentas $cuenta){
 //            return view('paginas/test/testAddProducto', compact('cuenta'));

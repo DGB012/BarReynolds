@@ -4,6 +4,7 @@
 
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="/js/app.js">
     <title>{{ $tituloHead ?? 'BarReynolds' }}</title>
 
 </head>
