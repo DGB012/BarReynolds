@@ -101,7 +101,7 @@ class LineaCuentaController extends Controller
         $lineaCuenta->precio = $producto->precio;
         $lineaCuenta->cantidad = 1;
         $lineaCuenta->save();
-        return redirect()-> route('test');
+        return redirect()-> route('mesas.index');
     }
 */
     public function addProducto(int $cuenta_id,int $producto_id){

@@ -17,7 +17,7 @@
                     <a href='{{ route ('productos.index', $mesa) }}'><img src="/mesa.png" width="80px" height="10%">{{ $mesa-> id }} </a>
                 </td>
                 <td>
-                    <a href='{{ route ('cuentas.crearModiCuenta', $mesa -> id) }}'><?php if ($mesa->estado == "Disponible"){?><img src="/verde.png"   style="width: 100px; height: 100px; border: 2px solid red"> <?php } else{?><img src="/rojo.png"style="width: 100px; height: 100px; border: 2px solid dodgerblue"> <?php }  ?></a>
+                    <a href='{{ route ('cuentas.crearModifCuenta', $mesa -> id) }}'><?php if ($mesa->estado == "Vacia"){?><img src="/verde.png"   style="width: 100px; height: 100px; border: 2px solid red"> <?php } else{?><img src="/rojo.png"style="width: 100px; height: 100px; border: 2px solid dodgerblue"> <?php }  ?></a>
                 </td>
                 <td>
                     <form action='{{ route('mesas.destroy', $mesa) }}' method="post">
