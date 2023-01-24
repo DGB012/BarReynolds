@@ -25,5 +25,7 @@
             <a href='{{ route('lineaCuenta.crearLineaNueva',['cuenta_id'=>$cuenta->id,'producto_id' => $producto->id]) }}'>{{$producto->nombre}}</a>
         </button>
     @endforeach
+    <br><br>
+    <button><a href="{{route('cuentas.terminarCuenta',$cuenta->id)}}">Terminar cuenta</a></button>
 
 </x-zz.base>
