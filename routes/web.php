@@ -1,9 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\MesasController;
     use App\Http\Controllers\CuentasController;
-    use Illuminate\Support\Facades\Route;
-    use App\Http\Controllers\ProductoController;
-    use App\Http\Controllers\CategoriaController;
     use App\Http\Controllers\LineaCuentaController;
 
     /*
@@ -17,11 +18,12 @@
     |
     */
 
-    Route::get('/', function () {
-        return view('welcome');
-    });
-    Route::resource('categorias', CategoriaController::class);
-    Route::resource('productos', ProductoController::class);
+Route::get('/', function () {
+    return view('welcome');
+});
+Route::resource('categorias', CategoriaController::class);
+Route::resource('productos', ProductoController::class);
+Route::resource('mesas', MesasController::class);
 
 
     Route::get('/lineaCuentaAddProducto/{cuenta_id}/{producto_id}', [LineaCuentaController::class, 'addProducto'])->name('lineaCuenta.crearLineaNueva');
