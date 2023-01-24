@@ -6,13 +6,15 @@ import 'https://cdn.jsdelivr.net/npm/bootstrap@5.0/dist/js/bootstrap.bundle.min.
  */
 
 
-function cambiarVisibilidad(nombreCat, categorias) {
-    console.log(nombreCat);
-    for (i = 0; i < categorias.length; i++) {
-        console.log(nombreCat);
-        /*if(categorias[i]nombre == nombreCat){
-        document.getElementsByClassName(nombreCat).style.visibility = "visible";
-
-        }*/
+function cambiarVisibilidad(nombreCat, numeroCat) {
+    for (var i = 0; i < numeroCat; i++) {
+        var productos = document.getElementsByName(nombreCat);
+        var prueba = document.getElementsByClassName('prueba');
+        for (var f = 0; f < prueba.length; f++) {
+            prueba[f].style.visibility = "hidden";
+        }
+        for (var v = 0; v < productos.length; v++) {
+            productos[v].style.visibility = "visible";
+        }
     }
 }
