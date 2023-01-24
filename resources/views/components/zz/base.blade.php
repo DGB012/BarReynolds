@@ -9,15 +9,15 @@
 
 </head>
 <body>
-{{--    <x-zz.menu />--}}
+    <x-zz.menu />
 
-<h1>{{ $tituloVisible }}</h1>
+    <h1>{{ $tituloVisible }}</h1>
 
-<hr/>
+    <hr/>
 
-{{ $slot }}
+    {{ $slot }}
 
-{{--    <x-zz.pie />--}}
-<script src="/js/app.js"></script>
+    {{--    <x-zz.pie />--}}
+    <script src="/js/app.js"></script>
 </body>
 </html>
