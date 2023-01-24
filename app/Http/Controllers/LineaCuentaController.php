@@ -90,9 +90,10 @@ class LineaCuentaController extends Controller
         $lineaCuenta->delete();
         return redirect()->route('productos.index');
     }
+/*
     public function addProducto(int $cuenta_id,int $producto_id){
-        $lineaCuenta = new LineaCuenta();
-        $lineaCuenta->cuentas_id = $cuenta_id;
+        $lineaCuenta = new LineaCuenta(); //se crea una nueva linea de cuenta
+        $lineaCuenta->cuentas_id = $cuenta_id; //realacion cuenta id con la linea de cuenta
         $producto = DB::table('productos')
             ->where('id', '=', $producto_id)
             ->first();
@@ -102,4 +103,35 @@ class LineaCuentaController extends Controller
         $lineaCuenta->save();
         return redirect()-> route('test');
     }
+*/
+    public function addProducto(int $cuenta_id,int $producto_id){
+        $lineasCuenta=DB::table('linea_cuentas')
+            ->where([['cuentas_id', '=',$cuenta_id],['producto_id', '=' ,$producto_id]])
+            ->get();
+
+        if($lineasCuenta->count() == 0){
+            $lineaCuenta = new LineaCuenta();
+            $lineaCuenta->cuentas_id = $cuenta_id;
+            $producto = DB::table('productos')
+                ->where('id', '=', $producto_id)
+                ->first();
+            $lineaCuenta->producto_id = $producto_id;
+            $lineaCuenta->precio = $producto->precio;
+            $lineaCuenta->cantidad = 1;
+            $lineaCuenta->save();
+
+        }else{
+
+            $linea = DB::table('linea_cuentas')
+                ->where([['cuentas_id', '=',$cuenta_id],['producto_id', '=' ,$producto_id]])
+                ->first();/*->update(['cantidad' => 2])*/;
+            return($linea);
+
+             /*NO ESTA TERMINADO*/
+        }
+
+        return redirect()-> route('test');
+    }
+
+
 }

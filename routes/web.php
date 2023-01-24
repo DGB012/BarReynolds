@@ -32,7 +32,9 @@
     Route::get('/cuentas/test', [CuentasController::class, 'test'])->name('test');
     Route::get('/cuentas/addProducto/{cuenta}', [CuentasController::class, 'addProducto'])->name('cuentas.addProducto');
     Route::get('/crearModifCuenta/{mesa_id}', [CuentasController::class, 'crearModifCuenta'])->name('cuentas.crearModifCuenta');
+    Route::get('/terminarCuenta/{cuenta_id}', [CuentasController::class, 'terminarCuenta'])->name('cuentas.terminarCuenta');
 
-    Route::resource('cuentas', CuentasController::class);
+
+Route::resource('cuentas', CuentasController::class);
 
 

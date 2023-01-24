@@ -97,4 +97,24 @@
 //        public function addProducto(Cuentas $cuenta){
 //            return view('paginas/test/testAddProducto', compact('cuenta'));
 //        }
+
+
+        public function terminarCuenta(int $id_cuenta){
+            $totalCuenta= 0;
+            $lineasCuenta=DB::table('linea_cuentas')
+                ->where([['cuentas_id', '=',$id_cuenta]])
+                ->get();
+            foreach($lineasCuenta as $lineaCuenta){
+                $precio = $lineaCuenta->precio;
+                $cantidad = $lineaCuenta->cantidad;
+                $precioLinea = $precio * $cantidad;
+                $totalCuenta = $totalCuenta + $precioLinea;
+            }
+            $cuenta=Cuentas::find($id_cuenta);
+            $cuenta->total = $totalCuenta;
+            $cuenta->save();
+            return redirect()-> route('test');
+
+        }
+
     }
