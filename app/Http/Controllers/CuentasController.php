@@ -87,7 +87,7 @@
                 $mesa->save();
 
             } else if ($mesa->estado == 'Ocupada') {
-                $cuenta = Cuentas::firstOrCreate(['mesas_id' => $mesas_id]);
+                $cuenta = Cuentas::firstOrCreate(['mesas_id' => $mesas_id, 'total' => 0.00]);
             }
 
             $productos = Producto::orderBy('nombre')->get();
