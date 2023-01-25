@@ -1,54 +1,54 @@
 <?php
 
-    namespace App\Http\Controllers;
+namespace App\Http\Controllers;
 
-    use App\Models\Cuentas;
-    use App\Models\Producto;
-    use App\Models\Categoria;
-    use App\Models\Mesas;
-    use Illuminate\Http\Request;
+use App\Models\Cuentas;
+use App\Models\Producto;
+use App\Models\Categoria;
+use App\Models\Mesas;
+use Illuminate\Http\Request;
 
-    use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\DB;
 
-    class CuentasController extends Controller
+class CuentasController extends Controller
+{
+    public function index()
     {
-        public function index()
-        {
-            $cuentas = cuentas::orderBy('id')->get();
-            return view('paginas/cuentas/index', compact('cuentas'));
+        $cuentas = cuentas::orderBy('id')->get();
+        return view('paginas/cuentas/index', compact('cuentas'));
 
-        }
+    }
 
-        public function create()
-        {
-            return view('paginas/cuentas/create');
-        }
+    public function create()
+    {
+        return view('paginas/cuentas/create');
+    }
 
-        public function store(Request $request)
-        {
-            $this->validate($request, [
-                'mesas_id' => 'required',
-            ]);
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            'mesas_id' => 'required',
+        ]);
 
-            $cuenta = new Cuentas();
-            $cuenta->nombre = $request->nombre;
-            $cuenta->save();
+        $cuenta = new Cuentas();
+        $cuenta->nombre = $request->nombre;
+        $cuenta->save();
 
-            return redirect()->route('cuentas.index');
-        }
+        return redirect()->route('cuentas.index');
+    }
 
-        public function show(Cuentas $cuentas)
-        {
-            return view('paginas/cuentas/show', compact('cuentas'));
-        }
+    public function show(Cuentas $cuentas)
+    {
+        return view('paginas/cuentas/show', compact('cuentas'));
+    }
 
-        public function edit(Cuentas $cuentas)
-        {
-            return view('paginas/cuentas/edit', compact('cuentas'));
-        }
+    public function edit(Cuentas $cuentas)
+    {
+        return view('paginas/cuentas/edit', compact('cuentas'));
+    }
 
-        public function update(Request $request, Cuentas $cuentas)
-        {
+    public function update(Request $request, Cuentas $cuentas)
+    {
 //            $this->validate($request, [
 //                'nombre' => 'required',
 //            ]);
@@ -56,45 +56,66 @@
 //            $cuentas->nombre = $request->nombre;
 //            $cuentas->save();
 
-            return redirect()->route('cuentas.index');
-        }
+        return redirect()->route('cuentas.index');
+    }
 
-        public function destroy(Cuentas $cuentas)
-        {
-            $cuentas->delete();
-            return redirect()->route('cuentas.index');
-        }
+    public function destroy(Cuentas $cuentas)
+    {
+        $cuentas->delete();
+        return redirect()->route('cuentas.index');
+    }
 
-        public function test()
-        {
-            return view('paginas/test/testCuenta');
-        }
-        public function crearModifCuenta(int $mesas){
+    public function test()
+    {
+        return view('paginas/test/testCuenta');
+    }
+
+    public function crearModifCuenta(int $mesas)
+    {
 //            $mesas_id = $mesas->id;
-            $mesas_id = $mesas;
-            //Deberia de venir el objeto desde la ventana anterior
-            $mesa=Mesas::find($mesas);
-            if($mesa->estado=='Vacia'){
-                $cuenta = new Cuentas();
-                $cuenta->mesas_id = $mesas_id;
-                $cuenta->total = 0.00;
-                $cuenta->save();
+        $mesas_id = $mesas;
+        //Deberia de venir el objeto desde la ventana anterior
+        $mesa = Mesas::find($mesas);
+        if ($mesa->estado == 'Vacia') {
+            $cuenta = new Cuentas();
+            $cuenta->mesas_id = $mesas_id;
+            $cuenta->total = 0.00;
+            $cuenta->save();
 
-                //Habria que crear un metodo para hacer esto
-                $mesa->estado = 'Ocupada';
-                $mesa->save();
+            //Habria que crear un metodo para hacer esto
+            $mesa->estado = 'Ocupada';
+            $mesa->save();
 
-            } else if ($mesa->estado == 'Ocupada') {
-                $cuenta = Cuentas::firstOrCreate(['mesas_id' => $mesas_id]);
-            }
+        } else if ($mesa->estado == 'Ocupada') {
+            $cuenta = Cuentas::firstOrCreate(['mesas_id' => $mesas_id]);
+        }
 
-            $productos = Producto::orderBy('nombre')->get();
-            $categorias = Categoria::orderBy('id')->get();
+        $productos = Producto::orderBy('nombre')->get();
+        $categorias = Categoria::orderBy('id')->get();
 
 //            return redirect()-> route('cuentas.addProducto',['cuenta'=>$cuenta]);
-            return view('paginas/test/testAddProducto', compact('cuenta', 'productos', 'categorias'));
-        }
+        return view('paginas/test/testAddProducto', compact('cuenta', 'productos', 'categorias'));
+    }
 //        public function addProducto(Cuentas $cuenta){
 //            return view('paginas/test/testAddProducto', compact('cuenta'));
 //        }
+
+
+    public function terminarCuenta(int $id_cuenta)
+    {
+        $totalCuenta = 0;
+        $lineasCuenta = DB::table('linea_cuentas')
+            ->where([['cuentas_id', '=', $id_cuenta]])
+            ->get();
+        foreach ($lineasCuenta as $lineaCuenta) {
+            $precio = $lineaCuenta->precio;
+            $cantidad = $lineaCuenta->cantidad;
+            $precioLinea = $precio * $cantidad;
+            $totalCuenta = $totalCuenta + $precioLinea;
+        }
+        $cuenta = Cuentas::find($id_cuenta);
+        $cuenta->total = $totalCuenta;
+        $cuenta->save();
+        return redirect()->route('mesas.index');
     }
+}

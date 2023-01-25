@@ -7,80 +7,71 @@ use Illuminate\Http\Request;
 
 class MesasController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        $mesas = Mesas::orderby('id')->get();
+        return view('paginas/mesas/index', compact('mesas'));
+
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('paginas/mesas/create'/* ,compact('categorias')*/);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'id' => 'required',
+            'estado' => 'required'
+        ]);
+
+         $mesa = new Mesas();
+        $mesa->id = $request->id;
+        $mesa->estado = $request->estado;
+
+        $mesa->save();
+
+        return redirect()->route('mesas.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param \App\Models\Mesas $mesas
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Mesas $mesas)
+    public function show(Mesas $mesa)
     {
-        //
+        return view('paginas/mesas/show', compact('mesa' /* ,'categorias' */));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param \App\Models\Mesas $mesas
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Mesas $mesas)
+
+    public function edit(Mesas $mesa)
     {
-        //
+        return view('paginas/mesas/edit', compact('mesa' /* ,'categoria'*/));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Mesas $mesas
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Mesas $mesas)
+
+    public function update(Request $request, Mesas $mesa)
     {
-        //
+        $this->validate($request, [
+            'id' => 'required',
+            'estado' => 'required'
+
+        ]);
+
+        $mesa->id = $request->id;
+        $mesa->estado = $request->estado;
+
+
+        $mesa->save();
+
+        return redirect()->route('mesas.index');
+
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param \App\Models\Mesas $mesas
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Mesas $mesas)
+
+    public function destroy(Mesas $mesa)
     {
-        //
+        $mesa->delete();
+        return redirect()->route('mesas.index');
     }
 
 
