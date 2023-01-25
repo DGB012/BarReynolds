@@ -70,11 +70,6 @@
             return view('paginas/test/testCuenta');
         }
 
-        public function pagarCuenta()
-        {
-            return view('paginas/test/mostrarCuentaTerminada');
-        }
-
         public function crearModifCuenta(int $mesas)
         {
 //            $mesas_id = $mesas->id;
@@ -128,5 +123,13 @@
             $mesa->save();
 
             return redirect()->route('mesas.index');
+        }
+
+        public function pagarCuenta(int $cuenta_id)
+        {
+            $lineasCuenta = DB::table('linea_cuentas')
+                ->where([['cuentas_id', '=', $cuenta_id]])->get();
+
+            return view('paginas/test/mostrarCuentaTerminada', compact('lineasCuenta'));
         }
     }
