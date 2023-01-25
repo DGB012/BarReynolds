@@ -90,3 +90,8 @@ nav .start-contact, a:nth-child(5):hover ~ .animation {
     left: 470px;
     background-color: #e67e22;
 }
+
+.estadoMesa {
+    width: 100px;
+    height: 100px;
+}

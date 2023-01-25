@@ -9,7 +9,8 @@
         <x-mesas.mesas_campos/>
 
         <input class='button' type='submit' name='crear' value='Crear mesa'/>
-    </form><br/>
+    </form>
+    <br/>
 
     <a href='{{ route('mesas.index') }}'>Volver al listado</a>
 

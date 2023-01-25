@@ -24,12 +24,10 @@ class MesasController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'id' => 'required',
             'estado' => 'required'
         ]);
 
-         $mesa = new Mesas();
-        $mesa->id = $request->id;
+        $mesa = new Mesas();
         $mesa->estado = $request->estado;
 
         $mesa->save();
@@ -52,12 +50,9 @@ class MesasController extends Controller
     public function update(Request $request, Mesas $mesa)
     {
         $this->validate($request, [
-            'id' => 'required',
             'estado' => 'required'
-
         ]);
 
-        $mesa->id = $request->id;
         $mesa->estado = $request->estado;
 
 
