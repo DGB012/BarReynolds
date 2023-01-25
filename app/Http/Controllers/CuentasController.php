@@ -70,6 +70,11 @@
             return view('paginas/test/testCuenta');
         }
 
+        public function pagarCuenta()
+        {
+            return view('paginas/test/mostrarCuentaTerminada');
+        }
+
         public function crearModifCuenta(int $mesas)
         {
 //            $mesas_id = $mesas->id;
