@@ -1,21 +1,27 @@
 <x-zz.base>
 
-    <x-slot:tituloHead>Cuenta {{$cuenta->id}}</x-slot:tituloHead>
-    <x-slot:tituloVisible>Cuenta {{$cuenta->id}}</x-slot:tituloVisible>
+    <x-slot:tituloHead>Pagar Cuenta {{$cuenta_id}}</x-slot:tituloHead>
+    <x-slot:tituloVisible>Pagar Cuenta {{$cuenta_id}}</x-slot:tituloVisible>
 
     <br><br>
-    <p>{{$cuenta->id}}</p>
-    @foreach ($categorias as $categoria)
-        <button
-            onclick="cambiarVisibilidad('{{$categoria->nombre}}', '{{count($categorias)}}')">{{$categoria->nombre}}</button>
-    @endforeach
-    <br><br>
-    @foreach ($productos as $producto)
-        <button class='prueba' name={{$producto->categoria->nombre}}>
-            <a href='{{ route('lineaCuenta.crearLineaNueva',['cuenta_id'=>$cuenta->id,'producto_id' => $producto->id]) }}'>{{$producto->nombre}}</a>
-        </button>
-    @endforeach
-    <br><br>
-    <button><a href="{{route('cuentas.terminarCuenta',$cuenta->id)}}">Terminar cuenta</a></button>
+
+    <table border='1'>
+        <tr>
+            <th>CANTIDAD</th>
+            <th>PRODUCTO</th>
+            <th>PRECIO</th>
+        </tr>
+
+        @foreach($lineasCuenta as $lineaCuenta)
+            <tr>
+                <td>{{$lineaCuenta->cantidad}}</td>
+                <td>{{$lineaCuenta->productos->nombre}}</td>
+                <td>{{$lineaCuenta->precio}}</td>
+            </tr>
+        @endforeach
+    </table>
+
+    <button><a href="{{route('cuentas.pagarCuenta',$cuenta_id)}}">Pagar cuenta</a></button>
 
 </x-zz.base>
+

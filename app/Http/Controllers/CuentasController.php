@@ -130,6 +130,6 @@
             $lineasCuenta = DB::table('linea_cuentas')
                 ->where([['cuentas_id', '=', $cuenta_id]])->get();
 
-            return view('paginas/test/mostrarCuentaTerminada', compact('lineasCuenta'));
+            return view('paginas/test/mostrarCuentaTerminada', compact('lineasCuenta', 'cuenta_id'));
         }
     }

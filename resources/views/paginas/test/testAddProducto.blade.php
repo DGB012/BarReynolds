@@ -4,7 +4,7 @@
     <x-slot:tituloVisible>Cuenta {{$cuenta->id}}</x-slot:tituloVisible>
 
     <br><br>
-    <p>{{$cuenta->id}}</p>
+{{--    <p>{{$cuenta->id}}</p>--}}
     @foreach ($categorias as $categoria)
         <button
             onclick="cambiarVisibilidad('{{$categoria->nombre}}', '{{count($categorias)}}')">{{$categoria->nombre}}</button>
@@ -16,6 +16,6 @@
         </button>
     @endforeach
     <br><br>
-    <button><a href="{{route('cuentas.terminarCuenta',$cuenta->id)}}">Terminar cuenta</a></button>
+    <button><a href="{{route('cuentas.pagarCuenta',$cuenta->id)}}">Pagar cuenta</a></button>
 
 </x-zz.base>
