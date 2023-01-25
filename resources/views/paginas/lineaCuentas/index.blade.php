@@ -8,7 +8,7 @@
             <th>CANTIDAD</th>
             <th>PRECIO</th>
             <th>CUENTA_ID</th>
-            <th>PRODUCTO_ID</th>
+            <th>PRODUCTO</th>
         </tr>
 
         @foreach($lineasCuentas as $lineaCuenta)
@@ -16,7 +16,7 @@
                 <td>{{$lineaCuenta->cantidad}}</td>
                 <td>{{$lineaCuenta->precio}}</td>
                 <td>{{$lineaCuenta->cuentas_id}}</td>
-                <td>{{$lineaCuenta->producto_id}}</td>
+                <td>{{$lineaCuenta->producto->nombre}}</td>
             </tr>
         @endforeach
     </table>

@@ -10,10 +10,6 @@ class Cuentas extends Model
 {
     use HasFactory;
 
-    public function productos()
-    {
-        return $this->hasMany(Producto::class);
-    }
     /*
         public function actualizarTotal(){
 

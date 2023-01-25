@@ -135,5 +135,11 @@ class LineaCuentaController extends Controller
         return redirect()->route('mesas.index');
     }
 
+    public function pagarCuenta(int $cuenta_id)
+    {
+        $lineasCuenta = LineaCuenta::orderBy('id')->where(['cuentas_id' => $cuenta_id])->get();
+
+        return view('paginas/test/mostrarCuentaTerminada', compact('lineasCuenta', 'cuenta_id'));
+    }
 
 }
