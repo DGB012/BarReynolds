@@ -23,10 +23,10 @@
                 <td>{{$lineaCuenta->producto->nombre}}</td>
                 <td>{{$lineaCuenta->precio}}</td>
                 <td>{{$lineaCuenta->cantidad}}</td>
-                 @php
+                @php
                     $subtotal = $lineaCuenta->precio * $lineaCuenta->cantidad;
                     $total += $subtotal;
-                 @endphp
+                @endphp
                 <td>{{$subtotal}}</td>
             </tr>
         @endforeach
@@ -41,7 +41,8 @@
 
     <br><br>
 
-    <button><a href="{{route('cuentas.terminarCuenta',$cuenta_id)}}">Pagar cuenta</a></button>
+    <button><a href="{{route('cuentas.terminarCuenta',[$cuenta_id, $total])}}">Pagar
+            cuenta</a></button>
 
 </x-zz.base>
 

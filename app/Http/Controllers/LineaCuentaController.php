@@ -105,7 +105,7 @@ class LineaCuentaController extends Controller
             return redirect()-> route('mesas.index');
         }
     */
-    public function addProducto(int $cuenta_id, int $producto_id)
+    public function addProducto(int $cuenta_id, float $producto_id)
     {
         $lineasCuenta = DB::table('linea_cuentas')
             ->where([['cuentas_id', '=', $cuenta_id], ['producto_id', '=', $producto_id]])
