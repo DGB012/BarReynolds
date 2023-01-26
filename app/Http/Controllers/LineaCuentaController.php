@@ -123,13 +123,9 @@ class LineaCuentaController extends Controller
             $lineaCuenta->save();
 
         } else {
-
-            $linea = DB::table('linea_cuentas')
-                ->where([['cuentas_id', '=', $cuenta_id], ['producto_id', '=', $producto_id]])
-                ->first();/*->update(['cantidad' => 2])*/;
-            return ($linea);
-
-            /*NO ESTA TERMINADO*/
+            $lineaCuenta = LineaCuenta::firstOrCreate(['cuentas_id' => $cuenta_id, 'producto_id' => $producto_id]);
+            $lineaCuenta->cantidad=$lineaCuenta->cantidad+1;
+            $lineaCuenta->save();
         }
 
         return redirect()->route('mesas.index');
