@@ -16,6 +16,7 @@
         </button>
     @endforeach
     <br><br>
+    <button><a href="{{route('mesas.index')}}">Volver a las mesas</a></button>
     <button><a href="{{route('lineaCuentas.pagarCuenta',$cuenta->id)}}">Pagar cuenta</a></button>
 
 </x-zz.base>

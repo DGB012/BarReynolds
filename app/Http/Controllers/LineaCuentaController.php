@@ -110,6 +110,9 @@ class LineaCuentaController extends Controller
         $lineasCuenta = DB::table('linea_cuentas')
             ->where([['cuentas_id', '=', $cuenta_id], ['producto_id', '=', $producto_id]])
             ->get();
+        $mesa = DB::table('cuentas')
+            ->where([['id', '=', $cuenta_id]])
+            ->get();
 
         if ($lineasCuenta->count() == 0) {
             $lineaCuenta = new LineaCuenta();
@@ -131,8 +134,7 @@ class LineaCuentaController extends Controller
 
             /*NO ESTA TERMINADO*/
         }
-
-        return redirect()->route('mesas.index');
+        return redirect()->route('cuentas.crearModifCuenta', $mesa[0]->id);
     }
 
     public function pagarCuenta(int $cuenta_id)

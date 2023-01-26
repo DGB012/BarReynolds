@@ -88,7 +88,7 @@ class CuentasController extends Controller
             $mesa->save();
 
         } else if ($mesa->estado == 'Ocupada') {
-            $cuenta = Cuentas::firstOrCreate(['mesas_id' => $mesas_id, 'total' => 0.00]);
+            $cuenta = Cuentas::firstOrCreate(['mesas_id' => $mesas_id]);
         }
 
         $productos = Producto::orderBy('nombre')->get();
