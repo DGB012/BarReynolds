@@ -32,6 +32,23 @@
             </tr>
         @endforeach
 
+        <head><title>Mapa de Mesas</title></head>
+        <body>
+
+        <map name="mapa1">
+
+            <area shape="poly" coords="95,107,425,257" href=''>
+
+        </map>
+        <img src="/MapaMesas.png" usemap="#mapa1">
+
+        </body>
+
+
+
+
+    </table><br><br>
+
     </table>
     <br><br>
 
