@@ -7,7 +7,16 @@
         $total = 0;
     @endphp
 
+    <input hidden value={{$cuenta_id}} id="cuenta_id"></input>
+
     <br>
+
+    <select id="descuento">
+        <option selected disabled>Descuento</option>
+        <option value="0">0%</option>
+        <option value="5">5%</option>
+        <option value="10">10%</option>
+    </select>
 
     <table border='1'>
 
@@ -34,10 +43,11 @@
         <tr>
             <td colspan='2'></td>
             <td><strong>Total</strong></td>
-            <td>{{$total}}</td>
+            <td>{{$total - ($total*$descuento/100)}}</td>
         </tr>
 
     </table>
+
 
     <br><br>
 
