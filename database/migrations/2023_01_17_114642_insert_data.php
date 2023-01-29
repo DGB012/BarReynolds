@@ -485,6 +485,10 @@ return new class extends Migration {
         DB::table('mesas')->insert([
             'estado' => 'Vacia'
         ]);
+
+        DB::table('mesas')->insert([
+            'estado' => 'Vacia'
+        ]);
     }
 
 
