@@ -136,7 +136,7 @@ class LineaCuentaController extends Controller
 
         $producto->stock -= 1;
         $producto->save();
-        return redirect()->route('cuentas.crearModifCuenta', $mesa[0]->id);
+        return redirect()->route('cuentas.crearModifCuenta', $mesa[0]->mesas_id);
     }
 
     public function pagarCuenta(int $cuenta_id, int $descuento)
