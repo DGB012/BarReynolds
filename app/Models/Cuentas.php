@@ -9,7 +9,7 @@ use App\Models\Producto;
 class Cuentas extends Model
 {
     use HasFactory;
-
+//    protected $fillable = ['mesas_id','total'];
     /*
         public function actualizarTotal(){
 
