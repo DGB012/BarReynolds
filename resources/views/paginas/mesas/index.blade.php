@@ -7,7 +7,7 @@
 
         <div class="row align-items-center">
             @foreach($mesas as $mesa)
-                <div class="col-3">
+                <div class="col-2">
                     <table border="2px">
                         <tr>
                             <td style='margin: auto; text-align: center;'>
