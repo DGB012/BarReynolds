@@ -11,6 +11,7 @@
 
     <br>
 
+    <label for="descuento">Establecer descuento:</label>
     <select id="descuento">
         <option selected disabled>Descuento</option>
         <option value="0">0%</option>
