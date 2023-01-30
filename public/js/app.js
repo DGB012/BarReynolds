@@ -33,4 +33,6 @@ window.addEventListener("change", function () {
     var cuenta_id = document.getElementById("cuenta_id").value;
     window.location = "/pagarCuenta/" + cuenta_id + "/" + valorDescuento;
 
+
+
 });

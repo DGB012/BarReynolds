@@ -113,13 +113,16 @@ class LineaCuentaController extends Controller
         $mesa = DB::table('cuentas')
             ->where([['id', '=', $cuenta_id]])
             ->get();
+        /*
+        $producto = DB::table('productos')
+            ->where('id', '=', $producto_id)
+            ->get();
+        */
+        $producto = Producto::find($producto_id);
 
         if ($lineasCuenta->count() == 0) {
             $lineaCuenta = new LineaCuenta();
             $lineaCuenta->cuentas_id = $cuenta_id;
-            $producto = DB::table('productos')
-                ->where('id', '=', $producto_id)
-                ->first();
             $lineaCuenta->producto_id = $producto_id;
             $lineaCuenta->precio = $producto->precio;
             $lineaCuenta->cantidad = 1;
@@ -130,7 +133,10 @@ class LineaCuentaController extends Controller
             $lineaCuenta->cantidad=$lineaCuenta->cantidad+1;
             $lineaCuenta->save();
         }
-        return redirect()->route('cuentas.crearModifCuenta', $mesa[0]->mesas_id);
+
+        $producto->stock -= 1;
+        $producto->save();
+        return redirect()->route('cuentas.crearModifCuenta', $mesa[0]->id);
     }
 
     public function pagarCuenta(int $cuenta_id, int $descuento)
