@@ -71,7 +71,7 @@ class CuentasController extends Controller
         return view('paginas/test/testCuenta');
     }
 
-    public function crearModifCuenta(int $mesas)
+    public function crearModifCuenta(int $mesas, int $descuento)
     {
 //            $mesas_id = $mesas->id;
         $mesas_id = $mesas;
@@ -93,9 +93,10 @@ class CuentasController extends Controller
 
         $productos = Producto::orderBy('nombre')->get();
         $categorias = Categoria::orderBy('id')->get();
+        $lineasCuenta = LineaCuenta::orderBy('id')->where(['cuentas_id' => $cuenta->id])->get();
 
 //            return redirect()-> route('cuentas.addProducto',['cuenta'=>$cuenta]);
-        return view('paginas/test/testAddProducto', compact('cuenta', 'productos', 'categorias'));
+        return view('paginas/test/testAddProducto', compact('cuenta', 'productos', 'categorias', 'lineasCuenta', 'mesas_id', 'descuento'));
     }
 //        public function addProducto(Cuentas $cuenta){
 //            return view('paginas/test/testAddProducto', compact('cuenta'));

@@ -30,9 +30,8 @@ function cambiarVisibilidad(nombreCat, numeroCat) {
 window.addEventListener("change", function () {
 
     var valorDescuento = document.getElementById("descuento").value;
-    var cuenta_id = document.getElementById("cuenta_id").value;
-    window.location = "/pagarCuenta/" + cuenta_id + "/" + valorDescuento;
-
+    var mesa_id = document.getElementById("mesa_id").value;
+    window.location = "/crearModifCuenta/" + mesa_id + "/" + valorDescuento;
 
 
 });

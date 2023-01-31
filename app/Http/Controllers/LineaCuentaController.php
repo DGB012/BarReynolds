@@ -136,14 +136,7 @@ class LineaCuentaController extends Controller
 
         $producto->stock -= 1;
         $producto->save();
-        return redirect()->route('cuentas.crearModifCuenta', $mesa[0]->mesas_id);
-    }
-
-    public function pagarCuenta(int $cuenta_id, int $descuento)
-    {
-        $lineasCuenta = LineaCuenta::orderBy('id')->where(['cuentas_id' => $cuenta_id])->get();
-
-        return view('paginas/test/mostrarCuentaTerminada', compact('lineasCuenta', 'cuenta_id','descuento'));
+        return redirect()->route('cuentas.crearModifCuenta', [$mesa[0]->mesas_id, 0]);
     }
 
 }

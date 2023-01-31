@@ -20,14 +20,14 @@
                 @endforeach
                 <br><br>
                 <button><a href="{{route('mesas.index')}}">Volver a las mesas</a></button>
-{{--                <button><a href="{{route('lineaCuentas.pagarCuenta',[$cuenta->id, 0])}}">Pagar cuenta</a></button>--}}
+                {{--                <button><a href="{{route('lineaCuentas.pagarCuenta',[$cuenta->id, 0])}}">Pagar cuenta</a></button>--}}
             </div>
-            <div class='col-5'>
+            <div class='col-4'>
                 @php
                     $total = 0;
                 @endphp
 
-                <input hidden value={{$cuenta->id}} id="cuenta_id"></input>
+                <input hidden value={{$mesas_id}} id="mesa_id"></input>
 
                 <br>
 
@@ -72,7 +72,7 @@
 
                 <br><br>
 
-                <button><a href="{{route('cuentas.terminarCuenta',[$cuenta->id, $total])}}">Pagar
+                <button><a href="{{route('cuentas.terminarCuenta',[$cuenta->id, $total - ($total*$descuento/100)])}}">Pagar
                         cuenta</a></button>
             </div>
         </div>

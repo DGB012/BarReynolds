@@ -11,7 +11,7 @@
                     <table border="2px">
                         <tr>
                             <td style='margin: auto; text-align: center;'>
-                                <a class='mesa' href='{{ route ('cuentas.crearModifCuenta', $mesa -> id) }}'>
+                                <a class='mesa' href='{{ route ('cuentas.crearModifCuenta', [$mesa -> id,"0"]) }}'>
                                     Mesa {{$mesa->id}}<br>
                                     Estado: {{$mesa->estado}}
                                     <img class=' {{($mesa->estado == "Vacia") ? "mesaVacia" : "mesaOcupada"}}'
@@ -36,12 +36,12 @@
         /*@foreach($mesas as $mesa)
         <tr>
             <td>
-                <a href='{{ route ('cuentas.crearModifCuenta', $mesa -> id) }}'>
+                <a href='{{ route ('cuentas.crearModifCuenta', [$mesa -> id, 0]) }}'>
                         <img src="/mesa.png" width="80px" height="10%">{{ $mesa-> id }}
         </a>
     </td>
     <td>
-        <a href='{{ route ('cuentas.crearModifCuenta', $mesa -> id) }}'>
+        <a href='{{ route ('cuentas.crearModifCuenta', [$mesa -> id, 0]) }}'>
                         <img src='{{($mesa->estado == "Vacia") ? "/verde.png" : "/rojo.png"}}' class="estadoMesa">
                     </a>
                 </td>
