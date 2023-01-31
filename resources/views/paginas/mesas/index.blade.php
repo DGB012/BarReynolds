@@ -8,19 +8,17 @@
     <div class='container-fluid a'>
         <div class="row ">
             @foreach($mesas as $mesa)
-                <div class="col-1 b">
+                <div class="col-3 b">
                     <a href='{{ route("cuentas.crearModifCuenta",$mesa -> id) }}'>
-                        <img src='{{($mesa->estado == "Vacia") ? "/mesa".$mesa -> id."Dispo.png" : "/mesa".$mesa -> id."ocup.png"}}' >
+                        <img src='{{($mesa->estado == "Vacia") ? "/mesaD.png" : "/mesaO.png"}}' >
+                    <!--    <div class="row ">
+                            <div class="col-6 b">
+                                <img src='{ {($mesa->estado == "Vacia") ? "/mesaD.png" : "/mesaO.png"}}' >
+                            </div> -->
+                        <!--    </div> -->
                     </a>
                 </div>
             @endforeach
-                @foreach($mesas as $mesa)
-                    <div class="col-1 c">
-                        <a href='{{ route("cuentas.crearModifCuenta",$mesa -> id) }}'>
-                            <img src='{{($mesa->estado == "Vacia") ? "/mesa1Dispo.png" : "/mesa1ocup.png"}}' >
-                        </a>
-                    </div>
-                @endforeach
         </div>
     </div>
 
