@@ -95,3 +95,25 @@ nav .start-contact, a:nth-child(5):hover ~ .animation {
     width: 100px;
     height: 100px;
 }
+
+
+.a{
+    background-image: url("/salon.png");
+    background-size: auto;
+    background-repeat: no-repeat;
+    width:2000px ;
+    height: 1100px;
+
+}
+
+.b{
+  position: relative;
+    left: -430px;
+margin-top: 352px;
+}
+
+.c{
+    position: relative;
+    left: 50px;
+    margin-top: 392px;
+}
