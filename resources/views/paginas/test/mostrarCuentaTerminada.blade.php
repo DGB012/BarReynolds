@@ -52,7 +52,7 @@
 
     <br><br>
 
-    <button><a href="{{route('cuentas.terminarCuenta',[$cuenta_id, $total])}}">Pagar
+    <button><a href="{{route('cuentas.terminarCuenta',[$cuenta_id, $total - ($total*$descuento/100)])}}">Pagar
             cuenta</a></button>
 
 </x-zz.base>
