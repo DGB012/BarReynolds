@@ -6,10 +6,13 @@
     <x-slot:tituloVisible>Listado de Mesas</x-slot:tituloVisible>
 
     <div class='container-fluid a'>
-        <div class="row ">
+        <div class="row align-items-center ">
             @foreach($mesas as $mesa)
-                <div class="col-3 b">
-                    <a href='{{ route("cuentas.crearModifCuenta",$mesa -> id) }}'>
+                <div class="col-2 b">
+
+                    <a class="mesa" href='{{ route("cuentas.crearModifCuenta",$mesa -> id) }}'>
+
+
                         <img src='{{($mesa->estado == "Vacia") ? "/mesaD.png" : "/mesaO.png"}}' >
                     <!--    <div class="row ">
                             <div class="col-6 b">
