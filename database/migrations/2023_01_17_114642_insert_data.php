@@ -30,448 +30,480 @@ return new class extends Migration {
             'precio' => '2',
             'nombre' => 'Coca Cola',
             'categoria_id' => $bebidaId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => 'https://i.pinimg.com/originals/9f/ce/4c/9fce4c4592b45b3a35f4403bc6032d92.png'
         ]);
 
         DB::table('productos')->insert([
             'precio' => '2',
             'nombre' => 'Coca Cola Light',
             'categoria_id' => $bebidaId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => 'https://static.vecteezy.com/system/resources/previews/000/064/053/original/coca-cola-light-logo-vector.jpg'
         ]);
 
         DB::table('productos')->insert([
             'precio' => '2',
             'nombre' => 'Coca Cola Zero',
             'categoria_id' => $bebidaId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => 'https://pbs.twimg.com/profile_images/460808129404354560/bQElwmK6_400x400.png'
         ]);
 
         DB::table('productos')->insert([
             'precio' => '2.50',
             'nombre' => 'Fanta Naranja',
             'categoria_id' => $bebidaId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => 'https://primotavolino.com/wp-content/uploads/2020/11/fanta-naranja.jpg'
         ]);
 
         DB::table('productos')->insert([
             'precio' => '2.50',
             'nombre' => 'Fanta Limón',
             'categoria_id' => $bebidaId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => 'https://www.lagrosella.es/wp-content/uploads/2016/04/fanta-lim%C3%B3n.jpg'
         ]);
 
         DB::table('productos')->insert([
             'precio' => '2',
             'nombre' => 'Agua(1L)',
             'categoria_id' => $bebidaId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => 'https://www.aquadeus.es/cms/wp-content/uploads/2017/05/file-15-05-2017-08-36-57-aNLC3bJChZM5G.png'
         ]);
 
         DB::table('productos')->insert([
             'precio' => '2.30',
             'nombre' => 'Aquarius Naranja',
             'categoria_id' => $bebidaId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => 'https://www.depatios.com/wp-content/uploads/2018/09/AQ-NAR-300x300.png'
         ]);
 
         DB::table('productos')->insert([
             'precio' => '2.30',
             'nombre' => 'Aquarius Limón',
             'categoria_id' => $bebidaId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => 'https://www.depatios.com/wp-content/uploads/2018/09/AQ-LIM-300x300.png'
         ]);
 
         DB::table('productos')->insert([
             'precio' => '2.50',
             'nombre' => 'Vichy',
             'categoria_id' => $bebidaId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => 'https://www.vichycatalan.com/wp-content/uploads/2018/11/01-Vichy-Catalan.png'
         ]);
 
         DB::table('productos')->insert([
             'precio' => '2.30',
             'nombre' => 'Nestea',
             'categoria_id' => $bebidaId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => 'https://1000logos.net/wp-content/uploads/2021/05/Nestea-logo.png'
         ]);
 
         DB::table('productos')->insert([
             'precio' => '2.50',
             'nombre' => 'Red Bull',
             'categoria_id' => $bebidaId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => 'https://1000logos.net/wp-content/uploads/2021/04/Red-Bull-logo-500x281.png'
         ]);
 
         DB::table('productos')->insert([
             'precio' => '2.20',
             'nombre' => 'Schweppes',
             'categoria_id' => $bebidaId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => 'https://1000logos.net/wp-content/uploads/2020/07/Schweppes-Logo-1980-500x333.png'
         ]);
 
         DB::table('productos')->insert([
             'precio' => '2.50',
             'nombre' => 'Bitter Kas',
             'categoria_id' => $bebidaId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => 'https://cdn.domestika.org/c_fill,dpr_1.0,f_auto,h_1200,pg_1,t_base_params,w_1200/v1474646350/project-covers/000/279/058/279058-original-logo.jpg?1474646350'
         ]);
 
         DB::table('productos')->insert([
             'precio' => '2.50',
             'nombre' => 'Seven Up',
             'categoria_id' => $bebidaId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => 'https://1000marcas.net/wp-content/uploads/2019/12/Logo-7Up-500x281.png'
         ]);
 
         DB::table('productos')->insert([
             'precio' => '2.50',
             'nombre' => 'Sprite',
             'categoria_id' => $bebidaId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => 'https://1000marcas.net/wp-content/uploads/2020/10/Sprite-logo-600x375.png'
         ]);
 
         DB::table('productos')->insert([
             'precio' => '2.80',
             'nombre' => 'Jarra o Cañón con Limón Radler',
             'categoria_id' => $cervezaId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => 'http://regalosymuestrasgratis.com/wp-content/uploads/2015/05/muestras-gratis-cruzcampo-radler.jpg'
         ]);
 
         DB::table('productos')->insert([
             'precio' => '2.80',
             'nombre' => 'Jarra Tostada Export',
             'categoria_id' => $cervezaId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => 'https://ambar.com/wp-content/uploads/2022/02/AMBAR_EXPORT_WEB.png'
         ]);
 
         DB::table('productos')->insert([
             'precio' => '2',
             'nombre' => 'Caña Tostada',
             'categoria_id' => $cervezaId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => 'https://i1.wp.com/central-de-bebidas.com/wp-content/uploads/2020/10/2017_Mahou_00Tostada-scaled.jpg?fit=1920%2C2560&ssl=1'
         ]);
 
         DB::table('productos')->insert([
             'precio' => '1.80',
             'nombre' => 'Caña con Limón',
             'categoria_id' => $cervezaId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => 'https://www.ilcapo.net/wp-content/uploads/2020/07/cerveza-radler.jpg'
         ]);
 
         DB::table('productos')->insert([
             'precio' => '2.30',
             'nombre' => 'Estrella Galicia',
             'categoria_id' => $cervezaId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => 'https://cdn.shopify.com/s/files/1/0271/8158/0388/products/estrella-galicia-escerveza-3.jpg?v=1648893181'
         ]);
 
         DB::table('productos')->insert([
             'precio' => '1.30',
             'nombre' => 'Zurito Tostada',
             'categoria_id' => $cervezaId,
-            'stock' => '50'
-        ]);
-
-        DB::table('productos')->insert([
-            'precio' => '1.20',
-            'nombre' => 'Mini o Zurito',
-            'categoria_id' => $bebidaId,
-            'stock' => '50'
-        ]);
-
-        DB::table('productos')->insert([
-            'precio' => '2.50',
-            'nombre' => 'Jarra',
-            'categoria_id' => $bebidaId,
-            'stock' => '50'
-        ]);
-
-        DB::table('productos')->insert([
-            'precio' => '2.50',
-            'nombre' => 'Cañón',
-            'categoria_id' => $bebidaId,
-            'stock' => '50'
-        ]);
-
-        DB::table('productos')->insert([
-            'precio' => '1.80',
-            'nombre' => 'Caña',
-            'categoria_id' => $bebidaId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => 'https://cdn.shopify.com/s/files/1/0271/8158/0388/products/lefebvre-hopus-escerveza-3.jpg?v=1648893553'
         ]);
 
         DB::table('productos')->insert([
             'precio' => '12',
             'nombre' => 'El Coto',
             'categoria_id' => $vinoId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => 'https://sgfm.elcorteingles.es/SGFM/dctm/MEDIA03/201609/02/00118703100034____1__600x600.jpg'
         ]);
 
         DB::table('productos')->insert([
             'precio' => '12.50',
             'nombre' => 'Berona',
             'categoria_id' => $vinoId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => 'https://www.supermercadosmas.com/media/catalog/product/cache/d91bc430dbe2e3d899436802c7aa5233/a/e/aecoc_08410023223959_08410023223959_c1n1.jpg'
         ]);
 
         DB::table('productos')->insert([
             'precio' => '12.50',
             'nombre' => 'Rioja Brodon',
             'categoria_id' => $vinoId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => 'https://static.carrefour.es/hd_3200x_/img_pim_food/033280_00_1_Bodega.jpg'
         ]);
 
         DB::table('productos')->insert([
             'precio' => '12.50',
             'nombre' => 'Viña Salceda',
             'categoria_id' => $vinoId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => 'https://static.ulabox.com/media/174398_xl.jpg'
         ]);
 
         DB::table('productos')->insert([
             'precio' => '12',
             'nombre' => 'Marques de Cáceres',
             'categoria_id' => $vinoId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => 'https://static.ulabox.com/media/174098_xl.jpg'
         ]);
 
         DB::table('productos')->insert([
             'precio' => '9',
             'nombre' => 'Príncipe de Viana',
             'categoria_id' => $vinoId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => 'https://www.bouquetbrands.com/254-large_default/principe-de-viana-crianza.jpg'
         ]);
 
         DB::table('productos')->insert([
             'precio' => '12',
             'nombre' => 'Inurrieta 400',
             'categoria_id' => $vinoId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => 'https://jamonesromero.com/wp-content/uploads/2021/09/INURRIETA-400-1.png'
         ]);
 
         DB::table('productos')->insert([
             'precio' => '12',
             'nombre' => 'Albret',
             'categoria_id' => $vinoId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => 'https://static.carrefour.es/hd_1600x_/img_pim_food/832398_00_2_Bodega.jpg'
         ]);
 
         DB::table('productos')->insert([
             'precio' => '12.50',
             'nombre' => 'Pago de Cirsus',
             'categoria_id' => $vinoId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => 'https://jamonesromero.com/wp-content/uploads/2021/09/PAGO-VENDIMIA-SELECCIONADA-3.png'
         ]);
 
         DB::table('productos')->insert([
             'precio' => '14',
             'nombre' => 'Calamares a la andaluza',
             'categoria_id' => $racionesId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => 'https://pazzafamily.com/wp-content/uploads/2021/05/calamar-romana.png'
         ]);
 
         DB::table('productos')->insert([
             'precio' => '14',
             'nombre' => 'Ensalada de pimientos rojos asados',
             'categoria_id' => $racionesId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => 'https://4.bp.blogspot.com/-lIBmiubYc0M/W8i0GNNgMOI/AAAAAAAAOYY/XTBfJ4pX0UUmtnSbcePVfG8poZevqeDpACLcBGAs/s1600/ensalada%2Bde%2Bpimientos%2Brojos%2B%25283%2529.jpg'
         ]);
 
         DB::table('productos')->insert([
             'precio' => '20',
             'nombre' => 'Jamón Ibérico o lomo ibérico',
             'categoria_id' => $racionesId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Jam%C3%B3n_de_Guijuelo_004_%28cropped%29_4.3.JPG/1200px-Jam%C3%B3n_de_Guijuelo_004_%28cropped%29_4.3.JPG'
         ]);
 
         DB::table('productos')->insert([
             'precio' => '15.50',
             'nombre' => 'Mollejas de cordero al ajo',
             'categoria_id' => $racionesId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => 'https://okdiario.com/img/2019/12/07/receta-de-mollejas-de-cordero-al-ajillo.jpg'
         ]);
 
         DB::table('productos')->insert([
             'precio' => '3',
             'nombre' => 'Montado de chorizo de olla',
             'categoria_id' => $racionesId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => 'https://1.bp.blogspot.com/-Ilm3KcUFXNk/YNw4OIHAM5I/AAAAAAAE04I/TvzIScAukNkAcm0sUXSAj7Dv8p0QGcRxQCLcBGAsYHQ/s800/chorizo-2520109_1280.jpg'
         ]);
 
         DB::table('productos')->insert([
             'precio' => '2.80',
             'nombre' => 'Montado de lomo adobado a la plancha',
             'categoria_id' => $racionesId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => 'https://i0.wp.com/www.lacocinadeenloqui.com/wp-content/uploads/2019/04/Bocadillo-de-lomo-adobado-45.jpg?fit=1920%2C1280&ssl=1'
         ]);
 
         DB::table('productos')->insert([
             'precio' => '3.50',
             'nombre' => 'Montado de lomo de olla',
             'categoria_id' => $racionesId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => 'https://1.bp.blogspot.com/-uruzIHSDua8/WomNi8W9AtI/AAAAAAAAs9A/Rqm4It15zUYQASI-C_CTf1yWzRPMJ3H3wCLcBGAs/w1200-h630-p-k-no-nu/Montaditos%2Bde%2Blomo.JPG'
         ]);
 
         DB::table('productos')->insert([
             'precio' => '14',
             'nombre' => 'Milhoja de morcilla y calabaza a la plancha',
             'categoria_id' => $racionesId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => 'https://www.cocinasincarne.es/wp-content/uploads/2013/05/Pastel-salado-de-calabaza5.jpg'
         ]);
 
         DB::table('productos')->insert([
             'precio' => '12',
             'nombre' => 'Oreja a la plancha',
             'categoria_id' => $racionesId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => 'https://recetasdecocina.elmundo.es/wp-content/uploads/2022/04/oreja-a-la-plancha-crujiente.jpg'
         ]);
 
         DB::table('productos')->insert([
             'precio' => '6',
             'nombre' => 'Patatas bravas o mixtas',
             'categoria_id' => $racionesId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => 'https://www.goya.com/media/7699/spicy-potatoes.jpg?quality=80'
         ]);
 
         DB::table('productos')->insert([
             'precio' => '22',
             'nombre' => 'Entrecot Troceado',
             'categoria_id' => $comidaId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => ''
         ]);
 
         DB::table('productos')->insert([
             'precio' => '25',
             'nombre' => 'Paletilla de Lechal',
             'categoria_id' => $comidaId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => ''
         ]);
 
         DB::table('productos')->insert([
             'precio' => '18',
             'nombre' => 'Chuletillas de Lechal',
             'categoria_id' => $comidaId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => ''
         ]);
 
         DB::table('productos')->insert([
             'precio' => '25',
             'nombre' => 'Cachopo Asturiano',
             'categoria_id' => $comidaId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => ''
         ]);
 
         DB::table('productos')->insert([
             'precio' => '28',
             'nombre' => 'Pulpito de Ría a la Gallega',
             'categoria_id' => $comidaId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => ''
         ]);
 
         DB::table('productos')->insert([
             'precio' => '22',
             'nombre' => 'Pulpo a la Gallega',
             'categoria_id' => $comidaId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => ''
         ]);
 
         DB::table('productos')->insert([
             'precio' => '25',
             'nombre' => 'Pulpo a la Piedra',
             'categoria_id' => $comidaId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => ''
         ]);
 
         DB::table('productos')->insert([
             'precio' => '13',
             'nombre' => 'Sepia Fresca',
             'categoria_id' => $comidaId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => ''
         ]);
 
         DB::table('productos')->insert([
             'precio' => '13',
             'nombre' => 'Calamares a la Romana',
             'categoria_id' => $comidaId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => ''
         ]);
 
         DB::table('productos')->insert([
             'precio' => '10',
             'nombre' => 'Boquerones Fritos',
             'categoria_id' => $comidaId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => ''
         ]);
 
         DB::table('productos')->insert([
             'precio' => '14',
             'nombre' => 'Chipirones Encabollados o Plancha',
             'categoria_id' => $comidaId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => ''
         ]);
 
         DB::table('productos')->insert([
             'precio' => '16',
             'nombre' => 'Chopitos Fritos',
             'categoria_id' => $comidaId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => ''
         ]);
 
         DB::table('productos')->insert([
             'precio' => '22',
             'nombre' => 'Calamar de Pota a la Plancha',
             'categoria_id' => $comidaId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => ''
         ]);
 
         DB::table('productos')->insert([
             'precio' => '8',
             'nombre' => 'Ensalada Mixta',
             'categoria_id' => $comidaId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => ''
         ]);
 
         DB::table('productos')->insert([
             'precio' => '15',
             'nombre' => 'Ensalada de Pimientos con Ventresca',
             'categoria_id' => $comidaId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => ''
         ]);
 
         DB::table('productos')->insert([
             'precio' => '15',
             'nombre' => 'Ensalada de Tomate con Ventresca',
             'categoria_id' => $comidaId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => ''
         ]);
 
         DB::table('productos')->insert([
             'precio' => '8',
             'nombre' => 'Pimientos del Padrón',
             'categoria_id' => $comidaId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => ''
         ]);
 
         DB::table('productos')->insert([
             'precio' => '14',
             'nombre' => 'Parrillada de Verduras',
             'categoria_id' => $comidaId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => ''
         ]);
 
         DB::table('productos')->insert([
             'precio' => '14',
             'nombre' => 'Ensalada de Burrata',
             'categoria_id' => $comidaId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => ''
         ]);
 
         DB::table('productos')->insert([
             'precio' => '21',
             'nombre' => 'Alcachofas Naturales con Jamón',
             'categoria_id' => $comidaId,
-            'stock' => '50'
+            'stock' => '50',
+            'imagen' => ''
         ]);
 
         DB::table('mesas')->insert([

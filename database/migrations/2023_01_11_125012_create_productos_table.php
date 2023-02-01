@@ -18,6 +18,7 @@ return new class extends Migration {
             $table->timestamps();
             $table->decimal('precio', 10, 2);
             $table->string('nombre', 50);
+            $table->string('imagen', 250);
             $table->foreignIdFor(Categoria::class)->constrained()
                 ->onUpdate('cascade');
             $table->integer('stock');
