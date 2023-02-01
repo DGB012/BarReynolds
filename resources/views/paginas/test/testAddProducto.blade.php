@@ -8,6 +8,8 @@
     <div class='container-fluid'>
         <div class='row'>
             <div class='col-8'>
+                <button><a href="{{route('mesas.index')}}">&larr; Volver a las mesas</a></button>
+                <br><br>
                 @foreach ($categorias as $categoria)
                     <button
                         onclick="cambiarVisibilidad('{{$categoria->nombre}}', '{{count($categorias)}}')">{{$categoria->nombre}}</button>
@@ -19,8 +21,6 @@
                         <a href='{{ route('lineaCuenta.crearLineaNueva',['cuenta_id'=>$cuenta->id,'producto_id' => $producto->id]) }}'>{{$producto->nombre}}</a>
                     </button>
                 @endforeach
-                <br><br>
-                <button><a href="{{route('mesas.index')}}">Volver a las mesas</a></button>
                 {{--                <button><a href="{{route('lineaCuentas.pagarCuenta',[$cuenta->id, 0])}}">Pagar cuenta</a></button>--}}
             </div>
             <div class='col-4'>

@@ -351,7 +351,7 @@ return new class extends Migration {
             'nombre' => 'Entrecot Troceado',
             'categoria_id' => $comidaId,
             'stock' => '50',
-            'imagen' => ''
+            'imagen' => 'https://media-cdn.tripadvisor.com/media/photo-s/0e/94/2f/01/entrecot-de-vaca-rubia.jpg'
         ]);
 
         DB::table('productos')->insert([
@@ -359,7 +359,7 @@ return new class extends Migration {
             'nombre' => 'Paletilla de Lechal',
             'categoria_id' => $comidaId,
             'stock' => '50',
-            'imagen' => ''
+            'imagen' => 'https://imag.bonviveur.com/paletilla-de-cordero-al-horno.jpg'
         ]);
 
         DB::table('productos')->insert([
@@ -367,7 +367,7 @@ return new class extends Migration {
             'nombre' => 'Chuletillas de Lechal',
             'categoria_id' => $comidaId,
             'stock' => '50',
-            'imagen' => ''
+            'imagen' => 'https://jetextramar.com/wp-content/uploads/2021/04/chuletillas-de-cordero-lechal.jpg'
         ]);
 
         DB::table('productos')->insert([
@@ -375,7 +375,7 @@ return new class extends Migration {
             'nombre' => 'Cachopo Asturiano',
             'categoria_id' => $comidaId,
             'stock' => '50',
-            'imagen' => ''
+            'imagen' => 'https://sivarious.com/wp-content/uploads/2018/04/CACHOPO.jpg'
         ]);
 
         DB::table('productos')->insert([
@@ -383,7 +383,7 @@ return new class extends Migration {
             'nombre' => 'Pulpito de Ría a la Gallega',
             'categoria_id' => $comidaId,
             'stock' => '50',
-            'imagen' => ''
+            'imagen' => 'https://www.tee-travel.com/blog/wp-content/uploads/2021/08/Gastronomia-Camino-Frances-pulpo-feira.jpg'
         ]);
 
         DB::table('productos')->insert([
@@ -391,7 +391,7 @@ return new class extends Migration {
             'nombre' => 'Pulpo a la Gallega',
             'categoria_id' => $comidaId,
             'stock' => '50',
-            'imagen' => ''
+            'imagen' => 'https://i.ytimg.com/vi/oWjmKhA6NE0/maxresdefault.jpg'
         ]);
 
         DB::table('productos')->insert([
@@ -399,7 +399,7 @@ return new class extends Migration {
             'nombre' => 'Pulpo a la Piedra',
             'categoria_id' => $comidaId,
             'stock' => '50',
-            'imagen' => ''
+            'imagen' => 'https://media-cdn.tripadvisor.com/media/photo-s/14/c0/ab/19/nuestro-pulpo-a-la-piedra.jpg'
         ]);
 
         DB::table('productos')->insert([
@@ -407,7 +407,7 @@ return new class extends Migration {
             'nombre' => 'Sepia Fresca',
             'categoria_id' => $comidaId,
             'stock' => '50',
-            'imagen' => ''
+            'imagen' => 'https://www.recetasderechupete.com/wp-content/uploads/2021/04/Sepia-al-ajillo.jpg'
         ]);
 
         DB::table('productos')->insert([
@@ -415,7 +415,7 @@ return new class extends Migration {
             'nombre' => 'Calamares a la Romana',
             'categoria_id' => $comidaId,
             'stock' => '50',
-            'imagen' => ''
+            'imagen' => 'https://www.recetasderechupete.com/wp-content/uploads/2021/11/Calamares-a-la-romana.jpg'
         ]);
 
         DB::table('productos')->insert([
@@ -423,7 +423,7 @@ return new class extends Migration {
             'nombre' => 'Boquerones Fritos',
             'categoria_id' => $comidaId,
             'stock' => '50',
-            'imagen' => ''
+            'imagen' => 'https://recetasdecocina.elmundo.es/wp-content/uploads/2020/10/boquerones-fritos.jpg'
         ]);
 
         DB::table('productos')->insert([
@@ -431,7 +431,7 @@ return new class extends Migration {
             'nombre' => 'Chipirones Encabollados o Plancha',
             'categoria_id' => $comidaId,
             'stock' => '50',
-            'imagen' => ''
+            'imagen' => 'https://www.pequerecetas.com/wp-content/uploads/2020/01/chipirones-encebollados.jpg'
         ]);
 
         DB::table('productos')->insert([
@@ -439,7 +439,7 @@ return new class extends Migration {
             'nombre' => 'Chopitos Fritos',
             'categoria_id' => $comidaId,
             'stock' => '50',
-            'imagen' => ''
+            'imagen' => 'https://okdiario.com/img/recetas/2017/10/24/chopitos-fritos-2.jpg'
         ]);
 
         DB::table('productos')->insert([
@@ -447,7 +447,7 @@ return new class extends Migration {
             'nombre' => 'Calamar de Pota a la Plancha',
             'categoria_id' => $comidaId,
             'stock' => '50',
-            'imagen' => ''
+            'imagen' => 'https://imag.bonviveur.com/calamar-a-la-plancha.jpg'
         ]);
 
         DB::table('productos')->insert([
@@ -455,7 +455,7 @@ return new class extends Migration {
             'nombre' => 'Ensalada Mixta',
             'categoria_id' => $comidaId,
             'stock' => '50',
-            'imagen' => ''
+            'imagen' => 'https://imag.bonviveur.com/imagen-de-la-ensalada-mixta.jpg'
         ]);
 
         DB::table('productos')->insert([
@@ -463,7 +463,7 @@ return new class extends Migration {
             'nombre' => 'Ensalada de Pimientos con Ventresca',
             'categoria_id' => $comidaId,
             'stock' => '50',
-            'imagen' => ''
+            'imagen' => 'https://static3.elcomercio.es/www/multimedia/201907/25/media/cortadas/Imagen%20adria-keR-U80839036214COC-1248x770@El%20Comercio.jpg'
         ]);
 
         DB::table('productos')->insert([
@@ -471,7 +471,7 @@ return new class extends Migration {
             'nombre' => 'Ensalada de Tomate con Ventresca',
             'categoria_id' => $comidaId,
             'stock' => '50',
-            'imagen' => ''
+            'imagen' => 'https://cdn.elcocinerocasero.com/imagen/paso-receta/1000/2021-01-07-19-10-53/ensalada-de-ventresca-y-tomate-paso-6.jpeg'
         ]);
 
         DB::table('productos')->insert([
@@ -479,7 +479,7 @@ return new class extends Migration {
             'nombre' => 'Pimientos del Padrón',
             'categoria_id' => $comidaId,
             'stock' => '50',
-            'imagen' => ''
+            'imagen' => 'https://elmundoenrecetas.s3.amazonaws.com/uploads/recipe/picture/740/pimientos_del_padron.webp'
         ]);
 
         DB::table('productos')->insert([
@@ -487,7 +487,7 @@ return new class extends Migration {
             'nombre' => 'Parrillada de Verduras',
             'categoria_id' => $comidaId,
             'stock' => '50',
-            'imagen' => ''
+            'imagen' => 'https://imag.bonviveur.com/emplatado-de-la-parrillada-de-verduras-a-la-plancha.jpg'
         ]);
 
         DB::table('productos')->insert([
@@ -495,7 +495,7 @@ return new class extends Migration {
             'nombre' => 'Ensalada de Burrata',
             'categoria_id' => $comidaId,
             'stock' => '50',
-            'imagen' => ''
+            'imagen' => 'https://www.enriquetomas.com/es/blog/wp-content/uploads/2022/07/burrata-portada.jpg'
         ]);
 
         DB::table('productos')->insert([
@@ -503,7 +503,7 @@ return new class extends Migration {
             'nombre' => 'Alcachofas Naturales con Jamón',
             'categoria_id' => $comidaId,
             'stock' => '50',
-            'imagen' => ''
+            'imagen' => 'https://okdiario.com/img/recetas/2017/05/25/alcachofas-con-jamon.jpg'
         ]);
 
         DB::table('mesas')->insert([
