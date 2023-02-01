@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Producto;
 
 class Cuentas extends Model
 {
     use HasFactory;
+//    protected $fillable = ['mesas_id','total'];
     /*
         public function actualizarTotal(){
 

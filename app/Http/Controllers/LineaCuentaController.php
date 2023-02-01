@@ -105,35 +105,45 @@ class LineaCuentaController extends Controller
             return redirect()-> route('mesas.index');
         }
     */
-    public function addProducto(int $cuenta_id, int $producto_id)
+    public function addProducto(int $cuenta_id, float $producto_id)
     {
         $lineasCuenta = DB::table('linea_cuentas')
             ->where([['cuentas_id', '=', $cuenta_id], ['producto_id', '=', $producto_id]])
             ->get();
+        $mesa = DB::table('cuentas')
+            ->where([['id', '=', $cuenta_id]])
+            ->get();
+        /*
+        $producto = DB::table('productos')
+            ->where('id', '=', $producto_id)
+            ->get();
+        */
+        $producto = Producto::find($producto_id);
 
         if ($lineasCuenta->count() == 0) {
             $lineaCuenta = new LineaCuenta();
             $lineaCuenta->cuentas_id = $cuenta_id;
-            $producto = DB::table('productos')
-                ->where('id', '=', $producto_id)
-                ->first();
             $lineaCuenta->producto_id = $producto_id;
             $lineaCuenta->precio = $producto->precio;
             $lineaCuenta->cantidad = 1;
             $lineaCuenta->save();
 
         } else {
-
-            $linea = DB::table('linea_cuentas')
-                ->where([['cuentas_id', '=', $cuenta_id], ['producto_id', '=', $producto_id]])
-                ->first();/*->update(['cantidad' => 2])*/;
-            return ($linea);
-
-            /*NO ESTA TERMINADO*/
+            $lineaCuenta = LineaCuenta::firstOrCreate(['cuentas_id' => $cuenta_id, 'producto_id' => $producto_id]);
+            $lineaCuenta->cantidad=$lineaCuenta->cantidad+1;
+            $lineaCuenta->save();
         }
 
-        return redirect()->route('mesas.index');
+        $producto->stock -= 1;
+        $producto->save();
+        return redirect()->route('cuentas.crearModifCuenta', $mesa[0]->mesas_id);
     }
 
+    public function pagarCuenta(int $cuenta_id, int $descuento)
+    {
+        $lineasCuenta = LineaCuenta::orderBy('id')->where(['cuentas_id' => $cuenta_id])->get();
+
+        return view('paginas/test/mostrarCuentaTerminada', compact('lineasCuenta', 'cuenta_id','descuento'));
+    }
 
 }

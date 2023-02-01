@@ -5,12 +5,13 @@ import 'https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js';
 import 'https://cdn.jsdelivr.net/npm/bootstrap@5.0/dist/js/bootstrap.bundle.min.js';
  */
 
-window.addEventListener("load", function (){
+window.addEventListener("load", function () {
     var prueba = document.getElementsByClassName('prueba');
-        for (var f = 0; f < prueba.length; f++) {
-            prueba[f].style.visibility = "hidden";
-        }
+    for (var f = 0; f < prueba.length; f++) {
+        prueba[f].style.visibility = "hidden";
+    }
 });
+
 function cambiarVisibilidad(nombreCat, numeroCat) {
     for (var i = 0; i < numeroCat; i++) {
         var productos = document.getElementsByName(nombreCat);
@@ -25,3 +26,13 @@ function cambiarVisibilidad(nombreCat, numeroCat) {
         }
     }
 }
+
+window.addEventListener("change", function () {
+
+    var valorDescuento = document.getElementById("descuento").value;
+    var cuenta_id = document.getElementById("cuenta_id").value;
+    window.location = "/pagarCuenta/" + cuenta_id + "/" + valorDescuento;
+
+
+
+});

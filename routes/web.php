@@ -28,13 +28,14 @@ Route::resource('mesas', MesasController::class);
 Route::get('/lineaCuentaAddProducto/{cuenta_id}/{producto_id}', [LineaCuentaController::class, 'addProducto'])->name('lineaCuenta.crearLineaNueva');
 
 Route::resource('lineaCuentas', LineaCuentaController::class);
-
+//Route::get('/pagarCuenta/{cuenta_id}', [LineaCuentaController::class, 'pagarCuenta'])->name('lineaCuentas.pagarCuenta');
+Route::get('/pagarCuenta/{cuenta_id}/{descuento}', [LineaCuentaController::class, 'pagarCuenta'])->name('lineaCuentas.pagarCuenta');
 
 Route::get('/cuentas/test', [CuentasController::class, 'test'])->name('test');
 Route::get('/cuentas/addProducto/{cuenta}', [CuentasController::class, 'addProducto'])->name('cuentas.addProducto');
-Route::get('/cuentas/terminarCuenta/{cuenta}', [CuentasController::class, 'terminarCuenta'])->name('cuentas.terminarCuenta');
+//Route::get('/cuentas/terminarCuenta/{cuenta_id}/{totalCuenta}', [CuentasController::class, 'terminarCuenta'])->name('cuentas.terminarCuenta');
 Route::get('/crearModifCuenta/{mesa_id}', [CuentasController::class, 'crearModifCuenta'])->name('cuentas.crearModifCuenta');
-Route::get('/terminarCuenta/{cuenta_id}', [CuentasController::class, 'terminarCuenta'])->name('cuentas.terminarCuenta');
+Route::get('/terminarCuenta/{cuenta_id}/{totalCuenta}', [CuentasController::class, 'terminarCuenta'])->name('cuentas.terminarCuenta');
 
 
 Route::resource('cuentas', CuentasController::class);
