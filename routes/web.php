@@ -1,11 +1,13 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\MesasController;
 use App\Http\Controllers\CuentasController;
 use App\Http\Controllers\LineaCuentaController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +21,18 @@ use App\Http\Controllers\LineaCuentaController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login'); // estaba welcome para que salga la pag por defecto de laravel
+});
+
+Route::get('/mesas', function () {
+    $mesas = \App\Models\Mesas::orderBy('id')->get();
+    return view('mesas/index', compact('mesas'));
+})->middleware(['auth', 'verified'])->name('mesas/index');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 Route::resource('categorias', CategoriaController::class);
 Route::resource('productos', ProductoController::class);
@@ -40,4 +53,4 @@ Route::get('/terminarCuenta/{cuenta_id}/{totalCuenta}', [CuentasController::clas
 
 Route::resource('cuentas', CuentasController::class);
 
-
+require __DIR__.'/auth.php';
