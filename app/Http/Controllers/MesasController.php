@@ -21,14 +21,10 @@ class MesasController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store()
     {
-        $this->validate($request, [
-            'estado' => 'required'
-        ]);
-
         $mesa = new Mesas();
-        $mesa->estado = $request->estado;
+        $mesa->estado = "Vacia";
 
         $mesa->save();
 

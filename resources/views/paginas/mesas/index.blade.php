@@ -24,7 +24,10 @@
     </div>
 
 
-    <button><a href='{{ route('mesas.create') }}'> Crear </a></button>
+    <form action='{{ route('mesas.store') }}' method='post'>
+        @method('post')
+        <input class='button' type='submit' name='crear' value='Crear mesa'/>
+    </form>
     <br><br>
 
     <a href='{{ route('productos.index') }}'>Listado de Productos</a>
