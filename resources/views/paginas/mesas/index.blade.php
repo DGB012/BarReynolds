@@ -28,8 +28,5 @@
         @method('post')
         <input class='button' type='submit' name='crear' value='Crear mesa'/>
     </form>
-    <br><br>
-
-    <a href='{{ route('productos.index') }}'>Listado de Productos</a>
 
 </x-zz.base>
