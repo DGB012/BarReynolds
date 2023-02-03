@@ -8,7 +8,7 @@
     <div class='a'>
         @foreach($mesas as $mesa)
             <div class="c" style='width: 5%; height: 5%;top:{{$mesa->y}}%;  left:{{$mesa->x}}%; background-color:{{($mesa->estado == "Vacia") ? "green" : "red"}};'>
-            {{--            <div class="c" style='top:{{$mesa->y}}%;  left:{{$mesa->x}}%;'>--}}
+                {{--            <div class="c" style='top:{{$mesa->y}}%;  left:{{$mesa->x}}%;'>--}}
                 <a href='{{ route("cuentas.crearModifCuenta",$mesa -> id) }}'>
                     <img src='{{($mesa->estado == "Vacia") ? "/mesaD.png" : "/mesaO.png"}}'>
                 </a>
@@ -21,5 +21,5 @@
         @method('post')
         <input class='button' type='submit' name='crear' value='Crear mesa'/>
     </form>
-
+    <script src="/js/moverMesas.js"></script>
 </x-zz.base>

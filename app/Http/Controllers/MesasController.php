@@ -64,6 +64,11 @@ class MesasController extends Controller
         $mesa->delete();
         return redirect()->route('mesas.index');
     }
+    public function moverMesas()
+    {
+        $mesas = Mesas::orderby('id')->get();
+        return view('paginas/test/moverMesas', compact('mesas'));
 
+    }
 
 }
