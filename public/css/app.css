@@ -97,7 +97,7 @@ nav .start-contact, a:nth-child(5):hover ~ .animation {
 }
 
 
-.a {
+.fondo {
     /*background-image: url("/salon.png");*/
     background-color: cornflowerblue;
     background-size: cover;
@@ -107,14 +107,18 @@ nav .start-contact, a:nth-child(5):hover ~ .animation {
     position:relative;
 }
 
-.b {
-    width: 100%;
-    height: 285px;
-}
 
-.c {
+.fondo .mesa {
+    width: 5%;
+    height: 5%;
     position: absolute;
-    /*margin-top: 20px;*/
-    /*margin-left: 100px;*/
+    background-size: 100% 100%;
+    font-size:20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fondo .mesa a{
+    text-decoration: none;
 }
 

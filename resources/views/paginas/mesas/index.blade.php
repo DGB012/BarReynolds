@@ -5,12 +5,12 @@
     <x-slot:tituloHead>Mesas</x-slot:tituloHead>
     <x-slot:tituloVisible>Listado de Mesas</x-slot:tituloVisible>
 
-    <div class='a'>
+    <div class='fondo' id="fondo">
         @foreach($mesas as $mesa)
-            <div class="c" style='width: 5%; height: 5%;top:{{$mesa->y}}%;  left:{{$mesa->x}}%; background-color:{{($mesa->estado == "Vacia") ? "green" : "red"}};'>
-{{--                        <div class="c" style='top:{{$mesa->y}}%;  left:{{$mesa->x}}%;'>--}}
-                <a href='{{ route("cuentas.crearModifCuenta",$mesa -> id) }}'>
-                    <img src='{{($mesa->estado == "Vacia") ? "/mesaD.png" : "/mesaO.png"}}'style='width: 5%; height: 5%;'>
+            <div class="mesa" style='top:{{$mesa->y}}%;  left:{{$mesa->x}}%;
+            background-image:url({{($mesa->estado == "Vacia") ? "/mesaD.png" : "/mesaO.png"}});'>
+                <a href='{{ route("cuentas.crearModifCuenta",$mesa -> id) }}' >
+                    <p>{{$mesa->id}}</p>
                 </a>
             </div>
         @endforeach
