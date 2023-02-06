@@ -25,6 +25,8 @@
         {
             $mesa = new Mesas();
             $mesa->estado = "Vacia";
+            $mesa->x = 80;
+            $mesa->y = 80;
 
             $mesa->save();
 

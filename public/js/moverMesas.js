@@ -3,7 +3,7 @@ var divs = parent.children;
 var isDown = false;
 var mesaMover = null;
 
-var mesaPorcentajeAncho = 5;
+var mesaPorcentajeAncho = 7;
 var mesaPorcentajeAlto = 5;
 
 var cincoPerX = parent.offsetWidth * (mesaPorcentajeAncho / 100);

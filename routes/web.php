@@ -23,7 +23,7 @@
     });
     Route::resource('categorias', CategoriaController::class);
     Route::resource('productos', ProductoController::class);
-    Route::get('/moverMesas', [MesasController::class, 'moverMesas']);
+    Route::get('/moverMesas', [MesasController::class, 'moverMesas'])->name('mesas.moverMesas');
     Route::post('/guardarNuevaPosicionMesas', [MesasController::class, 'guardarNuevaPosicionMesas'])->name('mesas.guardarNuevaPosicionMesas');
     Route::resource('mesas', MesasController::class);
 

@@ -16,8 +16,12 @@
 
 
         <input class='button' type='submit' name='crear' value='Guardar posicion mesas' onclick="guardarPosicionMesas();"/>
+    <form action="{{route("mesas.index")}}" }>
+        <input type="submit" value="Volver a mesas" />
+    </form>
 {{--    <form action='{{ route('mesas.store') }}' method='post'>--}}
 {{--        @method('post')--}}
 {{--        <input class='button' type='submit' name='crear' value='Guardar posicion mesas'/>--}}
 {{--    </form>--}}
+    <script src="/js/moverMesas.js" defer></script>
 </x-zz.base>

@@ -22,6 +22,6 @@
 
 {{--    <x-zz.pie />--}}
 <script src="/js/app.js"></script>
-<script src="/js/moverMesas.js" defer></script>
+
 </body>
 </html>

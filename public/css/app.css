@@ -108,9 +108,10 @@ nav .start-contact, a:nth-child(5):hover ~ .animation {
 }
 
 
+
 .fondo .mesa {
-    width: 5%;
-    height: 5%;
+    width: 7vw;
+    height: 7vw;
     position: absolute;
     background-size: 100% 100%;
     font-size:20px;
@@ -120,5 +121,9 @@ nav .start-contact, a:nth-child(5):hover ~ .animation {
 }
 .fondo .mesa a{
     text-decoration: none;
+    color: black;
+}
+.fondo .mesa p{
+    color: black;
 }
 
