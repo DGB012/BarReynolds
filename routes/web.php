@@ -23,9 +23,10 @@ Route::get('/', function () {
 });
 Route::resource('categorias', CategoriaController::class);
 Route::resource('productos', ProductoController::class);
-Route::resource('mesas', MesasController::class);
+    Route::get('/moverMesas', [MesasController::class, 'moverMesas']);
+    Route::resource('mesas', MesasController::class);
 
-Route::get('/lineaCuentaAddProducto/{cuenta_id}/{producto_id}', [LineaCuentaController::class, 'addProducto'])->name('lineaCuenta.crearLineaNueva');
+    Route::get('/lineaCuentaAddProducto/{cuenta_id}/{producto_id}', [LineaCuentaController::class, 'addProducto'])->name('lineaCuenta.crearLineaNueva');
 
 Route::resource('lineaCuentas', LineaCuentaController::class);
 //Route::get('/pagarCuenta/{cuenta_id}', [LineaCuentaController::class, 'pagarCuenta'])->name('lineaCuentas.pagarCuenta');

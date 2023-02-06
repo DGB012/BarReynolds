@@ -1,11 +1,17 @@
-var parent = document.getElementsByClassName('a');
+var parent = document.getElementById('fondo');
 var divs = parent.children;
 var isDown = false;
 var mesaMover = null;
+
+var mesaPorcentajeAncho=5;
+var mesaPorcentajeAlto=5;
+
+var cincoPerX = parent.offsetWidth * (mesaPorcentajeAncho/100);
+var cincoPerY = parent.offsetHeight * (mesaPorcentajeAncho/100);
 for (let i = 0; i < divs.length; i++) {
+    console.log("a")
     divs[i].addEventListener('mousedown', function (e) {
         mesaMover = e.target
-        console.log(mesaMover.getBoundingClientRect());
         isDown = true;
         offset = [
             divs[i].offsetLeft - e.clientX,
@@ -16,13 +22,6 @@ for (let i = 0; i < divs.length; i++) {
     document.addEventListener('mouseup', function () {
         isDown = false;
         checkTableCollapse(mesaMover);
-        for (let i = 0; i < divs.length; i++) {
-            if (divs[i] === mesaMover) {
-            } else {
-                checkTableCollapse(divs[i]);
-            }
-        }
-
     }, true);
 
     document.addEventListener('mousemove', function (event) {
@@ -33,32 +32,54 @@ for (let i = 0; i < divs.length; i++) {
                 y: event.clientY
             };
 
-            var newLeft = Math.min(90, Math.max(5, (posicionPuntero.x + offset[0]) / parent.offsetWidth * 100));
-            var newTop = Math.min(90, Math.max(10, (posicionPuntero.y + offset[1]) / parent.offsetHeight * 100));
+            var newLeft = Math.min(95, Math.max(5, (posicionPuntero.x + offset[0]) / parent.offsetWidth * 100));
+            var newTop = Math.min(95, Math.max(5, (posicionPuntero.y + offset[1]) / parent.offsetHeight * 100));
             mesaMover.style.left = newLeft + '%';
             mesaMover.style.top = newTop + '%';
         }
     }, true);
 }
-function checkTableCollapse(mesa){
-    var mesaX = mesa.offsetLeft;
-    var mesaY = mesa.offsetTop;
+
+function checkTableCollapse(mesa) {
 
     for (let i = 0; i < divs.length; i++) {
         if (divs[i] === mesa) {
-        } else {
-            var cincoPerX = parent.offsetWidth * 0.05;
-            var cincoPerY = parent.offsetHeight * 0.05;
-            if (((mesaX > divs[i].offsetLeft && mesaX < divs[i].offsetLeft + cincoPerX) ||
-                    (mesaX + cincoPerX > divs[i].offsetLeft && mesaX + cincoPerX < divs[i].offsetLeft + cincoPerX)) &&
-                ((mesaY > divs[i].offsetTop && mesaY < divs[i].offsetTop + cincoPerY) ||
-                    (mesaY + cincoPerY > divs[i].offsetTop && mesaY + cincoPerY < divs[i].offsetTop + cincoPerY))) {
-                console.log(cincoPerX);
-                mesa.style.left = ((divs[i].offsetLeft/ parent.offsetWidth * 100)+cincoPerX/ parent.offsetWidth * 100) + '%';
-                mesa.style.top = ((divs[i].offsetTop/ parent.offsetHeight * 100)+cincoPerY/ parent.offsetHeight * 100) + '%';
-            }
-
+            continue;
+        }
+        if (checkOverlapMesas(mesa, divs[i])) {
+            moverMesa(mesa, divs[i]);
         }
 
     }
+}
+function checkOverlapMesas(mesa1, mesa2) {
+    var mesa1X = mesa1.offsetLeft;
+    var mesa1Y = mesa1.offsetTop;
+    var mesa2X = mesa2.offsetLeft;
+    var mesa2Y = mesa2.offsetTop;
+    return((mesa1X >= mesa2X && mesa1X <= mesa2X + cincoPerX) ||
+            (mesa1X + cincoPerX >= mesa2X && mesa1X + cincoPerX <= mesa2X + cincoPerX)) &&
+        ((mesa1Y >= mesa2Y && mesa1Y <= mesa2Y + cincoPerY) ||
+            (mesa1Y + cincoPerY >= mesa2Y && mesa1Y + cincoPerY <= mesa2Y + cincoPerY));
+
+}
+function moverMesa(mesa, mesaEncima) {
+
+    var newX = ((mesaEncima.offsetLeft/ parent.offsetWidth * 100) + cincoPerX / parent.offsetWidth * 100);
+    if (newX > parent.offsetWidth * 0.95 / parent.offsetWidth * 100) {
+        mesa.style.left = ((mesaEncima.offsetLeft / parent.offsetWidth * 100) - cincoPerX / parent.offsetWidth * 100) + '%';
+        var cont=divs.length-1;
+        while(checkOverlapMesas(mesa,divs[cont])||cont>0){
+            mesa.style.left = ((mesa.offsetLeft / parent.offsetWidth * 100) - cincoPerX / parent.offsetWidth * 100) + '%';
+            cont--;
+        }
+    } else {
+        mesa.style.left = newX + "%"
+    }
+
+}
+
+function guardarPosicionMesas(){
+
+
 }
