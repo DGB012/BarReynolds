@@ -7,9 +7,8 @@ var mesaPorcentajeAncho = 7;
 var mesaPorcentajeAlto = 5;
 
 var cincoPerX = parent.offsetWidth * (mesaPorcentajeAncho / 100);
-var cincoPerY = parent.offsetHeight * (mesaPorcentajeAncho / 100);
+var cincoPerY = parent.offsetWidth * (mesaPorcentajeAncho / 100);
 for (let i = 0; i < divs.length; i++) {
-    console.log("a")
     divs[i].addEventListener('mousedown', function (e) {
         mesaMover = e.target
         isDown = true;
@@ -33,7 +32,7 @@ for (let i = 0; i < divs.length; i++) {
             };
 
             var newLeft = Math.min(90, Math.max(5, (posicionPuntero.x + offset[0]) / parent.offsetWidth * 100));
-            var newTop = Math.min(90, Math.max(5, (posicionPuntero.y + offset[1]) / parent.offsetHeight * 100));
+            var newTop = Math.min(85, Math.max(5, (posicionPuntero.y + offset[1]) / parent.offsetHeight * 100));
             mesaMover.style.left = newLeft + '%';
             mesaMover.style.top = newTop + '%';
         }
