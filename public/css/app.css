@@ -98,32 +98,56 @@ nav .start-contact, a:nth-child(5):hover ~ .animation {
 
 
 .fondo {
-    /*background-image: url("/salon.png");*/
-    background-color: cornflowerblue;
+    background-image: url("/img/suelo.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
-    height: 800px;
-    position:relative;
+    height: 80vh;
+    position: relative;
 }
 
+.disponible {
+    background-color: #1abc9c;
+}
 
+.ocupada {
+    background-color: red;
+}
 
 .fondo .mesa {
     width: 7vw;
     height: 7vw;
     position: absolute;
     background-size: 100% 100%;
-    font-size:20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.fondo .mesa a{
-    text-decoration: none;
-    color: black;
-}
-.fondo .mesa p{
-    color: black;
+    font-size: 2vw;
+    border-radius: 20px;
+    border: 5px solid brown;
+    padding-top: 1%;
+    text-align: center;
 }
 
+.fondo .mesa p {
+    position: static;
+    color: white;
+    font-size: 2vw;
+    cursor: default;
+}
+
+/*
+.fondo .mesa {
+    width: 7vw;
+    height: 7vw;
+    position: absolute;
+    background-size: 100% 100%;
+    border-radius: 20px;
+    border: 5px solid brown;
+    text-align: center;
+    justify-content: center;
+}
+
+.fondo .mesa p {
+    padding-top: 25%;
+    color: white;
+    font-size: 2vw;
+}
+*/

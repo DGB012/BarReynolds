@@ -1,5 +1,3 @@
-<!--suppress CssUnknownTarget -->
-
 <x-zz.base>
 
     <x-slot:tituloHead>Mesas</x-slot:tituloHead>
@@ -8,11 +6,9 @@
     <div class='fondo' id="fondo">
         @foreach($mesas as $mesa)
             <a href='{{ route("cuentas.crearModifCuenta",[$mesa -> id,'Bebida','0']) }}'>
-                <div class="mesa" style='top:{{$mesa->y}}%;  left:{{$mesa->x}}%;
-                background-image:url({{($mesa->estado == "Vacia") ? "/mesaD.png" : "/mesaO.png"}});'>
-
+                <div class="mesa {{($mesa->estado == "Vacia") ? "disponible" : "ocupada"}}"
+                     style='top:{{$mesa->y}}%;  left:{{$mesa->x}}%;'>
                     <p>{{$mesa->id}}</p>
-
                 </div>
             </a>
         @endforeach
@@ -24,7 +20,7 @@
         <input class='button' type='submit' name='crear' value='Crear mesa'/>
     </form>
     <form action="{{route("mesas.moverMesas")}}" }>
-        <input type="submit" value="Modificar posicion mesas" />
+        <input type="submit" value="Modificar posici&oacute;n mesas"/>
     </form>
 
 </x-zz.base>

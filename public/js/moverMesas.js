@@ -3,7 +3,7 @@ var divs = parent.children;
 var isDown = false;
 var mesaMover = null;
 
-var mesaPorcentajeAncho = 7;
+var mesaPorcentajeAncho = 8;
 var mesaPorcentajeAlto = 5;
 
 var cincoPerX = parent.offsetWidth * (mesaPorcentajeAncho / 100);
@@ -11,6 +11,14 @@ var cincoPerY = parent.offsetWidth * (mesaPorcentajeAncho / 100);
 for (let i = 0; i < divs.length; i++) {
     divs[i].addEventListener('mousedown', function (e) {
         mesaMover = e.target
+        isDown = true;
+        offset = [
+            divs[i].offsetLeft - e.clientX,
+            divs[i].offsetTop - e.clientY
+        ];
+    }, true);
+    divs[i].getElementsByTagName('p')[0].addEventListener('mousedown', function (e) {
+        mesaMover = e.target.parentNode
         isDown = true;
         offset = [
             divs[i].offsetLeft - e.clientX,
@@ -26,6 +34,8 @@ for (let i = 0; i < divs.length; i++) {
     document.addEventListener('mousemove', function (event) {
         event.preventDefault();
         if (isDown) {
+
+
             posicionPuntero = {
                 x: event.clientX,
                 y: event.clientY
@@ -101,7 +111,7 @@ function guardarPosicionMesas() {
             newPosicionMesas: newPosicionMesas
         })
     })
-        .then(response =>  {
+        .then(response => {
             if (response.ok) {
                 window.location.href = '/mesas';
                 // return response.json();
@@ -111,5 +121,4 @@ function guardarPosicionMesas() {
         })
         .then(data => {
         });
-
 }

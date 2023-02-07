@@ -508,20 +508,20 @@ return new class extends Migration {
 
         DB::table('mesas')->insert([
             'estado' => 'Vacia',
-            'x' => '0',
-            'y' => '0'
+            'x' => '5',
+            'y' => '5'
         ]);
 
         DB::table('mesas')->insert([
             'estado' => 'Vacia',
-            'x' => '10',
-            'y' => '0'
+            'x' => '15',
+            'y' => '5'
         ]);
 
         DB::table('mesas')->insert([
             'estado' => 'Vacia',
-            'x' => '20',
-            'y' => '0'
+            'x' => '25',
+            'y' => '5'
         ]);
     }
 
