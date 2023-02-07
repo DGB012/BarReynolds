@@ -4,7 +4,8 @@
     <x-slot:tituloVisible>Cuenta {{$cuenta->id}}</x-slot:tituloVisible>
 
     <br><br>
-    {{--    <p>{{$cuenta->id}}</p>--}}
+    <p hidden name='categoria'>{{$categoria}}</p>
+
     <div class='container-fluid'>
         <div class='row'>
             <div class='col-8'>
@@ -18,7 +19,7 @@
                 @foreach ($productos as $producto)
                     <button class='prueba' name={{$producto->categoria->nombre}}>
                         <img src='{{ $producto->imagen }}' height='50'>
-                        <a href='{{ route('lineaCuenta.crearLineaNueva',['cuenta_id'=>$cuenta->id,'producto_id' => $producto->id]) }}'>{{$producto->nombre}}</a>
+                        <a href='{{ route('lineaCuenta.crearLineaNueva',['cuenta_id'=>$cuenta->id,'producto' => $producto]) }}'>{{$producto->nombre}}</a>
                     </button>
                 @endforeach
                 {{--                <button><a href="{{route('lineaCuentas.pagarCuenta',[$cuenta->id, 0])}}">Pagar cuenta</a></button>--}}

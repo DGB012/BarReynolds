@@ -25,14 +25,14 @@ Route::resource('categorias', CategoriaController::class);
 Route::resource('productos', ProductoController::class);
 Route::resource('mesas', MesasController::class);
 
-Route::get('/lineaCuentaAddProducto/{cuenta_id}/{producto_id}', [LineaCuentaController::class, 'addProducto'])->name('lineaCuenta.crearLineaNueva');
+Route::get('/lineaCuentaAddProducto/{cuenta_id}/{producto}', [LineaCuentaController::class, 'addProducto'])->name('lineaCuenta.crearLineaNueva');
 
 Route::resource('lineaCuentas', LineaCuentaController::class);
 
 Route::get('/cuentas/test', [CuentasController::class, 'test'])->name('test');
 Route::get('/cuentas/addProducto/{cuenta}', [CuentasController::class, 'addProducto'])->name('cuentas.addProducto');
 //Route::get('/cuentas/terminarCuenta/{cuenta_id}/{totalCuenta}', [CuentasController::class, 'terminarCuenta'])->name('cuentas.terminarCuenta');
-Route::get('/crearModifCuenta/{mesa_id}/{descuento}', [CuentasController::class, 'crearModifCuenta'])->name('cuentas.crearModifCuenta');
+Route::get('/crearModifCuenta/{mesa_id}/{categoria}/{descuento}', [CuentasController::class, 'crearModifCuenta'])->name('cuentas.crearModifCuenta');
 Route::get('/terminarCuenta/{cuenta_id}/{totalCuenta}', [CuentasController::class, 'terminarCuenta'])->name('cuentas.terminarCuenta');
 
 
