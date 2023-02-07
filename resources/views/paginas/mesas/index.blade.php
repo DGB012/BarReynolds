@@ -61,6 +61,4 @@
     <button><a href='{{ route('mesas.create') }}'> Crear </a></button>
     <br><br>
 
-    <a href='{{ route('productos.index') }}'>Listado de Productos</a>
-
 </x-zz.base>
