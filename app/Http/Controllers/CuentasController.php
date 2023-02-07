@@ -94,6 +94,7 @@ class CuentasController extends Controller
         $productos = Producto::orderBy('nombre')->get();
         $categorias = Categoria::orderBy('id')->get();
         $lineasCuenta = LineaCuenta::orderBy('id')->where(['cuentas_id' => $cuenta->id])->get();
+        $categoriaPred = 'Bebida';
 
 //            return redirect()-> route('cuentas.addProducto',['cuenta'=>$cuenta]);
         return view('paginas/test/testAddProducto', compact('cuenta', 'productos', 'categorias', 'lineasCuenta', 'mesas_id', 'descuento'));

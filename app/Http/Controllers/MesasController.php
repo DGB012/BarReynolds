@@ -12,7 +12,6 @@ class MesasController extends Controller
     {
         $mesas = Mesas::orderby('id')->get();
         return view('paginas/mesas/index', compact('mesas'));
-
     }
 
     public function create()
@@ -21,14 +20,10 @@ class MesasController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store()
     {
-        $this->validate($request, [
-            'estado' => 'required'
-        ]);
-
         $mesa = new Mesas();
-        $mesa->estado = $request->estado;
+        $mesa->estado = 'Vacia';
 
         $mesa->save();
 
@@ -68,6 +63,5 @@ class MesasController extends Controller
         $mesa->delete();
         return redirect()->route('mesas.index');
     }
-
 
 }

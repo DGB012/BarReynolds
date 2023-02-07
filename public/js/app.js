@@ -7,8 +7,11 @@ import 'https://cdn.jsdelivr.net/npm/bootstrap@5.0/dist/js/bootstrap.bundle.min.
 
 window.addEventListener("load", function () {
     var prueba = document.getElementsByClassName('prueba');
+    var categoria = document.getElementsById('categoria');
     for (var f = 0; f < prueba.length; f++) {
-        prueba[f].style.visibility = "hidden";
+        if (prueba[f].name != categoria) {
+            prueba[f].style.visibility = "hidden";
+        }
     }
 });
 
