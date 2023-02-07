@@ -16,6 +16,8 @@ return new class extends Migration {
             $table->id();
             $table->timestamps();
             $table->string('estado', 50);
+            $table->integer('x');
+            $table->integer('y');
         });
     }
 

@@ -23,7 +23,9 @@ class MesasController extends Controller
     public function store()
     {
         $mesa = new Mesas();
-        $mesa->estado = 'Vacia';
+        $mesa->estado = "Vacia";
+        $mesa->x = 80;
+        $mesa->y = 80;
 
         $mesa->save();
 
@@ -64,4 +66,25 @@ class MesasController extends Controller
         return redirect()->route('mesas.index');
     }
 
+    public function moverMesas()
+    {
+        $mesas = Mesas::orderby('id')->get();
+        return view('paginas/test/moverMesas', compact('mesas'));
+    }
+
+    public function guardarNuevaPosicionMesas(Request $request)
+    {
+        try {
+            $newPosicionMesas = $request->input('newPosicionMesas');
+            $mesasBD = Mesas::orderby('id')->get();
+            foreach ($mesasBD as $mesaBD) {
+                $mesaBD->x = $newPosicionMesas[$mesaBD->id - 1]["x"];
+                $mesaBD->y = $newPosicionMesas[$mesaBD->id - 1]["y"];
+                $mesaBD->save();
+            }
+            return response()->json(['message' => 'Success']);
+        } catch (\Exception $e) {
+            return response()->json(['message' => $e->getMessage()], 500);
+        }
+    }
 }

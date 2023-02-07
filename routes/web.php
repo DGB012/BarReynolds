@@ -18,12 +18,14 @@ use App\Http\Controllers\LineaCuentaController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::resource('categorias', CategoriaController::class);
-Route::resource('productos', ProductoController::class);
-Route::resource('mesas', MesasController::class);
+    Route::get('/', function () {
+        return view('welcome');
+    });
+    Route::resource('categorias', CategoriaController::class);
+    Route::resource('productos', ProductoController::class);
+    Route::get('/moverMesas', [MesasController::class, 'moverMesas'])->name('mesas.moverMesas');
+    Route::post('/guardarNuevaPosicionMesas', [MesasController::class, 'guardarNuevaPosicionMesas'])->name('mesas.guardarNuevaPosicionMesas');
+    Route::resource('mesas', MesasController::class);
 
 Route::get('/lineaCuentaAddProducto/{cuenta_id}/{producto}', [LineaCuentaController::class, 'addProducto'])->name('lineaCuenta.crearLineaNueva');
 

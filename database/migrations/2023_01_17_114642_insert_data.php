@@ -511,15 +511,21 @@ return new class extends Migration {
         ]);
 
         DB::table('mesas')->insert([
-            'estado' => 'Vacia'
+            'estado' => 'Vacia',
+            'x' => '0',
+            'y' => '0'
         ]);
 
         DB::table('mesas')->insert([
-            'estado' => 'Vacia'
+            'estado' => 'Vacia',
+            'x' => '10',
+            'y' => '0'
         ]);
 
         DB::table('mesas')->insert([
-            'estado' => 'Vacia'
+            'estado' => 'Vacia',
+            'x' => '20',
+            'y' => '0'
         ]);
     }
 

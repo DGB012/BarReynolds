@@ -96,15 +96,34 @@ nav .start-contact, a:nth-child(5):hover ~ .animation {
     height: 100px;
 }
 
-.mesa {
-    color: black;
+
+.fondo {
+    /*background-image: url("/salon.png");*/
+    background-color: cornflowerblue;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 800px;
+    position:relative;
+}
+
+
+
+.fondo .mesa {
+    width: 7vw;
+    height: 7vw;
+    position: absolute;
+    background-size: 100% 100%;
+    font-size:20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fondo .mesa a{
     text-decoration: none;
+    color: black;
+}
+.fondo .mesa p{
+    color: black;
 }
 
-.mesaVacia {
-    background-color: limegreen;
-}
-
-.mesaOcupada {
-    background-color: red;
-}

@@ -1,69 +1,30 @@
+<!--suppress CssUnknownTarget -->
+
 <x-zz.base>
 
     <x-slot:tituloHead>Mesas</x-slot:tituloHead>
     <x-slot:tituloVisible>Listado de Mesas</x-slot:tituloVisible>
 
-    <div class="container">
+    <div class='fondo' id="fondo">
+        @foreach($mesas as $mesa)
+            <a href='{{ route("cuentas.crearModifCuenta",$mesa -> id) }}'>
+                <div class="mesa" style='top:{{$mesa->y}}%;  left:{{$mesa->x}}%;
+                background-image:url({{($mesa->estado == "Vacia") ? "/mesaD.png" : "/mesaO.png"}});'>
 
-        <div class="row align-items-center">
-            @foreach($mesas as $mesa)
-                <div class="col-2">
-                    <table border="2px">
-                        <tr>
-                            <td style='margin: auto; text-align: center;'>
-                                <a class='mesa'
-                                   href='{{ route ('cuentas.crearModifCuenta', [$mesa -> id,"Bebida","0"]) }}'>
-                                    Mesa {{$mesa->id}}<br>
-                                    Estado: {{$mesa->estado}}
-                                    <img class=' {{($mesa->estado == "Vacia") ? "mesaVacia" : "mesaOcupada"}}'
-                                         src="/mesa.png" width="100%">
-                                </a>
-                            </td>
-                        </tr>
-                    </table>
+                    <p>{{$mesa->id}}</p>
+
                 </div>
-            @endforeach
-        </div>
+            </a>
+        @endforeach
     </div>
 
-    <!--<table border="2px">
-
-        <tr>
-            <th>Mesas</th>
-            <th>Estado</th>
-            <th>Eliminar</th>
-        </tr>
-
-        /*@foreach($mesas as $mesa)
-        <tr>
-            <td>
-                <a href='{{ route ('cuentas.crearModifCuenta', [$mesa -> id,"Bebida", 0]) }}'>
-                        <img src="/mesa.png" width="80px" height="10%">{{ $mesa-> id }}
-        </a>
-    </td>
-    <td>
-        <a href='{{ route ('cuentas.crearModifCuenta', [$mesa -> id,"Bebida", 0]) }}'>
-                        <img src='{{($mesa->estado == "Vacia") ? "/verde.png" : "/rojo.png"}}' class="estadoMesa">
-                    </a>
-                </td>
-                <td>
-                    <form action='{{ route('mesas.destroy', $mesa) }}' method="post">
-                        @method('delete')
-        <button type='submit'><img src="basura.png" width="50px"></button>
-    </form>
-    </td>
-    </tr>
-
-
-    @endforeach*/
-
-    </table>-->
-    <br><br>
 
     <form action='{{ route('mesas.store') }}' method='post'>
         @method('post')
         <input class='button' type='submit' name='crear' value='Crear mesa'/>
     </form>
-    <br><br>
+    <form action="{{route("mesas.moverMesas")}}" }>
+        <input type="submit" value="Modificar posicion mesas" />
+    </form>
 
 </x-zz.base>
