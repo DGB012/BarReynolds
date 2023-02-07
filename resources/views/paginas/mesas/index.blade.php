@@ -7,7 +7,7 @@
 
     <div class='fondo' id="fondo">
         @foreach($mesas as $mesa)
-            <a href='{{ route("cuentas.crearModifCuenta",$mesa -> id) }}'>
+            <a href='{{ route("cuentas.crearModifCuenta",[$mesa -> id,'Bebida','0']) }}'>
                 <div class="mesa" style='top:{{$mesa->y}}%;  left:{{$mesa->x}}%;
                 background-image:url({{($mesa->estado == "Vacia") ? "/mesaD.png" : "/mesaO.png"}});'>
 
