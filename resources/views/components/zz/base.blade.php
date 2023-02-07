@@ -14,6 +14,7 @@
 <body>
 <x-zz.menu/>
 
+
 <h1>{{ $tituloVisible }}</h1>
 
 <hr/>
