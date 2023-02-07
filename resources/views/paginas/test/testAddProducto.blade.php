@@ -34,12 +34,8 @@
                 <br>
 
                 <label for="descuento">Establecer descuento:</label>
-                <select id="descuento">
-                    <option selected disabled>Descuento</option>
-                    <option value="0">0%</option>
-                    <option value="5">5%</option>
-                    <option value="10">10%</option>
-                </select>
+                <input type="number" id="descuento" min="0" max="100" placeholder="%"></input>
+                <button id="enviarDescuento" onclick="confirmarDescuento()">Confirmar</button>
 
                 <table border='1'>
 
@@ -53,20 +49,26 @@
                     @foreach($lineasCuenta as $lineaCuenta)
                         <tr>
                             <td>{{$lineaCuenta->producto->nombre}}</td>
-                            <td>{{$lineaCuenta->precio}}</td>
+                            <td>{{$lineaCuenta->precio}}€</td>
                             <td>{{$lineaCuenta->cantidad}}</td>
                             @php
                                 $subtotal = $lineaCuenta->precio * $lineaCuenta->cantidad;
                                 $total += $subtotal;
                             @endphp
-                            <td>{{$subtotal}}</td>
+                            <td>{{$subtotal}}€</td>
                         </tr>
                     @endforeach
-
+                    @if($descuento != 0)
+                        <tr>
+                            <td colspan="2"></td>
+                            <td><strong>Descuento({{$descuento}}%)</strong></td>
+                            <td>-{{number_format($total*$descuento/100 ,2)}}€</td>
+                        </tr>
+                    @endif
                     <tr>
                         <td colspan='2'></td>
                         <td><strong>Total</strong></td>
-                        <td>{{$total - ($total*$descuento/100)}}</td>
+                        <td>{{number_format($total - ($total*$descuento/100),2)}}€</td>
                     </tr>
 
                 </table>

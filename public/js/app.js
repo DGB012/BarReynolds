@@ -31,11 +31,12 @@ function cambiarVisibilidad(nombreCat, numeroCat) {
     }
 }
 
-window.addEventListener("change", function () {
-
+function confirmarDescuento(){
     var valorDescuento = document.getElementById("descuento").value;
+    if(valorDescuento == ""){
+        valorDescuento = 0;
+    }
     var mesa_id = document.getElementById("mesa_id").value;
-    window.location = "/crearModifCuenta/" + mesa_id + "/" + valorDescuento;
+    window.location = "/crearModifCuenta/" + mesa_id + "/Bebida/" + valorDescuento;
+}
 
-
-});
