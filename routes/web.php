@@ -30,6 +30,8 @@ Route::post('/guardarNuevaPosicionMesas', [MesasController::class, 'guardarNueva
 Route::resource('mesas', MesasController::class);
 
 Route::get('/lineaCuentaAddProducto/{cuenta_id}/{producto}', [LineaCuentaController::class, 'addProducto'])->name('lineaCuenta.crearLineaNueva');
+///////////////
+Route::get('/lineaCuentaFreeProducto/{cuenta_id}/{producto_id}', [LineaCuentaController::class, 'freeProducto'])->name('lineaCuenta.invitarProducto');
 
 Route::resource('lineaCuentas', LineaCuentaController::class);
 

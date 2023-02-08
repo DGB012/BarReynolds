@@ -44,6 +44,7 @@
                         <th>PRECIO</th>
                         <th>CANTIDAD</th>
                         <th>Subtotal</th>
+                        <th>Invitar</th>
                     </tr>
 
                     @foreach($lineasCuenta as $lineaCuenta)
@@ -56,6 +57,13 @@
                                 $total += $subtotal;
                             @endphp
                             <td>{{$subtotal}}€</td>
+                            @if($lineaCuenta->precio != 0)
+                            <td>
+                                <button>
+                                    <a href='{{ route('lineaCuenta.invitarProducto',['cuenta_id'=>$cuenta->id,'producto_id' => $lineaCuenta->producto_id]) }}'>Invitar</a>
+                                </button>
+                            </td>
+                            @endif
                         </tr>
                     @endforeach
                     @if($descuento != 0)
