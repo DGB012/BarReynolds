@@ -5,4 +5,3 @@
         <option {{ ($mesa ->estado ?? '') == 'Ocupada' ? 'selected' : ''}} value='Ocupada'>Ocupada</option>
     </optgroup>
 </select>
-<br><br>

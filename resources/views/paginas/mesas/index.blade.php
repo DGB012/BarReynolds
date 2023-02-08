@@ -15,11 +15,11 @@
     </div>
 
 
-    <form action='{{ route('mesas.store') }}' method='post'>
+    <form style="display:inline;" action='{{ route('mesas.store') }}' method='post'>
         @method('post')
         <input class='button' type='submit' name='crear' value='Crear mesa'/>
     </form>
-    <form action="{{route("mesas.moverMesas")}}" }>
+    <form style="display:inline;" action="{{route("mesas.moverMesas")}}" }>
         <input type="submit" value="Modificar posici&oacute;n mesas"/>
     </form>
 

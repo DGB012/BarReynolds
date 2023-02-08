@@ -1,5 +1,3 @@
-<!--suppress CssUnknownTarget -->
-
 <x-zz.base>
 
     <x-slot:tituloHead>Mesas</x-slot:tituloHead>
@@ -15,8 +13,9 @@
     </div>
 
 
-    <input class='button' type='submit' name='crear' value='Guardar posicion mesas' onclick="guardarPosicionMesas();"/>
-    <form action="{{route("mesas.index")}}" }>
+    <input style="display:inline;" class='button' type='submit' name='crear' value='Guardar posicion mesas'
+           onclick="guardarPosicionMesas();"/>
+    <form style="display:inline;" action="{{route("mesas.index")}}" }>
         <input type="submit" value="Volver a mesas"/>
     </form>
     {{--    <form action='{{ route('mesas.store') }}' method='post'>--}}
