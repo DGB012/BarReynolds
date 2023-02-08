@@ -10,9 +10,14 @@
         </div>
         <!-- Rol -->
         <div class="mt-4">
-            <x-input-label for="rol" :value="__('rol')" />
-            <x-text-input id="rol" class="block mt-1 w-full" type="text" name="rol" :value="old('rol')" required autofocus />
-            <x-input-error :messages="$errors->get('rol')" class="mt-2" />
+
+            <label for="">Rol</label>
+            <select name="rol" id="rol" class="block mt-1 w-full">
+
+                    <option DISABLED SELECTED> -----</option>
+                    <option value="ADM"> ADMINISTRADOR </option>
+                    <option value="CAM"> CAMARERO </option>
+            </select>
         </div>
 
         <!-- Email Address -->

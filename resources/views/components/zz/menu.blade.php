@@ -6,7 +6,7 @@
 
 </nav>
 @if(\Illuminate\Support\Facades\Auth::check())
-    <p class="animation start-home">Bienevenido usuario: {{
+    <p class="animation start-home">Bienvenido usuario: {{
     Auth::user()->name}}
     <form method="POST" action="{{ route('logout') }}">
         @csrf
