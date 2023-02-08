@@ -8,6 +8,7 @@ use App\Models\Producto;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\DB;
+use SebastianBergmann\Diff\Line;
 
 class LineaCuentaController extends Controller
 {
@@ -108,7 +109,7 @@ class LineaCuentaController extends Controller
     public function addProducto(int $cuenta_id, Producto $producto)
     {
         $lineasCuenta = DB::table('linea_cuentas')
-            ->where([['cuentas_id', '=', $cuenta_id], ['producto_id', '=', $producto->id]])
+            ->where([['cuentas_id', '=', $cuenta_id], ['producto_id', '=', $producto->id], ['precio', '>', 0]])
             ->get();
         $mesa = DB::table('cuentas')
             ->where([['id', '=', $cuenta_id]])
@@ -120,7 +121,7 @@ class LineaCuentaController extends Controller
         */
         $producto = Producto::find($producto->id);
 
-        if ($lineasCuenta->count() == 0) {
+        if ($lineasCuenta->count() == 0 ) {
             $lineaCuenta = new LineaCuenta();
             $lineaCuenta->cuentas_id = $cuenta_id;
             $lineaCuenta->producto_id = $producto->id;
@@ -129,7 +130,9 @@ class LineaCuentaController extends Controller
             $lineaCuenta->save();
 
         } else {
-            $lineaCuenta = LineaCuenta::firstOrCreate(['cuentas_id' => $cuenta_id, 'producto_id' => $producto->id]);
+
+           // $lineaCuenta = LineaCuenta::firstOrCreate(['cuentas_id' => $cuenta_id, 'producto_id' => $producto->id]);
+            $lineaCuenta = LineaCuenta::find($lineasCuenta[0]->id);
             $lineaCuenta->cantidad = $lineaCuenta->cantidad + 1;
             $lineaCuenta->save();
         }
@@ -137,6 +140,47 @@ class LineaCuentaController extends Controller
         $producto->stock -= 1;
         $producto->save();
         return redirect()->route('cuentas.crearModifCuenta', [$mesa[0]->mesas_id, $producto->categoria->nombre, 0]);
+    }
+
+    public function freeProducto(int $cuenta_id, int $producto_id){
+
+        $lineasCuenta = DB::table('linea_cuentas') //lineas de cuenta con precio 0
+            ->where([['cuentas_id', '=', $cuenta_id], ['producto_id', '=', $producto_id],['precio',"=",0]])
+            ->get();
+
+        $mesa = DB::table('cuentas')
+            ->where([['id', '=', $cuenta_id]])
+            ->get();
+
+        $producto = Producto::find($producto_id);
+
+        if ($lineasCuenta->count() == 0) {  //crear nueva linea cuenta con el producto  a precio 0 si no existe ya
+            $lineaCuenta = new LineaCuenta();
+            $lineaCuenta->cuentas_id = $cuenta_id;
+            $lineaCuenta->producto_id = $producto->id;
+            $lineaCuenta->cantidad = 1;
+            $lineaCuenta->precio = 0;
+            $lineaCuenta->save();
+
+        } else { //añadir cantidad a producto con precio 0 que ya esta creado
+
+            $lineaCuenta = LineaCuenta::firstOrCreate(['cuentas_id' => $cuenta_id, 'producto_id' => $producto->id , 'precio' => 0]);
+            $lineaCuenta->cantidad = $lineaCuenta->cantidad + 1;
+            $lineaCuenta->save();
+        }
+
+        //Restar cantidad de las que vas a pagar
+        $lineasCuentaSinDescuento = LineaCuenta::firstOrCreate(['cuentas_id' => $cuenta_id, 'producto_id' => $producto->id]);
+        $lineasCuentaSinDescuento->cantidad = $lineasCuentaSinDescuento->cantidad - 1 ;
+        $lineasCuentaSinDescuento->save();
+
+        //borrar linea que pagas si la cantidad ya es 0
+        if($lineasCuentaSinDescuento->cantidad == 0){
+            $lineasCuentaSinDescuento->delete();
+        }
+
+        return redirect()->route('cuentas.crearModifCuenta', [$mesa[0]->mesas_id, $producto->categoria->nombre, 0]);
+
     }
 
 }
