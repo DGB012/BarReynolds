@@ -96,7 +96,7 @@ class CuentasController extends Controller
         $lineasCuenta = LineaCuenta::orderBy('id')->where(['cuentas_id' => $cuenta->id])->get();
 
 //            return redirect()-> route('cuentas.addProducto',['cuenta'=>$cuenta]);
-        return view('paginas/test/testAddProducto', compact('cuenta', 'productos', 'categorias', 'categoria', 'lineasCuenta', 'mesas_id', 'descuento'));
+        return view('paginas/lineaCuentas/addProductoCuenta', compact('cuenta', 'productos', 'categorias', 'categoria', 'lineasCuenta', 'mesas_id', 'descuento'));
     }
 //        public function addProducto(Cuentas $cuenta){
 //            return view('paginas/test/testAddProducto', compact('cuenta'));

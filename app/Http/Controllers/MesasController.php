@@ -69,7 +69,7 @@ class MesasController extends Controller
     public function moverMesas()
     {
         $mesas = Mesas::orderby('id')->get();
-        return view('paginas/test/moverMesas', compact('mesas'));
+        return view('paginas/mesas/moverMesas', compact('mesas'));
     }
 
     public function guardarNuevaPosicionMesas(Request $request)
