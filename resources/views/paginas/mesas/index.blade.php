@@ -14,7 +14,6 @@
         @endforeach
     </div>
 
-
     <form style="display:inline;" action='{{ route('mesas.store') }}' method='post'>
         @method('post')
         <input class='button' type='submit' name='crear' value='Crear mesa'/>
