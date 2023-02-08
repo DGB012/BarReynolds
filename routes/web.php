@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\CategoriaController;
@@ -7,25 +8,25 @@ use App\Http\Controllers\MesasController;
 use App\Http\Controllers\CuentasController;
 use App\Http\Controllers\LineaCuentaController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-    Route::get('/', function () {
-        return view('welcome');
-    });
-    Route::resource('categorias', CategoriaController::class);
-    Route::resource('productos', ProductoController::class);
-    Route::get('/moverMesas', [MesasController::class, 'moverMesas'])->name('mesas.moverMesas');
-    Route::post('/guardarNuevaPosicionMesas', [MesasController::class, 'guardarNuevaPosicionMesas'])->name('mesas.guardarNuevaPosicionMesas');
-    Route::resource('mesas', MesasController::class);
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::resource('categorias', CategoriaController::class);
+Route::resource('productos', ProductoController::class);
+Route::get('/moverMesas', [MesasController::class, 'moverMesas'])->name('mesas.moverMesas');
+Route::post('/guardarNuevaPosicionMesas', [MesasController::class, 'guardarNuevaPosicionMesas'])->name('mesas.guardarNuevaPosicionMesas');
+Route::resource('mesas', MesasController::class);
 
 Route::get('/lineaCuentaAddProducto/{cuenta_id}/{producto}', [LineaCuentaController::class, 'addProducto'])->name('lineaCuenta.crearLineaNueva');
 
@@ -40,4 +41,4 @@ Route::get('/terminarCuenta/{cuenta_id}/{totalCuenta}', [CuentasController::clas
 
 Route::resource('cuentas', CuentasController::class);
 
-
+require __DIR__ . '/auth.php';
