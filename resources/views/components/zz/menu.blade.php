@@ -1,18 +1,17 @@
-<div class='container-fluid'>
-    <div class='row'>
-        <div class='col-1' style='top: 1vh'>
-            <img src='/img/icono.png' style='height: 70px;'/>
-        </div>
-        <div class='col-11'>
-            <nav>
-                <a href='{{ route('mesas.index') }}'>Mesas</a>
-                <a href='{{ route('categorias.index') }}'>Categor&iacute;as</a>
-                <a href='{{ route('productos.index') }}'>Productos</a>
-                <div class="animation start-home"></div>
-            </nav>
-        </div>
-    </div>
-</div>
+<nav>
+    <a href='{{ route('mesas.index') }}'>Mesas</a>
+    <a href='{{ route('categorias.index') }}'>Categor&iacute;as</a>
+    <a href='{{ route('productos.index') }}'>Productos</a>
+    <div class="animation start-home"></div>
 
-
-<hr/>
+</nav>
+@if(\Illuminate\Support\Facades\Auth::check())
+    <p class="animation start-home">Bienevenido usuario: {{
+    Auth::user()->name}}
+    <form method="POST" action="{{ route('logout') }}">
+        @csrf
+        <button type="submit">Logout</button>
+    </form>
+    </p>
+@endif
+<hr />
