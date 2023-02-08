@@ -9,7 +9,7 @@
         @foreach($mesas as $mesa)
             <div class="mesa {{($mesa->estado == "Vacia") ? "disponible" : "ocupada"}}"
                  style='top:{{$mesa->y}}%;  left:{{$mesa->x}}%;'>
-                <p>{{$mesa->id}}</p>
+                <p>{{$mesa->id}} </p>
             </div>
         @endforeach
     </div>
