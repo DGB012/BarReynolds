@@ -133,21 +133,26 @@ nav .start-contact, a:nth-child(5):hover ~ .animation {
     cursor: default;
 }
 
-/*
-.fondo .mesa {
-    width: 7vw;
-    height: 7vw;
-    position: absolute;
-    background-size: 100% 100%;
-    border-radius: 20px;
-    border: 5px solid brown;
-    text-align: center;
-    justify-content: center;
+.botonTransparente {
+    background-color: transparent;
+    border: 1px solid transparent;
 }
 
-.fondo .mesa p {
-    padding-top: 25%;
-    color: white;
-    font-size: 2vw;
+.logOut {
+    position: absolute;
+    top: 25%;
+    width: 30px;
 }
-*/
+
+div.vertical-line {
+    width: 0px; /* Use only border style */
+    height: 50px;
+    float: left;
+    border: 2px inset black; /* This is default border style for <hr> tag */
+    background: black;
+}
+
+div.user {
+    float: left;
+    right: 180px;
+}
