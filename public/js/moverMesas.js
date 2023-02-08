@@ -97,8 +97,8 @@ function guardarPosicionMesas() {
     for (let i = 0; i < mesas.length; i++) {
         var infoMesa = {
             "id": mesas[i].getElementsByTagName('p')[0].innerHTML,
-            "x": parseInt(mesas[i].style.left.replace("%", "")),
-            "y": parseInt(mesas[i].style.top.replace("%", ""))
+            "x": parseFloat(mesas[i].style.left.replace("%", "")),
+            "y": parseFloat(mesas[i].style.top.replace("%", ""))
         };
         newPosicionMesas.push(infoMesa);
     }
