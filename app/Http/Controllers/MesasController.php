@@ -63,7 +63,7 @@ class MesasController extends Controller
     public function destroy(Mesas $mesa)
     {
         $mesa->delete();
-        return redirect()->route('mesas.index');
+        return redirect()->route('mesas.moverMesas');
     }
 
     public function moverMesas()

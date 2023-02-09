@@ -2,6 +2,7 @@ var parent = document.getElementById('fondo');
 var divs = parent.children;
 var isDown = false;
 var mesaMover = null;
+var checkCollapse = null;
 
 var mesaPorcentajeAncho = 8;
 var mesaPorcentajeAlto = 5;
@@ -10,6 +11,11 @@ var cincoPerX = parent.offsetWidth * (mesaPorcentajeAncho / 100);
 var cincoPerY = parent.offsetWidth * (mesaPorcentajeAncho / 100);
 for (let i = 0; i < divs.length; i++) {
     divs[i].addEventListener('mousedown', function (e) {
+        if (e.shiftKey) {
+            checkCollapse = false;
+        } else {
+            checkCollapse = true;
+        }
         mesaMover = e.target
         isDown = true;
         offset = [
@@ -18,6 +24,11 @@ for (let i = 0; i < divs.length; i++) {
         ];
     }, true);
     divs[i].getElementsByTagName('p')[0].addEventListener('mousedown', function (e) {
+        if (e.shiftKey) {
+            checkCollapse = false;
+        } else {
+            checkCollapse = true;
+        }
         mesaMover = e.target.parentNode
         isDown = true;
         offset = [
@@ -28,7 +39,9 @@ for (let i = 0; i < divs.length; i++) {
 
     document.addEventListener('mouseup', function () {
         isDown = false;
-        checkTableCollapse(mesaMover);
+        if (checkCollapse) {
+            checkTableCollapse(mesaMover);
+        }
     }, true);
 
     document.addEventListener('mousemove', function (event) {

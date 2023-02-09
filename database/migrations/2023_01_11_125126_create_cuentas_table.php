@@ -17,8 +17,7 @@ return new class extends Migration {
             $table->id();
             $table->timestamps();
             $table->decimal('total', 10, 2);
-            $table->foreignIdFor(Mesas::class)->constrained()
-                ->onUpdate('cascade');
+            $table->foreignIdFor(Mesas::class);
         });
     }
 

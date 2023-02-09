@@ -8,6 +8,13 @@
             <div class="mesa {{($mesa->estado == "Vacia") ? "disponible" : "ocupada"}}"
                  style='top:{{$mesa->y}}%;  left:{{$mesa->x}}%;'>
                 <p>{{$mesa->id}} </p>
+                @if($mesa->estado == "Vacia")
+                    <form action='{{ route('mesas.destroy', $mesa) }}' method='post'>
+                        @method('delete')
+                        <input style='border-radius: 10%;font-size: 1vw;' class='button' type='submit' name='delete'
+                               value='Eliminar'/>
+                    </form>
+                @endif
             </div>
         @endforeach
     </div>
