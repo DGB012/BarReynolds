@@ -39,6 +39,3 @@ function confirmarDescuento(){
     var mesa_id = document.getElementById("mesa_id").value;
     window.location = "/crearModifCuenta/" + mesa_id + "/Bebida/" + valorDescuento;
 }
-
-
-

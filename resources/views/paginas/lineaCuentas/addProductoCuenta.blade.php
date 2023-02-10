@@ -23,7 +23,6 @@
                         <a href='{{ route('lineaCuenta.crearLineaNueva',['cuenta_id'=>$cuenta->id,'producto' => $producto]) }}'>{{$producto->nombre}}</a>
                     </button>
                 @endforeach
-                {{--                <button><a href="{{route('lineaCuentas.pagarCuenta',[$cuenta->id, 0])}}">Pagar cuenta</a></button>--}}
             </div>
             <div class='col-4'>
                 @php
