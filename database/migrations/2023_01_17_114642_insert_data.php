@@ -23,6 +23,9 @@ return new class extends Migration {
         $comidaId = DB::table('categorias')->insertGetId([
             'nombre' => 'Comida'
         ]);
+        $postreId = DB::table('categorias')->insertGetId([
+            'nombre' => 'Postre'
+        ]);
 
         //-------- PRODUCTOS --------------
 
@@ -504,6 +507,46 @@ return new class extends Migration {
             'categoria_id' => $comidaId,
             'stock' => '50',
             'imagen' => 'https://okdiario.com/img/recetas/2017/05/25/alcachofas-con-jamon.jpg'
+        ]);
+
+        DB::table('productos')->insert([
+            'precio' => '5',
+            'nombre' => 'Cookies de chocolate',
+            'categoria_id' => $postreId,
+            'stock' => '50',
+            'imagen' => 'https://imag.bonviveur.com/cookies-caseras-foto-principal.jpg'
+        ]);
+
+        DB::table('productos')->insert([
+            'precio' => '5',
+            'nombre' => 'Tarta de mil hojas con crema',
+            'categoria_id' => $postreId,
+            'stock' => '50',
+            'imagen' => 'https://assets.tmecosys.com/image/upload/t_web767x639/img/recipe/ras/Assets/E07DC6A6-2F8C-49E8-857D-398AB851E779/Derivates/A2B986D9-1510-4DC9-B275-39FD863D1F24.jpg'
+        ]);
+
+        DB::table('productos')->insert([
+            'precio' => '5',
+            'nombre' => 'Tarta de mascarpone con arándanos',
+            'categoria_id' => $postreId,
+            'stock' => '50',
+            'imagen' => 'https://www.deliciosi.com/images/300/372/cheesecake-de-arandanos.jpg'
+        ]);
+
+        DB::table('productos')->insert([
+            'precio' => '5',
+            'nombre' => 'Tarta de fresa casera con crema pastelera',
+            'categoria_id' => $postreId,
+            'stock' => '50',
+            'imagen' => 'https://www.tucasaclub.com/files/content/1200x670_181.jpg'
+        ]);
+
+        DB::table('productos')->insert([
+            'precio' => '5',
+            'nombre' => 'Tarta de queso con coulis de frambuesa',
+            'categoria_id' => $postreId,
+            'stock' => '50',
+            'imagen' => 'https://tartademanzanacasera.files.wordpress.com/2014/09/dsc01020.jpg?w=640&h=480'
         ]);
 
         DB::table('mesas')->insert([

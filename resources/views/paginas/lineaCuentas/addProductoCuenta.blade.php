@@ -18,7 +18,8 @@
                 <br><br>
                 @foreach ($productos as $producto)
                     <button class='prueba' name={{$producto->categoria->nombre}}>
-                        <img src='{{ $producto->imagen }}' height='50'>
+                        <img src='{{ $producto->imagen }}' onmouseover="this.height=100;"
+                             onmouseout="this.height=50;" height="50" {{--height='50'--}}>
                         <a href='{{ route('lineaCuenta.crearLineaNueva',['cuenta_id'=>$cuenta->id,'producto' => $producto]) }}'>{{$producto->nombre}}</a>
                     </button>
                 @endforeach
@@ -58,11 +59,11 @@
                             @endphp
                             <td>{{$subtotal}}€</td>
                             @if($lineaCuenta->precio != 0)
-                            <td>
-                                <button>
-                                    <a href='{{ route('lineaCuenta.invitarProducto',['cuenta_id'=>$cuenta->id,'producto_id' => $lineaCuenta->producto_id]) }}'>Invitar</a>
-                                </button>
-                            </td>
+                                <td>
+                                    <button>
+                                        <a href='{{ route('lineaCuenta.invitarProducto',['cuenta_id'=>$cuenta->id,'producto_id' => $lineaCuenta->producto_id]) }}'>Invitar</a>
+                                    </button>
+                                </td>
                             @endif
                         </tr>
                     @endforeach
