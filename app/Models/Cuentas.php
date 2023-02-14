@@ -27,4 +27,7 @@ class Cuentas extends Model
             $this->save();
         }
     */
+    public function productos(){
+        return $this ->belongsToMany(Cuenta::class);
+    }
 }

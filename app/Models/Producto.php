@@ -14,8 +14,7 @@ class Producto extends Model
     {
         return $this->belongsTo(Categoria::class);
     }
-      public function lineaCuenta()
-    {
-        return $this->belongsTo(LineaCuenta::class);
+    public function cuentas(){
+        return $this -> belongsToMany(producto::class);
     }
 }
