@@ -12,6 +12,11 @@ use SebastianBergmann\Diff\Line;
 
 class LineaCuentaController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index() //	id producto_id	cantidad	precio	cuentas_id	productos_id
     {
         $lineasCuentas = LineaCuenta::orderby('id')->get();
@@ -121,7 +126,7 @@ class LineaCuentaController extends Controller
         */
         $producto = Producto::find($producto->id);
 
-        if ($lineasCuenta->count() == 0 ) {
+        if ($lineasCuenta->count() == 0) {
             $lineaCuenta = new LineaCuenta();
             $lineaCuenta->cuentas_id = $cuenta_id;
             $lineaCuenta->producto_id = $producto->id;
@@ -131,7 +136,7 @@ class LineaCuentaController extends Controller
 
         } else {
 
-           // $lineaCuenta = LineaCuenta::firstOrCreate(['cuentas_id' => $cuenta_id, 'producto_id' => $producto->id]);
+            // $lineaCuenta = LineaCuenta::firstOrCreate(['cuentas_id' => $cuenta_id, 'producto_id' => $producto->id]);
             $lineaCuenta = LineaCuenta::find($lineasCuenta[0]->id);
             $lineaCuenta->cantidad = $lineaCuenta->cantidad + 1;
             $lineaCuenta->save();
@@ -142,10 +147,11 @@ class LineaCuentaController extends Controller
         return redirect()->route('cuentas.crearModifCuenta', [$mesa[0]->mesas_id, $producto->categoria->nombre, 0]);
     }
 
-    public function freeProducto(int $cuenta_id, int $producto_id){
+    public function freeProducto(int $cuenta_id, int $producto_id)
+    {
 
         $lineasCuenta = DB::table('linea_cuentas') //lineas de cuenta con precio 0
-            ->where([['cuentas_id', '=', $cuenta_id], ['producto_id', '=', $producto_id],['precio',"=",0]])
+        ->where([['cuentas_id', '=', $cuenta_id], ['producto_id', '=', $producto_id], ['precio', "=", 0]])
             ->get();
 
         $mesa = DB::table('cuentas')
@@ -164,18 +170,18 @@ class LineaCuentaController extends Controller
 
         } else { //añadir cantidad a producto con precio 0 que ya esta creado
 
-            $lineaCuenta = LineaCuenta::firstOrCreate(['cuentas_id' => $cuenta_id, 'producto_id' => $producto->id , 'precio' => 0]);
+            $lineaCuenta = LineaCuenta::firstOrCreate(['cuentas_id' => $cuenta_id, 'producto_id' => $producto->id, 'precio' => 0]);
             $lineaCuenta->cantidad = $lineaCuenta->cantidad + 1;
             $lineaCuenta->save();
         }
 
         //Restar cantidad de las que vas a pagar
         $lineasCuentaSinDescuento = LineaCuenta::firstOrCreate(['cuentas_id' => $cuenta_id, 'producto_id' => $producto->id]);
-        $lineasCuentaSinDescuento->cantidad = $lineasCuentaSinDescuento->cantidad - 1 ;
+        $lineasCuentaSinDescuento->cantidad = $lineasCuentaSinDescuento->cantidad - 1;
         $lineasCuentaSinDescuento->save();
 
         //borrar linea que pagas si la cantidad ya es 0
-        if($lineasCuentaSinDescuento->cantidad == 0){
+        if ($lineasCuentaSinDescuento->cantidad == 0) {
             $lineasCuentaSinDescuento->delete();
         }
 
@@ -187,7 +193,7 @@ class LineaCuentaController extends Controller
     {
         $lineasCuenta = LineaCuenta::orderBy('id')->where(['cuentas_id' => $cuenta_id])->get();
 
-        return view('paginas/test/mostrarCuentaTerminada', compact('lineasCuenta', 'cuenta_id','descuento'));
+        return view('paginas/test/mostrarCuentaTerminada', compact('lineasCuenta', 'cuenta_id', 'descuento'));
     }
 
 }

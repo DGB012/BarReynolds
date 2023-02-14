@@ -7,14 +7,14 @@ use Illuminate\Http\Request;
 
 class CategoriaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        $categorias= categoria::orderBy('nombre')->get();
+        $categorias = categoria::orderBy('nombre')->get();
         return view('paginas/categorias/index', compact('categorias'));
     }
 
@@ -26,7 +26,7 @@ class CategoriaController extends Controller
     public function create()
     {
 
-     return view('paginas/categorias/create');
+        return view('paginas/categorias/create');
 
     }
 
@@ -38,13 +38,13 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
+        $this->validate($request, [
             'nombre' => 'required',
         ]);
 
         $categoria = new Categoria();
-        $categoria -> nombre = $request->nombre;
-        $categoria ->save();
+        $categoria->nombre = $request->nombre;
+        $categoria->save();
 
         return redirect()->route('categorias.index');
     }
@@ -80,7 +80,7 @@ class CategoriaController extends Controller
      */
     public function update(Request $request, Categoria $categoria)
     {
-        $this ->validate($request,[
+        $this->validate($request, [
             'nombre' => 'required',
         ]);
 
