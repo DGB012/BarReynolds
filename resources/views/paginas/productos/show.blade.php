@@ -8,16 +8,18 @@
     <p>Categorías: {{$producto->categoria->nombre}}</p>
     <p>Stock: {{$producto->stock}}</p>
 
-    <a href='{{ route('productos.edit', $producto) }}'>Editarla</a>
+    @if(Auth::user()->rol == 'ADM')
+        <a href='{{ route('productos.edit', $producto) }}'>Editarla</a>
 
-    <br/><br/>
+        <br/><br/>
 
-    <form id='{{ $producto->id }}' action='{{ route('productos.destroy', $producto) }}'
-          method='post'>
-        @method('delete')
+        <form id='{{ $producto->id }}' action='{{ route('productos.destroy', $producto) }}'
+              method='post'>
+            @method('delete')
 
-        <input class='button' type='submit' name='crear' value='Eliminar producto'/>
+            <input class='button' type='submit' name='crear' value='Eliminar producto'/>
         </form>
+    @endif
 
     <br>
 
