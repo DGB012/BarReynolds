@@ -10,7 +10,10 @@
             <th>Nombre</th>
             <th>Categor&iacute;a</th>
             <th>Stock</th>
-            <th>Eliminar</th>
+            @if(Auth::user()->rol == 'ADM')
+                <th>Eliminar</th>
+            @endif
+
         </tr>
 
         @foreach ($productos as $producto)
@@ -27,26 +30,31 @@
                 <td>
                     <a href='{{ route('productos.show', $producto) }}'>{{ $producto->stock }}</a>
                 </td>
-                <td class='delete'>
-                    <form class="myform" id='{{ $producto->id }}' action='{{ route('productos.destroy', $producto) }}'
-                          method='post'>
-                        @method('delete')
-                        <a href="#" onclick="document.getElementById('{{ $producto->id }}').submit()">(X)</a>
-                    </form>
-                </td>
+                @if(Auth::user()->rol == 'ADM')
+                    <td class='delete'>
+                        <form class="myform" id='{{ $producto->id }}'
+                              action='{{ route('productos.destroy', $producto) }}'
+                              method='post'>
+                            @method('delete')
+                            <a href="#" onclick="document.getElementById('{{ $producto->id }}').submit()">(X)</a>
+                        </form>
+                    </td>
+                @endif
+
             </tr>
         @endforeach
 
 
     </table>
     <br><br>
+    @if(Auth::user()->rol == 'ADM')
+        <button><a href='{{ route('productos.create') }}'>Crear</a></button>
+        <br><br>
 
-    <button><a href='{{ route('productos.create') }}'>Crear</a></button>
-    <br><br>
+        <a href='{{ route('categorias.index') }}'>Listado de categor&iacute;as</a>
+        <br><br>
 
-    <a href='{{ route('categorias.index') }}'>Listado de categor&iacute;as</a>
-    <br><br>
-
-    <a href='{{ route('lineaCuentas.index') }}'>Listado de l&iacute;neas de cuentas.</a>
+        <a href='{{ route('lineaCuentas.index') }}'>Listado de l&iacute;neas de cuentas.</a>
+    @endif
 
 </x-zz.base>

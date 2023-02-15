@@ -8,9 +8,11 @@ use App\Http\Controllers\MesasController;
 use App\Http\Controllers\CuentasController;
 use App\Http\Controllers\LineaCuentaController;
 
-Route::get('/', function () {
-    return view('auth/login'); // estaba welcome para que salga la pag por defecto de laravel
-});
+//Route::get('/', function () {
+//    return view('auth/login'); // estaba welcome para que salga la pag por defecto de laravel
+//});
+
+Route::redirect('/', 'login');
 
 Route::get('/mesas', function () {
     $mesas = \App\Models\Mesas::orderBy('id')->get();

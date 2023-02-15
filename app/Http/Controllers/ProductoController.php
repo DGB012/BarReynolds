@@ -8,6 +8,11 @@ use App\Models\Categoria;
 
 class ProductoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index() // id , precio , nombre, categoria,stock
     {
         $productos = Producto::orderby('categoria_id')->get();
@@ -19,6 +24,7 @@ class ProductoController extends Controller
         $categorias = Categoria::orderby('id')->get();
         return view('paginas/productos/create', compact('categorias'));
     }
+
     public function store(Request $request)
     {
         $this->validate($request, [
@@ -38,16 +44,19 @@ class ProductoController extends Controller
 
         return redirect()->route('productos.index');
     }
+
     public function show(Producto $producto)
     {
         $categorias = Categoria::orderBy('id')->get();
         return view('paginas/productos/show', compact('producto', 'categorias'));
     }
+
     public function edit(Producto $producto)
     {
         $categorias = Categoria::orderBy('id')->get();
         return view('paginas/productos/edit', compact('producto', 'categorias'));
     }
+
     public function update(Request $request, Producto $producto)
     {
         $this->validate($request, [
@@ -66,6 +75,7 @@ class ProductoController extends Controller
 
         return redirect()->route('productos.index');
     }
+
     public function destroy(Producto $producto)
     {
         $producto->delete();

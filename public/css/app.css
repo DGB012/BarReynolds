@@ -3,9 +3,9 @@
 
 
 nav {
-    margin: 20px 35% 0;
+    margin: 20px 45% 0;
     position: relative;
-    width: 380px;
+    width: 270px;
     height: 50px;
     background-color: dodgerblue;
     /*background-color: #34495e;*/
@@ -28,6 +28,7 @@ nav a {
 }
 
 nav a:hover {
+    text-decoration: none;
     border-bottom: none;
     color: white;
 }

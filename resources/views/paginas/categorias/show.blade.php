@@ -5,7 +5,9 @@
 
     <p>Nombre: {{$categoria->nombre}}</p>
 
-    <a href='{{route('categorias.edit', $categoria)}}'> Editar Categor&iacute;a </a>
+    @if(Auth::user()->rol == 'ADM')
+        <a href='{{route('categorias.edit', $categoria)}}'> Editar Categor&iacute;a </a>
+    @endif
 
     <br/><br/>
 
