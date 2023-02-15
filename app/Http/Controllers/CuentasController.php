@@ -167,4 +167,10 @@ class CuentasController extends Controller
         return redirect()->route('cuentas.crearModifCuenta', [$cuenta->mesas_id, $producto->categoria->nombre, 0]);
 
     }
+    public function indexLineaCuentas()
+    {
+        $cuentas = Cuenta::orderBy('id')->get();
+        return view('paginas/lineaCuentas/index', compact('cuentas'));
+
+    }
 }

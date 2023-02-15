@@ -34,6 +34,6 @@
     <a href='{{ route('productos.index') }}'>Listado de Productos</a>
     <br><br>
 
-    <a href='{{ route('lineaCuentas.index') }}'>Listado de l&iacute;neas de cuentas.</a>
+    <a href='{{ route('cuentas.indexLineaCuentas') }}'>Listado de l&iacute;neas de cuentas.</a>
 
 </x-zz.base>

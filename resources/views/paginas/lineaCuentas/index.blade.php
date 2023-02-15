@@ -11,13 +11,16 @@
             <th>PRODUCTO</th>
         </tr>
 
-        @foreach($lineasCuentas as $lineaCuenta)
+        @foreach($cuentas as $cuenta)
+            @foreach($cuenta->productos as $producto)
             <tr>
-                <td>{{$lineaCuenta->cantidad}}</td>
-                <td>{{$lineaCuenta->precio}}</td>
-                <td>{{$lineaCuenta->cuentas_id}}</td>
-                <td>{{$lineaCuenta->producto->nombre}}</td>
+
+                <td>{{$producto->pivot->cantidad}}</td>
+                <td>{{$producto->pivot->precio}}€</td>
+                <td>{{$cuenta->id}}</td>
+                <td>{{$producto->nombre}}</td>
             </tr>
+            @endforeach
         @endforeach
     </table>
 

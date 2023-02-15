@@ -54,7 +54,7 @@
         <a href='{{ route('categorias.index') }}'>Listado de categor&iacute;as</a>
         <br><br>
 
-        <a href='{{ route('lineaCuentas.index') }}'>Listado de l&iacute;neas de cuentas.</a>
+        <a href='{{ route('cuentas.indexLineaCuentas') }}'>Listado de l&iacute;neas de cuentas.</a>
     @endif
 
 </x-zz.base>

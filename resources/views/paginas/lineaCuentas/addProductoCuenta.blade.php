@@ -19,7 +19,7 @@
                 @foreach ($productos as $producto)
                     <button class='prueba' name={{$producto->categoria->nombre}}>
                         <img src='{{ $producto->imagen }}' height='50'>
-                        <a href='{{ route('lineaCuenta.crearLineaNueva',['cuenta_id'=>$cuenta->id,'producto' => $producto]) }}'>{{$producto->nombre}}</a>
+                        <a href='{{ route('cuentas.crearLineaNueva',['cuenta_id'=>$cuenta->id,'producto' => $producto]) }}'>{{$producto->nombre}}</a>
                     </button>
                 @endforeach
             </div>
