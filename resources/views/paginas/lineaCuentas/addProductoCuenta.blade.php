@@ -20,7 +20,7 @@
                     <button class='prueba' name={{$producto->categoria->nombre}}>
                         <img src='{{ $producto->imagen }}' onmouseover="this.height=100;"
                              onmouseout="this.height=50;" height="50" {{--height='50'--}}>
-                        <a href='{{ route('lineaCuenta.crearLineaNueva',['cuenta_id'=>$cuenta->id,'producto' => $producto]) }}'>{{$producto->nombre}}</a>
+                        <a href='{{ route('cuentas.crearLineaNueva',['cuenta_id'=>$cuenta->id,'producto' => $producto]) }}'>{{$producto->nombre}}</a>
                     </button>
                 @endforeach
             </div>
@@ -47,20 +47,21 @@
                         <th>Invitar</th>
                     </tr>
 
-                    @foreach($lineasCuenta as $lineaCuenta)
+{{--                    @foreach($cuenta->productos as $producto)--}}
+                    @foreach($cuenta->productos as $producto)
                         <tr>
-                            <td>{{$lineaCuenta->producto->nombre}}</td>
-                            <td>{{$lineaCuenta->precio}}€</td>
-                            <td>{{$lineaCuenta->cantidad}}</td>
+                            <td>{{$producto->nombre}}</td>
+                            <td>{{$producto->pivot->precio}}€</td>
+                            <td>{{$producto->pivot->cantidad}}</td>
                             @php
-                                $subtotal = $lineaCuenta->precio * $lineaCuenta->cantidad;
+                                $subtotal = $producto->pivot->precio * $producto->pivot->cantidad;
                                 $total += $subtotal;
                             @endphp
                             <td>{{$subtotal}}€</td>
-                            @if($lineaCuenta->precio != 0)
+                            @if($producto->pivot->precio != 0)
                                 <td>
                                     <button>
-                                        <a href='{{ route('lineaCuenta.invitarProducto',['cuenta_id'=>$cuenta->id,'producto_id' => $lineaCuenta->producto_id]) }}'>Invitar</a>
+                                        <a href='{{ route('cuentas.invitarProducto',['cuenta_id'=>$cuenta->id,'producto_id' => $producto->id]) }}'>Invitar</a>
                                     </button>
                                 </td>
                             @endif

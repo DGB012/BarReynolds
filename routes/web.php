@@ -29,9 +29,9 @@ Route::get('/moverMesas', [MesasController::class, 'moverMesas'])->name('mesas.m
 Route::post('/guardarNuevaPosicionMesas', [MesasController::class, 'guardarNuevaPosicionMesas'])->name('mesas.guardarNuevaPosicionMesas');
 Route::resource('mesas', MesasController::class);
 
-Route::get('/lineaCuentaAddProducto/{cuenta_id}/{producto}', [LineaCuentaController::class, 'addProducto'])->name('lineaCuenta.crearLineaNueva');
+Route::get('/lineaCuentaAddProducto/{cuenta_id}/{producto}', [CuentasController::class, 'addProducto'])->name('cuentas.crearLineaNueva');
 ///////////////
-Route::get('/lineaCuentaFreeProducto/{cuenta_id}/{producto_id}', [LineaCuentaController::class, 'freeProducto'])->name('lineaCuenta.invitarProducto');
+Route::get('/lineaCuentaFreeProducto/{cuenta_id}/{producto_id}', [CuentasController::class, 'freeProducto'])->name('cuentas.invitarProducto');
 
 Route::resource('lineaCuentas', LineaCuentaController::class);
 

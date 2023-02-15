@@ -15,6 +15,8 @@ class Producto extends Model
         return $this->belongsTo(Categoria::class);
     }
     public function cuentas(){
-        return $this -> belongsToMany(producto::class);
+        return $this -> belongsToMany(Cuenta::class)
+            ->withPivot('cantidad', 'precio')
+            ->withTimestamps();
     }
 }
