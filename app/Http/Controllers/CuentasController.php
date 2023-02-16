@@ -96,13 +96,13 @@ class CuentasController extends Controller
             $cuenta = Cuenta::firstOrCreate(['mesas_id' => $mesas_id, 'total' => 0.00]);
         }
 
-        $mesasVacias = DB::table('mesas')->where('estado','=','Vacia')->get();
+        $mesasVacias = DB::table('mesas')->where('estado', '=', 'Vacia')->get();
 
         $productos = Producto::orderBy('nombre')->get();
         $categorias = Categoria::orderBy('id')->get();
 
 //            return redirect()-> route('cuentas.addProducto',['cuenta'=>$cuenta]);
-        return view('paginas/lineaCuentas/addProductoCuenta', compact('cuenta', 'productos', 'categorias', 'categoria', 'mesas_id', 'descuento','mesasVacias'));
+        return view('paginas/lineaCuentas/addProductoCuenta', compact('cuenta', 'productos', 'categorias', 'categoria', 'mesas_id', 'descuento', 'mesasVacias'));
     }
 //        public function addProducto(Cuenta $cuenta){
 //            return view('paginas/test/testAddProducto', compact('cuenta'));
@@ -122,11 +122,12 @@ class CuentasController extends Controller
 
         return redirect()->route('mesas.index');
     }
+
     public function addProducto(int $cuenta_id, Producto $producto)
     {
         $cuenta = Cuenta::findOrFail($cuenta_id);
         $producto = Producto::find($producto->id);
-        if (!$cuenta->productos()->where('id', $producto->id)->wherePivot('precio', $producto->precio)->exists() ) {
+        if (!$cuenta->productos()->where('id', $producto->id)->wherePivot('precio', $producto->precio)->exists()) {
             $cuenta->productos()->attach($producto, [
                 'cantidad' => 1,
                 'precio' => $producto->precio,
@@ -141,7 +142,9 @@ class CuentasController extends Controller
         $producto->save();
         return redirect()->route('cuentas.crearModifCuenta', [$cuenta->mesas_id, $producto->categoria->nombre, 0]);
     }
-    public function freeProducto(int $cuenta_id, int $producto_id){
+
+    public function freeProducto(int $cuenta_id, int $producto_id)
+    {
         $cuenta = Cuenta::findOrFail($cuenta_id);
         $producto = Producto::find($producto_id);
         if ($cuenta->productos()->where('id', $producto->id)->wherePivot('precio', 0)->exists()) {  //crear nueva linea cuenta con el producto  a precio 0 si no existe ya
@@ -153,7 +156,6 @@ class CuentasController extends Controller
             ]);
 
 
-
         }
 
         //Restar cantidad de las que vas a pagar
@@ -161,7 +163,7 @@ class CuentasController extends Controller
 
         //borrar linea que pagas si la cantidad ya es 0
 //        if($lineasCuentaSinDescuento->cantidad == 0){
-        if($cuenta->productos()->where('id', $producto->id)->wherePivot('precio', $producto->precio)->wherePivot('cantidad', 0)->exists()){
+        if ($cuenta->productos()->where('id', $producto->id)->wherePivot('precio', $producto->precio)->wherePivot('cantidad', 0)->exists()) {
 //            $lineasCuentaSinDescuento->delete();
             $cuenta->productos()->where('id', $producto->id)->wherePivot('precio', $producto->precio)->detach();
         }
@@ -169,14 +171,15 @@ class CuentasController extends Controller
         return redirect()->route('cuentas.crearModifCuenta', [$cuenta->mesas_id, $producto->categoria->nombre, 0]);
 
     }
+
     public function indexLineaCuentas()
     {
         $cuentas = Cuenta::orderBy('id')->get();
         return view('paginas/lineaCuentas/index', compact('cuentas'));
     }
 
-    public function cambiarMesa(Request $request){
-
+    public function cambiarMesa(Request $request)
+    {
         //recoger valores de id de las dos mesas antigua y nueva
         $idMesaAntigua = $request->mesaAntigua;
         $idMesaNueva = $request->mesaNueva;
@@ -189,7 +192,6 @@ class CuentasController extends Controller
         $mesaAntigua->estado = "Vacia";
         $mesaAntigua->save();
 
-
         //Le estableces a la cuenta la nueva mesa en la que va.
 
         $idCuenta = $request->idCuenta;
@@ -197,14 +199,6 @@ class CuentasController extends Controller
         $cuenta->mesas_id = $idMesaNueva;
         $cuenta->save();
 
-
-
-
-
-
-
         return redirect()->route('mesas.index');
-
-
     }
 }

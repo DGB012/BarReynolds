@@ -95,7 +95,7 @@
                         @method("get")
                         <select id="mesaNueva" name="mesaNueva">
                             @foreach($mesasVacias as $mesaVacia)
-                                <option value="{{$mesaVacia->id}}"> {{$mesaVacia->id}} </option>
+                                <option value="{{$mesaVacia->id}}">Mesa {{$mesaVacia->id}}</option>
                             @endforeach
                         </select>
                         <input hidden id="idCuenta" name="idCuenta" value="{{$cuenta->id}}"{{$cuenta->id}}/>

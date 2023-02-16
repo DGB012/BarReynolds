@@ -566,6 +566,15 @@ return new class extends Migration {
             'x' => '25',
             'y' => '5'
         ]);
+
+        DB::table('useres')->insert([
+            'name' => 'admin',
+            'rol' => 'ADM',
+            'email' => 'admin@admin.com',
+            'password' => '$2y$10$TJbpxks4EQ5rc91G0l6GLerDk0jjoX2W0AtDQV/8VScX8oQBOdqmC',
+            'created_at' => '2023-02-16 12:15:14',
+            'updated_at' => '2023-02-16 12:15:14'
+        ]);
     }
 
 
