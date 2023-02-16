@@ -35,6 +35,9 @@ Route::get('/lineaCuentaAddProducto/{cuenta_id}/{producto}', [CuentasController:
 ///////////////
 Route::get('/lineaCuentaFreeProducto/{cuenta_id}/{producto_id}', [CuentasController::class, 'freeProducto'])->name('cuentas.invitarProducto');
 
+
+Route::get('/cambiarMesa', [CuentasController::class, 'cambiarMesa'])->name('cuentas.cambiarMesa');
+
 Route::resource('lineaCuentas', LineaCuentaController::class);
 
 Route::get('/cuentas/test', [CuentasController::class, 'test'])->name('test');

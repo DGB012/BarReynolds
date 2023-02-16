@@ -96,11 +96,13 @@ class CuentasController extends Controller
             $cuenta = Cuenta::firstOrCreate(['mesas_id' => $mesas_id, 'total' => 0.00]);
         }
 
+        $mesasVacias = DB::table('mesas')->where('estado','=','Vacia')->get();
+
         $productos = Producto::orderBy('nombre')->get();
         $categorias = Categoria::orderBy('id')->get();
 
 //            return redirect()-> route('cuentas.addProducto',['cuenta'=>$cuenta]);
-        return view('paginas/lineaCuentas/addProductoCuenta', compact('cuenta', 'productos', 'categorias', 'categoria', 'mesas_id', 'descuento'));
+        return view('paginas/lineaCuentas/addProductoCuenta', compact('cuenta', 'productos', 'categorias', 'categoria', 'mesas_id', 'descuento','mesasVacias'));
     }
 //        public function addProducto(Cuenta $cuenta){
 //            return view('paginas/test/testAddProducto', compact('cuenta'));
@@ -171,6 +173,38 @@ class CuentasController extends Controller
     {
         $cuentas = Cuenta::orderBy('id')->get();
         return view('paginas/lineaCuentas/index', compact('cuentas'));
+    }
+
+    public function cambiarMesa(Request $request){
+
+        //recoger valores de id de las dos mesas antigua y nueva
+        $idMesaAntigua = $request->mesaAntigua;
+        $idMesaNueva = $request->mesaNueva;
+
+        $mesaNueva = Mesas::find($idMesaNueva);
+        $mesaNueva->estado = "Ocupada";
+        $mesaNueva->save();
+
+        $mesaAntigua = Mesas::find($idMesaAntigua);
+        $mesaAntigua->estado = "Vacia";
+        $mesaAntigua->save();
+
+
+        //Le estableces a la cuenta la nueva mesa en la que va.
+
+        $idCuenta = $request->idCuenta;
+        $cuenta = Cuenta::find($idCuenta);
+        $cuenta->mesas_id = $idMesaNueva;
+        $cuenta->save();
+
+
+
+
+
+
+
+        return redirect()->route('mesas.index');
+
 
     }
 }

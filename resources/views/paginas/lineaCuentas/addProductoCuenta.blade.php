@@ -46,7 +46,7 @@
                         <th>Invitar</th>
                     </tr>
 
-{{--                    @foreach($cuenta->productos as $producto)--}}
+                    {{--                    @foreach($cuenta->productos as $producto)--}}
                     @foreach($cuenta->productos as $producto)
                         <tr>
                             <td>{{$producto->nombre}}</td>
@@ -81,11 +81,30 @@
 
                 </table>
 
-
                 <br><br>
 
                 <button><a href="{{route('cuentas.terminarCuenta',[$cuenta->id, $total - ($total*$descuento/100)])}}">Pagar
                         cuenta</a></button>
+
+                <br><br>
+
+
+                @if(Auth::user()->rol == 'ADM' && !$mesasVacias->isEmpty())
+                    <p>Cambiar cuenta de mesa:</p>
+                    <form action="{{ route('cuentas.cambiarMesa')}}" method="get">
+                        @method("get")
+                        <select id="mesaNueva" name="mesaNueva">
+                            @foreach($mesasVacias as $mesaVacia)
+                                <option value="{{$mesaVacia->id}}"> {{$mesaVacia->id}} </option>
+                            @endforeach
+                        </select>
+                        <input hidden id="idCuenta" name="idCuenta" value="{{$cuenta->id}}"{{$cuenta->id}}/>
+                        <input hidden id="mesaAntigua" name="mesaAntigua" value="{{$mesas_id}}"{{$mesas_id}}/>
+                        <button type="submit">Cambiar</button>
+                    </form>
+                @endif
+
+
             </div>
         </div>
     </div>
