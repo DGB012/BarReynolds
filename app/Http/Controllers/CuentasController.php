@@ -13,11 +13,6 @@ use Illuminate\Support\Facades\DB;
 
 class CuentasController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     public function index()
     {
         $cuentas = Cuenta::orderBy('id')->get();

@@ -8,11 +8,6 @@ use App\Models\Categoria;
 
 class ProductoController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     public function index() // id , precio , nombre, categoria,stock
     {
         $productos = Producto::orderby('categoria_id')->get();

@@ -7,7 +7,9 @@
 
         <tr>
             <th>Categor&iacute;a</th>
-            <th>Eliminar</th>
+            @if(Auth::user()->rol == 'ADM')
+                <th>Eliminar</th>
+            @endif
         </tr>
 
         @foreach($categorias as $categoria)
@@ -15,25 +17,27 @@
                 <td>
                     <a href='{{ route ('categorias.show', $categoria) }}'>{{ $categoria-> nombre }} </a>
                 </td>
-                <td>
-                    <form action='{{ route('categorias.destroy', $categoria) }}' method="post">
-                        @method('delete')
+                @if(Auth::user()->rol == 'ADM')
+                    <td>
+                        <form action='{{ route('categorias.destroy', $categoria) }}' method="post">
+                            @method('delete')
 
-                        <button type='submit'>(X)</button>
-                    </form>
-                </td>
+                            <button type='submit'>(X)</button>
+                        </form>
+                    </td>
+                @endif
             </tr>
         @endforeach
 
     </table>
     <br><br>
 
-    <button><a href='{{ route('categorias.create') }}'> Crear </a></button>
-    <br><br>
-
     <a href='{{ route('productos.index') }}'>Listado de Productos</a>
     <br><br>
-
-    <a href='{{ route('cuentas.indexLineaCuentas') }}'>Listado de l&iacute;neas de cuentas.</a>
+    @if(Auth::user()->rol == 'ADM')
+        <button><a href='{{ route('categorias.create') }}'> Crear </a></button>
+        <br><br>
+        <a href='{{ route('cuentas.indexLineaCuentas') }}'>Listado de l&iacute;neas de cuentas.</a>
+    @endif
 
 </x-zz.base>
