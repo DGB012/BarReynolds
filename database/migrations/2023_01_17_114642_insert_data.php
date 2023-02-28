@@ -146,7 +146,7 @@ return new class extends Migration {
             'nombre' => 'Sprite',
             'categoria_id' => $bebidaId,
             'stock' => '50',
-            'imagen' => 'https://1000marcas.net/wp-content/uploads/2020/10/Sprite-logo-600x375.png'
+            'imagen' => 'https://primotavolino.com/wp-content/uploads/2020/11/Sprite_logo.jpg'
         ]);
 
         DB::table('productos')->insert([
